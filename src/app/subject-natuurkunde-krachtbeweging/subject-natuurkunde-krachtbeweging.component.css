@@ -1,0 +1,15 @@
+.data_table{
+  width: 100%;
+}
+
+#naam_van_kracht{
+  max-width: 10%;
+}
+
+#uitleg{
+  width: 70%;
+}
+
+#voorbeeld_plaatje{
+  width: 20%;
+}

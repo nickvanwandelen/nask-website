@@ -40,29 +40,6 @@ mat-sidenav button{
   background-color: lightgray;
 }
 
-.main_content{
-  width: 100%;
-  background-color: cyan;
-}
-
-.main_card{
-  float: left;
-  margin: 1% 0% 1% 1%;
-  background-color: lightgreen;
-  width: 47%;
-}
-
-.side_cards{
-  float: right;
-  width: 47%;
-
-}
-
-.side_cards mat-card{
-  margin: 2% 2% 2% 0%;
-  background-color: yellow;
-}
-
 
 
 

@@ -13,8 +13,13 @@ import { PageHomeComponent } from './page-home/page-home.component';
 import { PageNatuurkundeHomeComponent } from './page-natuurkunde-home/page-natuurkunde-home.component';
 import { PageScheikundeHomeComponent } from './page-scheikunde-home/page-scheikunde-home.component';
 import {RouterModule, Routes} from '@angular/router';
-import {MatSidenavModule} from "@angular/material";
+import {MatSidenavModule, MatTableModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SubjectNatuurkundeHomeComponent } from './subject-natuurkunde-home/subject-natuurkunde-home.component';
+import { SubjectNatuurkundeKrachtbewegingComponent } from './subject-natuurkunde-krachtbeweging/subject-natuurkunde-krachtbeweging.component';
+import { PagePagenotfoundComponent } from './page-pagenotfound/page-pagenotfound.component';
+import {Subject} from 'rxjs/Subject';
+import { SubjectNatuurkundeLichtgeluidComponent } from './subject-natuurkunde-lichtgeluid/subject-natuurkunde-lichtgeluid.component';
 
 const appRoutes: Routes = [
   {
@@ -24,11 +29,37 @@ const appRoutes: Routes = [
     path: 'home', component: PageHomeComponent
   },
   {
-    path: 'natuurkunde', component: PageNatuurkundeHomeComponent
+    path: 'natuurkunde',
+    component: PageNatuurkundeHomeComponent,
+    children: [
+      {
+        path: '',
+        component: SubjectNatuurkundeHomeComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
+        path: 'home',
+        component: SubjectNatuurkundeHomeComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
+        path: 'krachtbeweging',
+        component: SubjectNatuurkundeKrachtbewegingComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
+        path: 'lichtgeluid',
+        component: SubjectNatuurkundeLichtgeluidComponent,
+        outlet: 'natuurkunde_outlet'
+      }
+    ]
   },
   {
     path: 'scheikunde', component: PageScheikundeHomeComponent
-  }
+  },
+  /*{
+    path: '**', component: PagePagenotfoundComponent
+  }*/
 ];
 
 
@@ -38,7 +69,11 @@ const appRoutes: Routes = [
     MenuComponent,
     PageHomeComponent,
     PageNatuurkundeHomeComponent,
-    PageScheikundeHomeComponent
+    PageScheikundeHomeComponent,
+    SubjectNatuurkundeHomeComponent,
+    SubjectNatuurkundeKrachtbewegingComponent,
+    PagePagenotfoundComponent,
+    SubjectNatuurkundeLichtgeluidComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
@@ -49,7 +84,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [MenuComponent]
