@@ -1,0 +1,26 @@
+mat-toolbar{
+  background-color: rebeccapurple;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  height: 10%;
+}
+
+router-outlet{
+  top: 10%;
+}
+
+.menu_button{
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.search_bar{
+  background-color: white;
+  font-family: Tahoma, serif;
+  padding: 0.3%;
+  border-radius: 25px;
+}
+
+
+

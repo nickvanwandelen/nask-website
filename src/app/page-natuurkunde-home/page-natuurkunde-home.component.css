@@ -1,0 +1,69 @@
+.container{
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: cyan;
+}
+
+mat-sidenav{
+  background-color: white;
+  position: fixed;
+  top: 10%;
+  height: 100%;
+  width: 15%;
+}
+
+mat-sidenav button, span{
+  font-family: "Tahoma", serif;
+  text-align: left;
+  display: block;
+  width: 100%;
+  padding: 1%;
+}
+
+mat-sidenav button{
+  background-color: white;
+  border: none;
+  border-top: groove;
+  font-size: 1.2em;
+}
+
+.side_nav_title{
+  color: white;
+  background-color: lightgray;
+  font-size: 1.5em;
+}
+
+.side_nav_divider{
+  color: white;
+  background-color: lightgray;
+}
+
+.main_content{
+  width: 100%;
+}
+
+.main_card{
+  float: left;
+  margin: 1% 0% 1% 1%;
+  background-color: greenyellow;
+  width: 48%;
+}
+
+.side_cards{
+  float: right;
+  width: 45%;
+
+}
+
+.side_cards mat-card{
+  margin: 2%;
+  background-color: yellow;
+}
+
+
+
+
+
