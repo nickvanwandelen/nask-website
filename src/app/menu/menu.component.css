@@ -3,11 +3,8 @@ mat-toolbar{
   position: fixed;
   top: 0%;
   left: 0%;
-  height: 10%;
-}
-
-router-outlet{
-  top: 10%;
+  height: 8%;
+  z-index: 2;
 }
 
 .menu_button{
