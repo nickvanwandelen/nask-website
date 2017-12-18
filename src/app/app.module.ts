@@ -22,6 +22,8 @@ import {Subject} from 'rxjs/Subject';
 import { SubjectNatuurkundeLichtgeluidComponent } from './subject-natuurkunde-lichtgeluid/subject-natuurkunde-lichtgeluid.component';
 import { SubjectScheikundeHomeComponent } from './subject-scheikunde-home/subject-scheikunde-home.component';
 import { SubjectScheikundeScheidingsmethodesComponent } from './subject-scheikunde-scheidingsmethodes/subject-scheikunde-scheidingsmethodes.component';
+import { SubjectScheikundeKoolstofchemieComponent } from './subject-scheikunde-koolstofchemie/subject-scheikunde-koolstofchemie.component';
+import { PageToetsenHomeComponent } from './page-toetsen-home/page-toetsen-home.component';
 
 const appRoutes: Routes = [
   {
@@ -29,6 +31,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'home', component: PageHomeComponent
+  },
+  {
+    path: 'toetsen', component: PageToetsenHomeComponent
   },
   {
     path: 'natuurkunde',
@@ -71,10 +76,15 @@ const appRoutes: Routes = [
         outlet: 'scheikunde_outlet'
       },
       {
-        path: '',
+        path: 'scheidingsmethodes',
         component: SubjectScheikundeScheidingsmethodesComponent,
         outlet: 'scheikunde_outlet'
-      }
+      },
+      {
+        path: 'koolstofchemie',
+        component: SubjectScheikundeKoolstofchemieComponent,
+        outlet: 'scheikunde_outlet'
+      },
     ]
   },
   /*{
@@ -96,6 +106,8 @@ const appRoutes: Routes = [
     SubjectNatuurkundeLichtgeluidComponent,
     SubjectScheikundeHomeComponent,
     SubjectScheikundeScheidingsmethodesComponent,
+    SubjectScheikundeKoolstofchemieComponent,
+    PageToetsenHomeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),

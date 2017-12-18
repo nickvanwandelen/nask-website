@@ -10,10 +10,15 @@ export class SubjectNatuurkundeKrachtbewegingComponent implements OnInit {
 
   newton_columns = ['standard', 'standard_symbol', 'unit', 'unit_symbol'];
   newton_explained = new MatTableDataSource(NEWTON_DEFINITON);
+  show_awnsers = false;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  handleShowAwnsers(){
+    this.show_awnsers = !this.show_awnsers;
   }
 
 }

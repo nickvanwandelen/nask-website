@@ -52,6 +52,17 @@
       - Stap 3: Je kijkt hoe groot de kracht is. Je bepaalt aan de hand hiervan welke schaal je gaat gebruiken. Dit zegt hoeveel Newton 1 centimeter op jouw tekening voorstelt.
       Je schrijft je schaal ook op. Een voorbeeld (1 cm = 100 N) als je dan een kracht hebt van 500 N is je pijl dus 5cm lang.
     </p>
+    <h3>Vragen krachten tekenen</h3>
+    <p>
+      Beantwoord de volgende vragen:<br>
+      - Hoe heet de pijl die je tekent?<br>
+      - Welke drie punten zijn belangrijk bij het tekenen van een kracht?
+    </p>
+    <button mat-button (click)="handleShowAwnsers()">Toon antwoorden</button>
+    <p *ngIf="show_awnsers">
+      - een <b>Vector</b><br>
+      - De <b>grootte</b>, de <b>richting</b> en het <b>beginpunt (aangrijpingspunt)</b> van een kracht.
+    </p>
 
     <h2>Soorten krachten</h2>
     <p>
@@ -101,6 +112,17 @@
         <td></td>
       </tr>
     </table>
+    <h3>Vragen soorten krachten</h3>
+    <p>
+      Beantwoord de volgende vragen:<br>
+      - Welke krachten kennen we? (noem er 5)<br>
+      - Wat is het gewicht?
+    </p>
+    <button mat-button (click)="handleShowAwnsers()">Toon antwoorden</button>
+    <p *ngIf="show_awnsers">
+      - Spierkracht, zwaartekracht, veerkracht, spankracht, magnetische kracht, wrijvingskracht (weerstandskracht) en gewicht.
+      - De kracht van de ondersteuning op het voorwerp
+    </p>
 
     <h2>Zwaartekracht berekenen</h2>
     <p>
@@ -183,6 +205,15 @@
         <td>0,40</td>
       </tr>
     </table>
+    <h3>Vragen zwaartekracht berekenen</h3>
+    <p>
+      Beantwoord de volgende vragen:<br>
+      - Op een vreemde planeet werkt er op een voorwerp met een massa van 2,3 kg een zwaartekracht van 46 N. Bereken de gravitatieversnelling op deze planeet.<br>
+    </p>
+    <button mat-button (click)="handleShowAwnsers()">Toon antwoorden</button>
+    <p *ngIf="show_awnsers">
+      - De gravitatieversnelling op deze planeet is: Fz / m -> 46N / 2,3 kg = 20 N/kg
+    </p>
 
     <h2>Effect van een kracht</h2>
     <p>
@@ -357,10 +388,7 @@
 
   <div class="side_cards">
     <mat-card class="youtube_clip">
-      <iframe src="https://www.youtube.com/embed/z5LW07FTJbI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    </mat-card>
-    <mat-card class="youtube_clip">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ydbMQiMXPoY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </mat-card>
     <mat-card class="practica">
       <p>Link naar practica</p>
