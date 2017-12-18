@@ -1,3 +1,17 @@
-<p>
-  page-scheikunde-home works!
-</p>
+<div class="container">
+  <mat-sidenav-container>
+    <mat-sidenav opened mode="side" position="start">
+      <div class="side_nav">
+        <span class="side_nav_title">Natuurkunde</span>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['scheidingsmethode']}}" routerLinkActive="active">Scheidingsmethodes</button>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['anderonderwerl']}}">Nog een onderwerp</button>
+        <span class="side_nav_divider">Practica</span>
+        <button mat-button>Practica 1</button>
+        <button mat-button>Practica 2</button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet name="scheikunde_outlet"></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

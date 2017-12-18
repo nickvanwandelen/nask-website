@@ -20,6 +20,8 @@ import { SubjectNatuurkundeKrachtbewegingComponent } from './subject-natuurkunde
 import { PagePagenotfoundComponent } from './page-pagenotfound/page-pagenotfound.component';
 import {Subject} from 'rxjs/Subject';
 import { SubjectNatuurkundeLichtgeluidComponent } from './subject-natuurkunde-lichtgeluid/subject-natuurkunde-lichtgeluid.component';
+import { SubjectScheikundeHomeComponent } from './subject-scheikunde-home/subject-scheikunde-home.component';
+import { SubjectScheikundeScheidingsmethodesComponent } from './subject-scheikunde-scheidingsmethodes/subject-scheikunde-scheidingsmethodes.component';
 
 const appRoutes: Routes = [
   {
@@ -55,7 +57,25 @@ const appRoutes: Routes = [
     ]
   },
   {
-    path: 'scheikunde', component: PageScheikundeHomeComponent
+    path: 'scheikunde',
+    component: PageScheikundeHomeComponent,
+    children: [
+      {
+        path: '',
+        component: SubjectScheikundeHomeComponent,
+        outlet: 'scheikunde_outlet'
+      },
+      {
+        path: 'home',
+        component: SubjectScheikundeHomeComponent,
+        outlet: 'scheikunde_outlet'
+      },
+      {
+        path: '',
+        component: SubjectScheikundeScheidingsmethodesComponent,
+        outlet: 'scheikunde_outlet'
+      }
+    ]
   },
   /*{
     path: '**', component: PagePagenotfoundComponent
@@ -74,6 +94,8 @@ const appRoutes: Routes = [
     SubjectNatuurkundeKrachtbewegingComponent,
     PagePagenotfoundComponent,
     SubjectNatuurkundeLichtgeluidComponent,
+    SubjectScheikundeHomeComponent,
+    SubjectScheikundeScheidingsmethodesComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
