@@ -10,7 +10,7 @@ table, th, td{
 }
 
 table, th{
-  background-color: rebeccapurple;
+  background-color: steelblue;
   color: white;
   padding: 1.5%;
 }
@@ -50,7 +50,8 @@ img{
 .main_card{
   float: left;
   margin: 1% 0% 1% 1%;
-  background-color: lightgray;
+  background-color: white;
+  color: black;
   width: 55%;
 }
 
@@ -62,7 +63,7 @@ img{
 
 .side_cards mat-card{
   margin: 2% 2% 2% 0%;
-  background-color: rebeccapurple;
+  background-color: steelblue;
 }
 
 .youtube_clip{
@@ -72,5 +73,14 @@ img{
 .youtube_clip iframe{
   height: 100%;
   width: 100%;
+}
+
+.awnsers{
+  background-color: #efbc04;
+  padding: 1%;
+}
+
+.correct_awnser{
+  color: red;
 }
 

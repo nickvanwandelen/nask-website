@@ -205,15 +205,17 @@
         <td>0,40</td>
       </tr>
     </table>
+    <div class="awnsers">
     <h3>Vragen zwaartekracht berekenen</h3>
     <p>
       Beantwoord de volgende vragen:<br>
       - Op een vreemde planeet werkt er op een voorwerp met een massa van 2,3 kg een zwaartekracht van 46 N. Bereken de gravitatieversnelling op deze planeet.<br>
     </p>
     <button mat-button (click)="handleShowAwnsers()">Toon antwoorden</button>
-    <p *ngIf="show_awnsers">
+    <p *ngIf="show_awnsers" class="correct_awnser">
       - De gravitatieversnelling op deze planeet is: Fz / m -> 46N / 2,3 kg = 20 N/kg
     </p>
+    </div>
 
     <h2>Effect van een kracht</h2>
     <p>

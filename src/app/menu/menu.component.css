@@ -1,15 +1,22 @@
 mat-toolbar{
-  background-color: rebeccapurple;
+  background-color: steelblue;
   position: fixed;
   top: 0%;
   left: 0%;
   height: 8%;
   z-index: 2;
+  display: block;
 }
 
 .menu_button{
-  background-color: rebeccapurple;
+  background-color: steelblue;
   color: white;
+}
+
+.button_bar{
+  display: block;
+  position: absolute;
+  padding-top: calc(5% - 37px);
 }
 
 .search_bar{
@@ -17,6 +24,8 @@ mat-toolbar{
   font-family: Tahoma, serif;
   padding: 0.3%;
   border-radius: 25px;
+  float: right;
+  margin-top: calc(5% - 30px)
 }
 
 
