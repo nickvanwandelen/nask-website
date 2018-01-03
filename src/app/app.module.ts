@@ -6,6 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {environment} from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -24,6 +28,7 @@ import { SubjectScheikundeHomeComponent } from './subject-scheikunde-home/subjec
 import { SubjectScheikundeScheidingsmethodesComponent } from './subject-scheikunde-scheidingsmethodes/subject-scheikunde-scheidingsmethodes.component';
 import { SubjectScheikundeKoolstofchemieComponent } from './subject-scheikunde-koolstofchemie/subject-scheikunde-koolstofchemie.component';
 import { PageToetsenHomeComponent } from './page-toetsen-home/page-toetsen-home.component';
+
 
 const appRoutes: Routes = [
   {
@@ -119,7 +124,10 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatInputModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [MenuComponent]
