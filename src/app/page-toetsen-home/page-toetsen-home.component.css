@@ -1,0 +1,34 @@
+.toetsen_page_content{
+  top: 72px;
+}
+
+.subject_selector{
+  display: block;
+}
+
+.natuurkunde_selector{
+  float: left;
+  width: 50%;
+}
+
+.scheikunde_selector{
+  float: right;
+  width: 50%;
+}
+
+button{
+  margin-top: 4%;
+  color: white;
+  position: relative;
+}
+
+mat-checkbox{
+  display: block;
+}
+
+app-page-toetsen-generated{
+  top: 72px;
+  position: relative;
+  margin-top: 2%;
+}
+

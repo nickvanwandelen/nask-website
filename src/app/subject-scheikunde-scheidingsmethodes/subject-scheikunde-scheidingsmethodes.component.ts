@@ -12,4 +12,7 @@ export class SubjectScheikundeScheidingsmethodesComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleScroll(elementToScrollTo){
+    window.scrollTo(0, elementToScrollTo.offsetTop);
+  }
 }

@@ -3,7 +3,7 @@
     <h1>Kracht en Beweging</h1>
     <p>Introductie over hoofdstuk..</p>
 
-    <h2>Krachten</h2>
+    <h2 #krachten>Krachten</h2>
     <p>Een kracht is een natuurkundige grootheid. Een kracht kan zorgen voor drie dingen:<br>
       - Kan een voorwerp laten bewegen<br>
       - Kan een voorwerp van richting laten veranderen<br>
@@ -27,7 +27,7 @@
       </tr>
     </table>
 
-    <h2>Vorm veranderen</h2>
+    <h2 #vorm_veranderen>Vorm veranderen</h2>
     <p>
       Een kracht kan er onterendere voor zorgen dat de vorm van een voorwerp veranderd. Dit kan op twee manieren:<br>
       - <b>Plastische vervorming:</b> dit is een blijvende verandering. Het voorwerp zal niet meer teruggaan naar de oude vorm. Dit gebeurd bijvoorbeeld als een auto tegen een boom aanrijd.<br>
@@ -35,7 +35,7 @@
       Dit gebeurd bijvoorbeeld als je een bal indrukt en daarna weer loslaat.
     </p>
 
-    <h2>Krachten tekenen</h2>
+    <h2 #krachten_tekenen>Krachten tekenen</h2>
     <p>
       Een kracht kan je tekenen. Dit doe je met een <b>vector</b>. Een vector is een pijl die een aantal dingen aangeeft:<br>
       - De grootte van de kracht<br>
@@ -64,7 +64,7 @@
       - De <b>grootte</b>, de <b>richting</b> en het <b>beginpunt (aangrijpingspunt)</b> van een kracht.
     </p>
 
-    <h2>Soorten krachten</h2>
+    <h2 #soorten_krachten>Soorten krachten</h2>
     <p>
       Om ons heen hebben we veel te maken met krachten. We kennen vele soorten krachten:
     </p>
@@ -124,7 +124,7 @@
       - De kracht van de ondersteuning op het voorwerp
     </p>
 
-    <h2>Zwaartekracht berekenen</h2>
+    <h2 #zwaartekracht_berekenen>Zwaartekracht berekenen</h2>
     <p>
       De zwaartekracht kan je berekenen. Op elke planeet is de aantrekking anders en daarom is de zwaartekracht ook op iedere planeet anders.
       De zwaartekracht kan je berekenen met de volgende formule:<br>
@@ -217,7 +217,7 @@
     </p>
     </div>
 
-    <h2>Effect van een kracht</h2>
+    <h2 #effecten_kracht>Effect van een kracht</h2>
     <p>
       Een van de effecten van een kracht is dat het ervoor kan zorgen dat een voorwerp gaat bewegen. Als we kijken naar de beweging van voorwerpen door een kracht kennen we twee regels:<br>
       <b>Eerste wet van Newton</b>: Als er een voorwerp een geen resulterende kracht (de som van alle krachten) werkt, dus alles heft elkaar op of er is geen kracht, zal het voorwerp stilstaan of met dezelfde snelheid doorbewegen.<br>
@@ -226,7 +226,7 @@
       <b>Derde wet van Newton</b>: Als voorwerp A op voorwerp B drukt zal voorwerp B met dezelfde kracht terugdrukken. Dit is dus bijvoorbeeld het Gewicht (zie soorten krachten).
     </p>
 
-    <h2>Soorten bewegingen</h2>
+    <h2 #soorten_bewegingen>Soorten bewegingen</h2>
     <p>
       Met de wetten van Newton weten we dus dat een kracht kan zorgen voor een beweging. Daarom gaan we nu ook kijken welke soorten bewegingen er zijn:
     </p>
@@ -307,7 +307,7 @@
       </tr>
     </table>
 
-    <h2>Snelheid berekenen</h2>
+    <h2 #snelheid_berekenen>Snelheid berekenen</h2>
     <p>
       De snelheid van een voorwerp kan je ook berekenen. Dit doe je met de formule:<br>
       <i>v = s/t</i>
@@ -339,7 +339,7 @@
       </tr>
     </table>
 
-    <h2>Versnelling/vertraging berekenen</h2>
+    <h2 #versnelling_vertraging_berekenen>Versnelling/vertraging berekenen</h2>
     <p>
       Bij een versnelde of een vertraagde beweging kun je uitrekenen hoe groot deze versnelling is. Dat doe je met de formule:<br>
       <i>a = Δv/Δt</i>
@@ -378,22 +378,33 @@
       Het kan zijn dat je niet gas bij geeft maar juist remt. Dan ben je aan het vertragen. Als dit zo is komt Δv uit op een negatief getal (met een 0 ervoor). Als je dit dan invult in de formule krijg je ook een negatief getal als uitkomst. Dit betekend dat het een negatieve versnelling is (een vertraging dus). Als je over de vertraging wilt preken moet je de min weg laten.
     </p>
 
-    <h2>Omrekenen</h2>
+    <h2 #omrekenen>Omrekenen</h2>
     <p>
       Zoals je in bovenstaande onderwerpen al hebt gezien werken we met verschillende eenheden. Deze eenheden kan je ook omrekenen. Dit doe je met de volgende methodes:
     </p>
     <img src="../../assets/img/natuurkunde/krachtbeweging_rekenafstanden.png">
     <img src="../../assets/img/natuurkunde/krachtbeweging_rekentijden.png">
     <img src="../../assets/img/natuurkunde/krachtbeweging_rekensnelheid.png">
-
   </mat-card>
 
   <div class="side_cards">
-    <mat-card class="youtube_clip">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ydbMQiMXPoY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    <mat-card class="navigator">
+      <h2>Inhoud</h2>
+      <button mat-button (click)="handleScroll(krachten)">Krachten</button>
+      <button mat-button (click)="handleScroll(vorm_veranderen)">Vorm veranderen</button>
+      <button mat-button (click)="handleScroll(krachten_tekenen)">Krachten tekenen</button>
+      <button mat-button (click)="handleScroll(soorten_krachten)">Soorten krachten</button>
+      <button mat-button (click)="handleScroll(zwaartekracht_berekenen)">Zwaartekracht berekenen</button>
+      <button mat-button (click)="handleScroll(effecten_kracht)">Effecten van een kracht</button>
+      <button mat-button (click)="handleScroll(soorten_bewegingen)">Soorten bewegingen</button>
+      <button mat-button (click)="handleScroll(snelheid_berekenen)">Snelheid berekenen</button>
+      <button mat-button (click)="handleScroll(versnelling_vertraging_berekenen)">Versnelling/vertraging berekenen</button>
+      <button mat-button (click)="handleScroll(omrekenen)">Omrekenen</button>
     </mat-card>
-    <mat-card class="practica">
-      <p>Link naar practica</p>
+
+    <mat-card class="practicum_link">
+      <h2>Practica</h2>
+      <button mat-button routerLink="{outlets: {natuurkunde_outlet: ['practicum_kracht_beweging']}}">Practicum Kracht en Beweging</button>
     </mat-card>
   </div>
 </div>

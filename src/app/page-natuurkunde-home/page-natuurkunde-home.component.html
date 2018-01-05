@@ -6,8 +6,10 @@
         <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['krachtbeweging']}}" routerLinkActive="active">Kracht en Beweging</button>
         <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['lichtgeluid']}}">Licht en Geluid</button>
         <span class="side_nav_divider">Practica</span>
-        <button mat-button>Practica 1</button>
-        <button mat-button>Practica 2</button>
+        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_elektriciteit']}}">Elektriciteit</button>
+        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_geluid']}}">Geluid</button>
+        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_kracht_beweging']}}">Kracht en Beweging</button>
+        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_licht']}}">Licht</button>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>

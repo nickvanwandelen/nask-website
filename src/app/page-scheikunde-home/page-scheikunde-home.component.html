@@ -3,11 +3,14 @@
     <mat-sidenav opened mode="side" position="start">
       <div class="side_nav">
         <span class="side_nav_title">Scheikunde</span>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['faseovergangen']}}">Faseovergangen</button>
         <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['scheidingsmethodes']}}" routerLinkActive="active">Scheidingsmethodes</button>
         <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['koolstofchemie']}}">Koolstofchemie</button>
         <span class="side_nav_divider">Practica</span>
-        <button mat-button>Practica 1</button>
-        <button mat-button>Practica 2</button>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_dichtheid']}}">Dichtheid</button>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_faseovergangen']}}">Faseovergangen</button>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_koolstofchemie']}}">Koolstofchemie</button>
+        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_scheidingsmethodes']}}">Scheidingsmethodes</button>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>

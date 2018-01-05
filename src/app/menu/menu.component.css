@@ -3,7 +3,7 @@ mat-toolbar{
   position: fixed;
   top: 0%;
   left: 0%;
-  height: 8%;
+  height: 72px;
   z-index: 2;
   display: block;
 }
@@ -16,7 +16,7 @@ mat-toolbar{
 .button_bar{
   display: block;
   position: absolute;
-  padding-top: calc(5% - 37px);
+  margin-top: 18px;
 }
 
 .search_bar{
@@ -25,7 +25,7 @@ mat-toolbar{
   padding: 0.3%;
   border-radius: 25px;
   float: right;
-  margin-top: calc(5% - 30px)
+  margin-top: 18px;
 }
 
 

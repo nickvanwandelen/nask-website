@@ -6,23 +6,29 @@ div{
 table, th, td{
   border: 1px solid black;
   border-collapse: collapse;
-  padding: 1%;
+  padding: 7px;
 }
 
-table, th{
+table img{
+  min-width: 100%;
+  min-height: 80%;
+}
+
+th{
   background-color: steelblue;
   color: white;
-  padding: 1.5%;
 }
 
-table, tr{
+tr{
   color: black;
   background-color: #e1e1e1;
 }
 
-table, tr:nth-child(even){background-color: white;}
 
-table, tr:hover{background-color: lightgray;}
+
+tr:nth-child(even){background-color: white;}
+
+tr:hover{background-color: lightgray;}
 
 table{
   width: 100%;
@@ -38,8 +44,13 @@ td{
 }
 
 img{
-  max-width: 100%;
-  min-width: 100%;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+button{
+  background-color: steelblue;
+  color: white;
 }
 
 .main_content{
@@ -82,5 +93,40 @@ img{
 
 .correct_awnser{
   color: red;
+}
+
+.navigator{
+  color: white;
+  text-align: center;
+}
+
+.navigator button{
+  background-color: steelblue;
+  color: white;
+  width: 100%;
+  text-align: center;
+}
+
+.no_sidecard_main_content{
+  top: 72px;
+}
+
+.no_sidecard_main_content mat-card{
+  margin: 1% 1% 1% 1%;
+  background-color: white;
+  color: black;
+  width: 94%;
+}
+
+.practicum_link{
+  text-align: center;
+  color: white;
+}
+
+.practicum_link button{
+  background-color: steelblue;
+  color: white;
+  width: 100%;
+  text-align: center;
 }
 

@@ -1,1 +1,31 @@
-<img src="https://developmentgeek.com/wp-content/uploads/2011/11/a_plus.jpg">
+<mat-card class="toetsen_page_content">
+  <div>
+    <h1>Toetsengenerator</h1>
+
+    <p>Deze pagina helpt je om bepaalde onderwerpen in natuur- en scheikunde te oefenen.<br>
+      Selecteer de onderwerpen die je wilt oefenen en maak de vragen!
+    </p>
+  </div>
+
+  <div class="subject_selector">
+    <div class="natuurkunde_selector">
+      <h2>Natuurkunde</h2>
+      <mat-checkbox *ngFor="let natSubject of natuurkundeSubjects" [checked]="natSubject.selected" (change)="natSubject.selected = !natSubject.selected">{{natSubject.subject}}</mat-checkbox>
+    </div>
+
+    <div class="scheikunde_selector">
+      <h2>Scheikunde</h2>
+      <mat-checkbox *ngFor="let schSubject of scheikundeSubjects" [checked]="schSubject.selected" (change)="schSubject.selected = !schSubject.selected">{{schSubject.subject}}</mat-checkbox>
+    </div>
+  </div>
+
+  <div>
+    <button mat-button (click)="generateTests(generatedTest)">Start de toets</button>
+  </div>
+
+</mat-card>
+
+<app-page-toetsen-generated #generatedTest></app-page-toetsen-generated>
+
+
+

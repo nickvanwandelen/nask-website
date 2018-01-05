@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import {Observable} from 'rxjs/Observable';
+import {AngularFireModule} from 'angularfire2';
 
 @Component({
   selector: 'app-page-toetsen-home',
@@ -7,9 +10,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageToetsenHomeComponent implements OnInit {
 
-  constructor() { }
+
+  natuurkundeSubjects: any;
+  scheikundeSubjects: any;
+
+
+  constructor() {
+    this.natuurkundeSubjects = [
+      {subject: 'Beweging', selected: false},
+      {subject: 'Krachten', selected: false},
+      {subject: 'Licht', selected: false},
+      {subject: 'Geluid', selected: false}
+    ];
+
+    this.scheikundeSubjects = [
+      {subject: 'Faseovergangen', selected: false},
+      {subject: 'Scheidingsmethodes', selected: false},
+      {subject: 'Koolstofchemie', selected: false}
+    ];
+
+  }
 
   ngOnInit() {
+  }
+
+  generateTests(testComponent){
+    var natSubjects = [];
+    var schSubjects = [];
+
+    for(var i = 0; i < this.natuurkundeSubjects.length; i++){
+      if(this.natuurkundeSubjects[i].selected){
+        natSubjects.push(this.natuurkundeSubjects[i]);
+      }
+    }
+
+    for(var j = 0; j < this.scheikundeSubjects.length; j++){
+      if(this.scheikundeSubjects[j].selected){
+        schSubjects.push(this.scheikundeSubjects[j]);
+      }
+    }
+
+    testComponent.generateTest(natSubjects, schSubjects);
+    window.scrollTo(0, testComponent.offsetTop);
   }
 
 }

@@ -12,4 +12,8 @@ export class SubjectScheikundeKoolstofchemieComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleScroll(elementToScrollTo){
+    window.scrollTo(0, elementToScrollTo.offsetTop);
+  }
+
 }

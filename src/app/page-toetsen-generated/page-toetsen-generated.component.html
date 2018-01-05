@@ -1,0 +1,24 @@
+<mat-card *ngIf="called">
+  <div *ngIf="!generated">
+    <span>Toets aan het genereren...</span>
+  </div>
+
+  <div *ngIf="generated">
+    <h2>Toets</h2>
+    <p>
+      Introductie van de toets..
+    </p>
+
+    <h2>Natuurkunde</h2>
+    <div class="question" *ngFor="let subject of natuurkundeSubjects">
+      <h3>{{subject.subject}}</h3>
+    </div>
+
+    <h2>Scheikunde</h2>
+    <div class="question" *ngFor="let subject of scheikundeSubjects">
+      <h3>{{subject.subject}}</h3>
+    </div>
+  </div>
+</mat-card>
+
+<button mat-button (click)="pushData()">Push data</button>
