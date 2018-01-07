@@ -38,6 +38,12 @@ import { ExperimentScheikundeDichtheidComponent } from './experiment-scheikunde-
 import { ExperimentNatuurkundeGeluidComponent } from './experiment-natuurkunde-geluid/experiment-natuurkunde-geluid.component';
 import { ExperimentNatuurkundeKrachtbewegingComponent } from './experiment-natuurkunde-krachtbeweging/experiment-natuurkunde-krachtbeweging.component';
 import { PageToetsenGeneratedComponent } from './page-toetsen-generated/page-toetsen-generated.component';
+import { ExperimentScheikundeScheidingsmethodesComponent } from './experiment-scheikunde-scheidingsmethodes/experiment-scheikunde-scheidingsmethodes.component';
+import { ExperimentScheikundeKoolstofchemieComponent } from './experiment-scheikunde-koolstofchemie/experiment-scheikunde-koolstofchemie.component';
+import { ExperimentScheikundeFaseovergangenComponent } from './experiment-scheikunde-faseovergangen/experiment-scheikunde-faseovergangen.component';
+import { ExperimentNatuurkundeLichtComponent } from './experiment-natuurkunde-licht/experiment-natuurkunde-licht.component';
+import { ExperimentNatuurkundeElektriciteitComponent } from './experiment-natuurkunde-elektriciteit/experiment-natuurkunde-elektriciteit.component';
+import { PageContactHomeComponent } from './page-contact-home/page-contact-home.component';
 
 
 const appRoutes: Routes = [
@@ -49,6 +55,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'toetsen', component: PageToetsenHomeComponent
+  },
+  {
+    path: 'contact', component: PageContactHomeComponent
   },
   {
     path: 'natuurkunde',
@@ -75,8 +84,23 @@ const appRoutes: Routes = [
         outlet: 'natuurkunde_outlet'
       },
       {
+        path: 'practicum_elektriciteit',
+        component: ExperimentNatuurkundeElektriciteitComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
+        path: 'practicum_geluid',
+        component: ExperimentNatuurkundeGeluidComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
         path: 'practicum_kracht_beweging',
         component: ExperimentNatuurkundeKrachtbewegingComponent,
+        outlet: 'natuurkunde_outlet',
+      },
+      {
+        path: 'practicum_licht',
+        component: ExperimentNatuurkundeLichtComponent,
         outlet: 'natuurkunde_outlet'
       }
     ]
@@ -115,6 +139,24 @@ const appRoutes: Routes = [
         component: ExperimentScheikundeDichtheidComponent,
         outlet: 'scheikunde_outlet'
       }
+      ,
+      {
+        path: 'practicum_faseovergangen',
+        component: ExperimentScheikundeFaseovergangenComponent,
+        outlet: 'scheikunde_outlet'
+      }
+      ,
+      {
+        path: 'practicum_koolstofchemie',
+        component: ExperimentScheikundeKoolstofchemieComponent,
+        outlet: 'scheikunde_outlet'
+      }
+      ,
+      {
+        path: 'practicum_scheidingsmethodes',
+        component: ExperimentScheikundeScheidingsmethodesComponent,
+        outlet: 'scheikunde_outlet'
+      }
     ]
   },
   {
@@ -144,6 +186,12 @@ const appRoutes: Routes = [
     ExperimentNatuurkundeGeluidComponent,
     ExperimentNatuurkundeKrachtbewegingComponent,
     PageToetsenGeneratedComponent,
+    ExperimentScheikundeScheidingsmethodesComponent,
+    ExperimentScheikundeKoolstofchemieComponent,
+    ExperimentScheikundeFaseovergangenComponent,
+    ExperimentNatuurkundeLichtComponent,
+    ExperimentNatuurkundeElektriciteitComponent,
+    PageContactHomeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),

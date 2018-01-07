@@ -109,6 +109,7 @@ button{
 
 .no_sidecard_main_content{
   top: 72px;
+  width: 100%;
 }
 
 .no_sidecard_main_content mat-card{
