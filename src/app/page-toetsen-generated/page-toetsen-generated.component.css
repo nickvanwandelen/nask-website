@@ -1,4 +1,32 @@
 mat-card{
+  background-color: white;
+  margin-top: 1%;
+}
+
+mat-card mat-card{
   background-color: steelblue;
   color: white;
 }
+
+.question_list mat-form-field{
+  width: 100%;
+  color: white;
+}
+
+mat-radio-group{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+mat-radio-button{
+  margin: 1%;
+}
+
+button{
+  margin-top: 1%;
+  background-color: steelblue;
+  color: white;
+}
+
+
+

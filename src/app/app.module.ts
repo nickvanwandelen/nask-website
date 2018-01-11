@@ -7,6 +7,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from "@angular/material";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
@@ -206,6 +210,11 @@ const appRoutes: Routes = [
     MatTableModule,
     MatCheckboxModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
