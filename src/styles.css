@@ -45,6 +45,10 @@ td{
   text-align: left;
 }
 
+.imgTableData{
+  width: 50%;
+}
+
 img{
   max-width: 50%;
   max-height: 50%;

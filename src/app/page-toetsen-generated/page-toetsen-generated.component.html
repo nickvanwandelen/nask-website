@@ -25,7 +25,7 @@
       </article>
     </div>
 
-    <mat-card>
+    <mat-card *ngIf="natuurkundeSubjects.length !== 0">
       <h2>Natuurkunde</h2>
       <div class="question" *ngFor="let nat_subject of natuurkundeSubjects">
         <h3>{{nat_subject.subject}}</h3>
@@ -37,15 +37,17 @@
             <input id="nat_open_{{nat_question.questionID}}" matInput placeholder="Jouw antwoord">
           </mat-form-field>
 
-          <mat-form-field *ngIf="nat_question.question.Type == 'mpc'" required>
-            <input id="nat_mpc_{{nat_question.questionID}}" matInput placeholder="Jouw antwoord" >
-          </mat-form-field>
+          <div *ngIf="nat_question.question.Type == 'mpc'">
+            <mat-radio-group id="nat_mpc_{{nat_question.questionID}}" required>
+              <mat-radio-button *ngFor="let possible_answer of this.getRandomizedPossibleAwnsers(nat_question)" [value]="possible_answer">{{possible_answer}}</mat-radio-button>
+            </mat-radio-group>
+          </div>
 
         </div>
       </div>
     </mat-card>
 
-    <mat-card >
+    <mat-card *ngIf="scheikundeSubjects.length !== 0">
       <h2>Scheikunde</h2>
       <div class="subject" *ngFor="let sch_subject of scheikundeSubjects">
         <h3>{{sch_subject.subject}}</h3>
@@ -53,13 +55,13 @@
 
           <span>Vraag {{i + 1}}: {{sch_question.question.Vraag}}</span>
 
-          <mat-form-field *ngIf="sch_question.question.Type == 'open'" required>
+          <mat-form-field *ngIf="sch_question.question.Type == 'open'">
             <input id="sch_open_{{sch_question.questionID}}" matInput placeholder="Jouw antwoord">
           </mat-form-field>
 
           <div *ngIf="sch_question.question.Type == 'mpc'">
-            <mat-radio-group id="sch_mpc_{{sch_question.questionID}}" required>
-              <mat-radio-button *ngFor="let possible_awnser of getRandomizedPossibleAwnsers(sch_question.question)" [value]="possible_awnser">{{possible_awnser}}</mat-radio-button>
+            <mat-radio-group id="sch_mpc_{{sch_question.questionID}}">
+                <mat-radio-button *ngFor= "let possible_awnser of this.getRandomizedPossibleAwnsers(sch_question)" id=sch_mpc_{{sch_question.questionID}}_{{possible_awnser}} (change)="changeMpcValue(sch_question, possible_awnser)" [checked]="false">{{possible_awnser}}</mat-radio-button>
             </mat-radio-group>
           </div>
 
@@ -67,7 +69,6 @@
         </div>
       </div>
     </mat-card>
-
   </div>
 
   <button mat-button (click)="submitTest()">Controleer Toets</button>

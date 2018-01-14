@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
+import {MatRadioChange} from '@angular/material';
 
 @Component({
   selector: 'app-page-toetsen-generated',
@@ -20,6 +21,8 @@ export class PageToetsenGeneratedComponent implements OnInit {
   natuurkundeSubjects: any;
   scheikundeSubjects: any;
 
+  submittedMpcAnswers: any;
+
   constructor(private afs: AngularFirestore){
     this.natuurkundeSubjects = [];
     this.scheikundeSubjects = [];
@@ -32,6 +35,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
 
     this.natuurkundeSubjects = [];
     this.scheikundeSubjects = [];
+    this.submittedMpcAnswers = [];
 
     let localNatSubjectContainer = this.natuurkundeSubjects; //create local array
     let localSchSubjectContainer = this.scheikundeSubjects;
@@ -50,8 +54,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
         };
 
         returnedCollection.forEach(function(document){ //loop through each question and push them in the subject container
-          console.log(document.id, " =>", document.data());
-          natSubjectContainer.questions.push({questionID: document.id, question: document.data()})
+          natSubjectContainer.questions.push({questionID: document.id, question: document.data(), randomized_answers: []})
         });
 
         localNatSubjectContainer.push(natSubjectContainer); //push the subject container in the natSubjectContainer object
@@ -70,8 +73,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
         };
 
         returnedCollection.forEach(function(document){ //loop through each question and push them in the subject container
-          console.log(document.id, " =>", document.data());
-          schSubjectContainer.questions.push({questionID: document.id, question: document.data()});
+          schSubjectContainer.questions.push({questionID: document.id, question: document.data(), randomized_answers: []});
         });
 
         localSchSubjectContainer.push(schSubjectContainer); //push the subject container in the natSubjectContainer object
@@ -85,22 +87,25 @@ export class PageToetsenGeneratedComponent implements OnInit {
   ngOnInit() {
   }
 
-  getRandomizedPossibleAwnsers(all_awnsers: any){
-    let randomizedArray = [];
+  getRandomizedPossibleAwnsers(questionObject: any){
 
-    for(let wrongAwnserIndex = 0; wrongAwnserIndex < all_awnsers.FoutieveAntwoorden.length; wrongAwnserIndex++){
-      randomizedArray.push(all_awnsers.FoutieveAntwoorden[wrongAwnserIndex]);
+    if(questionObject.randomized_answers.length === 0){
+
+      for(let wrongAwnserIndex = 0; wrongAwnserIndex < questionObject.question.FoutieveAntwoorden.length; wrongAwnserIndex++){
+        questionObject.randomized_answers.push(questionObject.question.FoutieveAntwoorden[wrongAwnserIndex]);
+      }
+      questionObject.randomized_answers.push(questionObject.question.Antwoord);
+
+      for (var i = questionObject.randomized_answers.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = questionObject.randomized_answers[i];
+        questionObject.randomized_answers[i] = questionObject.randomized_answers[j];
+        questionObject.randomized_answers[j] = temp;
+      }
+
     }
-    randomizedArray.push(all_awnsers.Antwoord);
 
-    for (var i = randomizedArray.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = randomizedArray[i];
-      randomizedArray[i] = randomizedArray[j];
-      randomizedArray[j] = temp;
-    }
-
-    return randomizedArray;
+    return questionObject.randomized_answers;
   }
 
   submitTest(){
@@ -111,12 +116,6 @@ export class PageToetsenGeneratedComponent implements OnInit {
         if(this.natuurkundeSubjects[nat_subject].questions[nat_question].question.Type === "open"){
           submittedAwnsers.push({
             input: document.getElementById("nat_open_" + this.natuurkundeSubjects[nat_subject].questions[nat_question].questionID),
-            questionContext: this.natuurkundeSubjects[nat_subject].questions[nat_question]
-          });
-        }
-        else{
-          submittedAwnsers.push({
-            input: document.getElementById("nat_mpc_" + this.natuurkundeSubjects[nat_subject].questions[nat_question].questionID),
             questionContext: this.natuurkundeSubjects[nat_subject].questions[nat_question]
           });
         }
@@ -131,33 +130,40 @@ export class PageToetsenGeneratedComponent implements OnInit {
             questionContext: this.scheikundeSubjects[sch_subject].questions[sch_question]
           });
         }
-        else{
-          submittedAwnsers.push({
-            input: document.getElementById("sch_mpc_" + this.scheikundeSubjects[sch_subject].questions[sch_question].questionID),
-            questionContext: this.scheikundeSubjects[sch_subject].questions[sch_question]
-          });
-        }
       }
     }
 
     this.countCorrect = 0;
-    this.countIncorrect = submittedAwnsers.length;
+    this.countIncorrect = submittedAwnsers.length + this.submittedMpcAnswers.length;
 
-    for(let questionToCheck = 0; questionToCheck < submittedAwnsers.length; questionToCheck++){
-      if(submittedAwnsers[questionToCheck].questionContext.question.Type === "open"){
-        if(("" + submittedAwnsers[questionToCheck].input.value).toUpperCase() === ("" + submittedAwnsers[questionToCheck].questionContext.question.Antwoord).toUpperCase()){
+    for(let questionToCheck = 0; questionToCheck < submittedAwnsers.length; questionToCheck++) {
+      if (submittedAwnsers[questionToCheck].questionContext.question.Type === "open") {
+        if (("" + submittedAwnsers[questionToCheck].input.value).toUpperCase() === ("" + submittedAwnsers[questionToCheck].questionContext.question.Antwoord).toUpperCase()) {
           this.countCorrect++;
           this.countIncorrect--;
           submittedAwnsers[questionToCheck].input.style.color = "#00FF00";
         }
-        else{
+        else {
           submittedAwnsers[questionToCheck].input.style.color = "#FF0000";
         }
         submittedAwnsers[questionToCheck].input.disabled = true;
       }
-      else if(submittedAwnsers[questionToCheck].questionContext.question.Type === "mpc"){
-        //console.log(submittedAwnsers[questionToCheck].input.val());
+    }
+
+    for(let mpcQuestionToCheck = 0; mpcQuestionToCheck < this.submittedMpcAnswers.length; mpcQuestionToCheck++){
+      console.log(this.submittedMpcAnswers[mpcQuestionToCheck]);
+      if(("" + this.submittedMpcAnswers[mpcQuestionToCheck].question.question.Antwoord) === ("" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue)){
+        this.countCorrect++;
+        this.countIncorrect--;
+
+        document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue).style.color = "#00FF00";
+
       }
+      else{
+        document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue).style.color = "#FF0000";
+        document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.question.Antwoord).style.color = "#00FF00";
+      }
+
 
     }
 
@@ -168,10 +174,25 @@ export class PageToetsenGeneratedComponent implements OnInit {
     this.showFinalScore = true;
   }
 
-  pushData(){
-    console.log('krachten:' + this.natuurkundeSubjects[0].questions);
-    console.log(this.natuurkundeSubjects);
-    console.log(this.scheikundeSubjects);
-  }
+  changeMpcValue(question: any, value: any){
+    let alreadyPushed = false;
+    let pushedIndex = 0;
 
+    console.log('called');
+
+    for(let mpcQuestion = 0; mpcQuestion < this.submittedMpcAnswers.length; mpcQuestion++){
+      if(this.submittedMpcAnswers[mpcQuestion].question.questionID === question.questionID){
+        alreadyPushed = true;
+        pushedIndex = mpcQuestion;
+        break;
+      }
+    }
+
+    if(!alreadyPushed){
+      this.submittedMpcAnswers.push({question: question, submittedValue: value})
+    }
+    else{
+      this.submittedMpcAnswers[pushedIndex].submittedValue = value;
+    }
+  }
 }
