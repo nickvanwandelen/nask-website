@@ -137,3 +137,7 @@ button{
   text-align: center;
 }
 
+.applet iframe{
+  max-width: 400px;
+}
+

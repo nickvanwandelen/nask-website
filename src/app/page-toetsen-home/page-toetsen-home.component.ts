@@ -17,16 +17,14 @@ export class PageToetsenHomeComponent implements OnInit {
 
   constructor() {
     this.natuurkundeSubjects = [
-      {subject: 'Beweging', selected: false},
+      {subject: 'Elektriciteit', selected: false},
       {subject: 'Krachten', selected: false},
-      {subject: 'Licht', selected: false},
-      {subject: 'Geluid', selected: false}
     ];
 
     this.scheikundeSubjects = [
-      {subject: 'Faseovergangen', selected: false},
-      {subject: 'Scheidingsmethodes', selected: false},
-      {subject: 'Koolstofchemie', selected: false}
+      {subject: 'Koolstofchemie', selected: false},
+      {subject: 'Periodiek systeem', selected: false},
+      {subject: 'Scheidingsmethodes', selected: false}
     ];
 
   }

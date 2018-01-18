@@ -108,7 +108,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
     return questionObject.randomized_answers;
   }
 
-  submitTest(){
+  submitTest(scoreToScrollTo){
     let submittedAwnsers = [];
 
     for(let nat_subject = 0; nat_subject < this.natuurkundeSubjects.length; nat_subject++){
@@ -163,8 +163,6 @@ export class PageToetsenGeneratedComponent implements OnInit {
         document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue).style.color = "#FF0000";
         document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.question.Antwoord).style.color = "#00FF00";
       }
-
-
     }
 
     console.log('Calculating scores');
@@ -172,6 +170,8 @@ export class PageToetsenGeneratedComponent implements OnInit {
     this.grade = (this.countCorrect / (this.countCorrect + this.countIncorrect) * 9 + 1).toFixed(1);
 
     this.showFinalScore = true;
+    console.log(scoreToScrollTo);
+    //window.scrollTo(0, scoreToScrollTo.offsetTop);
   }
 
   changeMpcValue(question: any, value: any){
