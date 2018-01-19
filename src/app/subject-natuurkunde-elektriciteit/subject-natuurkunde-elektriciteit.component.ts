@@ -20,7 +20,7 @@ export class SubjectNatuurkundeElektriciteitComponent implements OnInit {
     {subject: 'weerstand', show: false},
     {subject: 'vermogen', show: false},
     {subject: 'kilowattuur', show: false},
-    {subject: 'formules', show: false},
+    {subject: 'stroomsterktespanningmeten', show: false},
     {subject: 'stroomsterktemeten', show: false},
     {subject: 'practica', show: false}
   ];

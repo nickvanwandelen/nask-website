@@ -49,6 +49,7 @@ import { ExperimentNatuurkundeElektriciteitComponent } from './experiment-natuur
 import { PageContactHomeComponent } from './page-contact-home/page-contact-home.component';
 import { SubjectScheikundeDichtheidComponent } from './subject-scheikunde-dichtheid/subject-scheikunde-dichtheid.component';
 import { SubjectScheikundeReactievergelijkingenComponent } from './subject-scheikunde-reactievergelijkingen/subject-scheikunde-reactievergelijkingen.component';
+import { SubjectNatuurkundeDichtheidComponent } from './subject-natuurkunde-dichtheid/subject-natuurkunde-dichtheid.component';
 
 
 const appRoutes: Routes = [
@@ -81,6 +82,11 @@ const appRoutes: Routes = [
       {
         path: 'elektriciteit',
         component: SubjectNatuurkundeElektriciteitComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
+        path: 'dichtheid',
+        component: SubjectNatuurkundeDichtheidComponent,
         outlet: 'natuurkunde_outlet'
       },
       {
@@ -214,6 +220,7 @@ const appRoutes: Routes = [
     PageContactHomeComponent,
     SubjectScheikundeDichtheidComponent,
     SubjectScheikundeReactievergelijkingenComponent,
+    SubjectNatuurkundeDichtheidComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),

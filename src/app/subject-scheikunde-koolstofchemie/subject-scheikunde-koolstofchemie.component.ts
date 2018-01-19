@@ -8,16 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class SubjectScheikundeKoolstofchemieComponent implements OnInit {
 
   subjects = [
-    {subject: 'introductie', show: true},
-    {subject: 'fossielebrandstoffen', show: false},
-    {subject: 'fotosynthese', show: false},
-    {subject: 'aardolieraffinaderij', show: false},
-    {subject: 'opbouw_moleculen', show: false},
-    {subject: 'naamgeving_koolwaterstoffen', show: false},
-    {subject: 'halogeenalkanen', show: false},
-    {subject: 'kunststoffen', show: false},
-    {subject: 'thermohardersplasten', show: false},
-    {subject: 'monopolymeer', show: false},
+    {subject: 'introductie', show: true, showAnswers: false},
+    {subject: 'fossielebrandstoffen', show: false, showAnswers: false},
+    {subject: 'fotosynthese', show: false, showAnswers: false},
+    {subject: 'aardolieraffinaderij', show: false, showAnswers: false},
+    {subject: 'opbouw_moleculen', show: false, showAnswers: false},
+    {subject: 'naamgeving_koolwaterstoffen', show: false, showAnswers: false},
+    {subject: 'halogeenalkanen', show: false, showAnswers: false},
+    {subject: 'kunststoffen', show: false, showAnswers: false},
+    {subject: 'thermohardersplasten', show: false, showAnswers: false},
+    {subject: 'monopolymeer', show: false, showAnswers: false},
     {subject: 'practica', show: false, showAnswers: false}
   ];
 
@@ -35,6 +35,22 @@ export class SubjectScheikundeKoolstofchemieComponent implements OnInit {
     for(let index = 0; index < this.subjects.length; index++){
       if(this.subjects[index].subject === subject){
         return this.subjects[index].show;
+      }
+    }
+  }
+
+  handleShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        this.subjects[index].showAnswers = !this.subjects[index].showAnswers;
+      }
+    }
+  }
+
+  getShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        return this.subjects[index].showAnswers;
       }
     }
   }

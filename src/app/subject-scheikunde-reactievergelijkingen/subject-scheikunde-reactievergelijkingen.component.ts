@@ -8,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class SubjectScheikundeReactievergelijkingenComponent implements OnInit {
 
   subjects = [
-    {subject: 'introductie', show: true},
-    {subject: 'chemischereactie', show: false},
-    {subject: 'behoudmassa', show: false},
-    {subject: 'endoexotherm', show: false},
-    {subject: 'reactievergelijkingen', show: false},
-    {subject: 'reactiesnelheid', show: false},
-    {subject: 'deeltjesmodel', show: false},
+    {subject: 'introductie', show: true, showAnswers: false},
+    {subject: 'chemischereactie', show: false, showAnswers: false},
+    {subject: 'behoudmassa', show: false, showAnswers: false},
+    {subject: 'endoexotherm', show: false, showAnswers: false},
+    {subject: 'reactievergelijkingen', show: false, showAnswers: false},
+    {subject: 'reactiesnelheid', show: false, showAnswers: false},
+    {subject: 'deeltjesmodel', show: false, showAnswers: false},
   ];
 
   constructor() { }
@@ -31,6 +31,22 @@ export class SubjectScheikundeReactievergelijkingenComponent implements OnInit {
     for(let index = 0; index < this.subjects.length; index++){
       if(this.subjects[index].subject === subject){
         return this.subjects[index].show;
+      }
+    }
+  }
+
+  handleShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        this.subjects[index].showAnswers = !this.subjects[index].showAnswers;
+      }
+    }
+  }
+
+  getShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        return this.subjects[index].showAnswers;
       }
     }
   }

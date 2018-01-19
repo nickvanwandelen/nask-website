@@ -107,6 +107,7 @@
           De aardlekschakelaar gaat nog verder: die schakelt de stroom af als er ergens stroom naar de aarde loopt.
           Hiervoor meet de schakelaar de inkomende stroom en de uitgaande stroom en als daar verschil tussen zit dan schakelt hij uit.
         </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/voltages_world.png">
       </article>
     </div>
 
@@ -156,6 +157,27 @@
           Elektrische lading wordt gemeten in Coulomb (afkorting C), stroomsterkte wordt gemeten in Ampère (afkorting A).
           Als de stroomsterkte in een draad 1 Ampère is, betekent het dat er 1 Coulomb per seconde door deze draad stroomt.
         </p>
+        <p>
+          Om duidelijk te krijgen wat de stroomsterkte precies is kan je gebruik maken van een vergelijking.
+          We gaan het hierbij vergelijken met een weg met auto’s hierop.
+          Als je een rondje hebt waarbij je maar 1 route kan rijden is er 1 plek waar alle auto’s vertrekken.
+          Op iedere plek kan je tellen hoeveel auto’s er rijden. Het aantal auto’s is de stroomsterkte.
+          In de werkelijkheid is de stroomsterkte het aantal elektronen dat per seconde langs komt.
+          De stroomsterkte kan je aan de hand hiervan ook bepalen. In een serieschakeling, waarbij je maar 1 route hebt, zullen dus overal evenveel auto’s zijn:<br>
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/stroomsterkte_serie.png">
+        <p>
+          Bij de batterij, lampje 1 en lampje 2 zullen net zo veel auto’s komen. De stroomsterkte is dus overal hetzelfde.
+          In een parallel schakeling gebeurd er iets anders:<br>
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/stroomsterkte_parallel.png">
+        <p>
+          Bij de batterij vertrekken een aantal auto’s.
+          Vervolgens splitsen de auto’s en gaat een deel door lampje 1 en een deel door lampje 2.
+          Hierbij kan je de stroomsterkte door lampje 1 en 2 optellen en dan heb je het totaal aantal auto’s.
+          Als we de twee schakelingen mengen kan je dus de stroomsterkte voorspellen:<br>
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/voorspelling.png">
       </article>
     </div>
 
@@ -166,7 +188,7 @@
       </h2>
       <article *ngIf="getShowSubject('spanning')">
         <p>
-          Elektrische spanning wordt gemeten in Volts (afgekort V). Daarom spreekt men ook wel eens van voltage.
+          Elektrische <b>spanning</b> wordt gemeten in Volts (afgekort V). Daarom spreekt men ook wel eens van voltage.
           De spanning geeft aan hoeveel energie het voor de elektronen kost om een bepaald punt in een stroomkring naar een ander bepaald punt te bewegen (bijvoorbeeld door de gloeidraad van een lamp heen).
           Een kleine batterij haalt ongeveer 1 volt en het stopcontact levert 230 volt.
         </p>
@@ -186,10 +208,40 @@
       <article *ngIf="getShowSubject('weerstand')">
         <p>
           In elk materiaal kost het voor elektronen een bepaalde hoeveelheid energie om er doorheen te bewegen.
-          Elk materiaal heeft namelijk zijn eigen weerstand.
+          Elk materiaal heeft namelijk zijn eigen <b>weerstand</b>.
           Die weerstand wordt gemeten in Ohms (dat wordt aangegeven met de griekse letter Ω).
           Hoe lager de weerstand van een materiaal, des te beter geleidt het materiaal.
         </p>
+        <p>
+          De weerstand kan je berekenen met de volgende formule:<br>
+          R = U / I
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Symbool grootheid</th>
+            <th>Eenheid</th>
+            <th>Symbool eenheid</th>
+          </tr>
+          <tr>
+            <td>Weerstand</td>
+            <td>R</td>
+            <td>Ohm</td>
+            <td>Ω</td>
+          </tr>
+          <tr>
+            <td>Spanning</td>
+            <td>U</td>
+            <td>Volt</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>Stroomsterkte</td>
+            <td>I</td>
+            <td>Ampere</td>
+            <td>A</td>
+          </tr>
+        </table>
 
         <mat-card class="applet">
           <h3>Applet: Weerstand</h3>
@@ -204,6 +256,20 @@
     </div>
 
     <div>
+      <h2 (click)="handleViewSubject('stroomsterktespanningmeten')">Stroomsterkte en spanning in een schakeling meten
+        <mat-icon *ngIf="getShowSubject('stroomsterktespanningmeten')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('stroomsterktespanningmeten')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('stroomsterktespanningmeten')">
+        <p>
+          Wanneer je de stroomsterkte wilt meten in een schakeling moet je de Ampèremeter in serie met het lampje zet-ten.
+          Wanneer je de spanning wilt meten in een schakeling moet je de voltmeter in parallel met het lampje zetten.
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/opstelling_spanning_sterkte_meten.png">
+      </article>
+    </div>
+
+    <div>
       <h2 (click)="handleViewSubject('vermogen')">Vermogen
         <mat-icon *ngIf="getShowSubject('vermogen')">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="!getShowSubject('vermogen')">keyboard_arrow_down</mat-icon>
@@ -212,12 +278,40 @@
         <p>
           Het vermogen geeft de hoeveelheid elektrische energie die een apparaat kan omzetten.
           Elk apparaat verbruikt een ander aantal Watt. Het vermogen staat altijd weergeven in Watt (afgekort W).
+          Het vermogen kan je berekenen met de volgende formule:<br>
+          P = U * I
         </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Symbool grootheid</th>
+            <th>Eenheid</th>
+            <th>Symbool eenheid</th>
+          </tr>
+          <tr>
+            <td>Vermogen</td>
+            <td>P</td>
+            <td>Watt</td>
+            <td>W</td>
+          </tr>
+          <tr>
+            <td>Spanning</td>
+            <td>U</td>
+            <td>Volt</td>
+            <td>V</td>
+          </tr>
+          <tr>
+            <td>Stroomsterkte</td>
+            <td>I</td>
+            <td>Ampere</td>
+            <td>A</td>
+          </tr>
+        </table>
       </article>
     </div>
 
     <div>
-      <h2 (click)="handleViewSubject('kilowattuur')">KiloWattuur
+      <h2 (click)="handleViewSubject('kilowattuur')">Elektrische energie
         <mat-icon *ngIf="getShowSubject('kilowattuur')">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="!getShowSubject('kilowattuur')">keyboard_arrow_down</mat-icon>
       </h2>
@@ -228,29 +322,32 @@
           Wanneer je het vermogen van je apparaat keer de tijd in uren doet krijg je het energieverbruik.
           Het energieverbruik geef je in kiloWattuur (afgekort kWh).
         </p>
-      </article>
-    </div>
-
-    <div>
-      <h2 (click)="handleViewSubject('formules')">Formules
-        <mat-icon *ngIf="getShowSubject('formules')">keyboard_arrow_up</mat-icon>
-        <mat-icon *ngIf="!getShowSubject('formules')">keyboard_arrow_down</mat-icon>
-      </h2>
-      <article *ngIf="getShowSubject('formules')">
-        <p>
-          De weerstand kan je berekenen met de volgende formule:<br>
-          R = U/I<br>
-          R = Weerstand in Ω.<br>
-          U = Spanning in Volt.<br>
-          I = Stroomsterkte in Ampere.
-        </p>
-        <p>
-          Het energieverbruik kan je berekenen met de volgende formule:<br>
-          E = P * t<br>
-          E = Energieverbruik in kiloWattuur.<br>
-          P = Vermogen in kiloWatt.<br>
-          t = Tijd in uur.
-        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Symbool grootheid</th>
+            <th>Eenheid</th>
+            <th>Symbool eenheid</th>
+          </tr>
+          <tr>
+            <td>Elektrische energie</td>
+            <td>E</td>
+            <td>Kilowattuur</td>
+            <td>kWh</td>
+          </tr>
+          <tr>
+            <td>Vermogen</td>
+            <td>P</td>
+            <td>Kilowatt</td>
+            <td>kW</td>
+          </tr>
+          <tr>
+            <td>Tijd</td>
+            <td>t</td>
+            <td>uur</td>
+            <td>t</td>
+          </tr>
+        </table>
       </article>
     </div>
 
@@ -278,4 +375,13 @@
       </article>
     </div>
   </mat-card>
+
+  <div class="side_cards">
+    <mat-card class="youtube_clip">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/lY6B2oC1uEs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </mat-card>
+    <mat-card class="applet">
+      <iframe src="https://phet.colorado.edu/sims/html/balloons-and-static-electricity/latest/balloons-and-static-electricity_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+    </mat-card>
+  </div>
 </div>

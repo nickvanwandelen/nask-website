@@ -10,7 +10,7 @@ export class PageNatuurkundeHomeComponent implements OnInit {
   constructor() { }
 
   changeStyle(button: any){
-    for(let index = 0; index < 4; index++){
+    for(let index = 0; index < 5; index++){
       let button = document.getElementById("button" + index);
       button.style.backgroundColor = "#FFFFFF";
       button.style.color = "#000000";

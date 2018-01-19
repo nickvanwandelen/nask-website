@@ -13,7 +13,7 @@ export class PageScheikundeHomeComponent implements OnInit {
   }
 
   changeStyle(button: any){
-    for(let index = 0; index < 6; index++){
+    for(let index = 0; index < 5; index++){
       let button = document.getElementById("button" + index);
       button.style.backgroundColor = "#FFFFFF";
       button.style.color = "#000000";

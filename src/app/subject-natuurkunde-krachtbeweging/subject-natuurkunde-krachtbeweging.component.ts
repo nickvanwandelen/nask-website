@@ -9,20 +9,56 @@ import {Router} from '@angular/router';
 })
 export class SubjectNatuurkundeKrachtbewegingComponent implements OnInit {
 
-  show_awnsers = false;
+  subjects = [
+    {subject: 'introductie', show: true, showAnswers: false},
+    {subject: 'krachten', show: false, showAnswers: false},
+    {subject: 'vormveranderen', show: false, showAnswers: false},
+    {subject: 'krachtentekenen', show: false, showAnswers: false},
+    {subject: 'soortenkrachten', show: false, showAnswers: false},
+    {subject: 'zwaartekrachtberekenen', show: false, showAnswers: false},
+    {subject: 'effectkracht', show: false, showAnswers: false},
+    {subject: 'soortenbewegingen', show: false, showAnswers: false},
+    {subject: 'snelheidberekenen', show: false, showAnswers: false},
+    {subject: 'versnellingberekenen', show: false, showAnswers: false},
+    {subject: 'omrekenen', show: false, showAnswers: false},
+    {subject: 'practica', show: false, showAnswers: false}
+  ];
 
-  constructor(private router: Router) { }
+  constructor(){}
+
+  handleViewSubject(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        this.subjects[index].show = !this.subjects[index].show;
+      }
+    }
+  }
+
+  getShowSubject(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        return this.subjects[index].show;
+      }
+    }
+  }
+
+  handleShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        this.subjects[index].showAnswers = !this.subjects[index].showAnswers;
+      }
+    }
+  }
+
+  getShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        return this.subjects[index].showAnswers;
+      }
+    }
+  }
 
   ngOnInit() {
-  }
-
-  handleScroll(elementToScrollTo){
-    window.scrollTo(0, elementToScrollTo.offsetTop);
-  }
-
-
-  handleShowAwnsers(){
-    this.show_awnsers = !this.show_awnsers;
   }
 }
 

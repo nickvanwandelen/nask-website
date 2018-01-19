@@ -91,7 +91,7 @@ button{
 }
 
 .side_cards mat-card{
-  margin: 2% 2% 2% 0%;
+  margin: 2% 2% 2% 2%;
   background-color: steelblue;
 }
 
@@ -99,13 +99,11 @@ button{
   margin-top: 3%;
   background-color: steelblue;
   color: white;
-  width: 90%;
-  height: 150%;
 }
 
 .youtube_clip iframe{
-  height: 150%;
-  width: 100%;
+  max-width: 100%;
+  margin: 2% 2% 2% 0%;
 }
 
 .applet{
@@ -116,7 +114,11 @@ button{
 
 .applet iframe{
   max-width: 100%;
-  margin: auto;
+  margin: 2% 2% 2% 0%;
+}
+
+.subscript{
+  font-size: 8pt;
 }
 
 .subject_questions{
@@ -125,8 +127,8 @@ button{
   color: white;
 }
 
-.subject_questions span{
-  color: red;
+.subjet_answer{
+  color: indianred;
 }
 
 .subject_questions button{

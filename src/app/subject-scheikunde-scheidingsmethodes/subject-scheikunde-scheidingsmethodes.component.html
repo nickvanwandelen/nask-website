@@ -32,27 +32,27 @@
         <mat-card class="subject_questions">
           <p>
             1. Is wijn een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, wijn is namelijk een mengsel van alcohol, druivensap, suikers, water en nog wat andere bestandsdelen.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, wijn is namelijk een mengsel van alcohol, druivensap, suikers, water en nog wat andere bestandsdelen.</span>
           </p>
           <p>
             2. Is melk een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, er zit namelijk vet, calcium en water in.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, er zit namelijk vet, calcium en water in.</span>
           </p>
           <p>
             3. Is koffie een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, het is namelijk een mengsel van koffiebonen en water.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, het is namelijk een mengsel van koffiebonen en water.</span>
           </p>
           <p>
             4. Is poedersuiker een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een zuivere stof, het bestaat uit enkel en alleen glucose.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een zuivere stof, het bestaat uit enkel en alleen glucose.</span>
           </p>
           <p>
             5. Is piepschuim een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, het is een mengsel van een gas en een vaste stof.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, het is een mengsel van een gas en een vaste stof.</span>
           </p>
           <p>
             6. Is een mengsel van poedersuiker en korrelsuiker een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een zuivere stof, het zijn namelijk allebei gewoon glucosemoleculen. Alleen de ene is gemalen suikerkorrels en de andere gewoon korrels.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een zuivere stof, het zijn namelijk allebei gewoon glucosemoleculen. Alleen de ene is gemalen suikerkorrels en de andere gewoon korrels.</span>
           </p>
           <button mat-button (click)="handleShowAnswers('zuiverestofmengsel')">Toon antwoorden</button>
         </mat-card>
@@ -114,11 +114,11 @@
           <h3>Vragen</h3>
           <p>
             1. Leg uit of je suiker van water kunt scheiden door filtratie.<br>
-            <span *ngIf="getShowAnswers('soortenmengsels')">Nee, suiker lost op in het water en kun je dus niet vast in handen krijgen als je het gaat filtreren.</span>
+            <span *ngIf="getShowAnswers('soortenmengsels')" class="subjet_answer">Nee, suiker lost op in het water en kun je dus niet vast in handen krijgen als je het gaat filtreren.</span>
           </p>
           <p>
             2. Is zeewater een oplossing of een suspensie?<br>
-            <span *ngIf="getShowAnswers('soortenmengsels')">Een suspensie, in zeewater zitten vaak diertjes, zand, zeewier, enz.</span>
+            <span *ngIf="getShowAnswers('soortenmengsels')" class="subjet_answer">Een suspensie, in zeewater zitten vaak diertjes, zand, zeewier, enz.</span>
           </p>
           <button mat-button (click)="handleShowAnswers('soortenmengsels')">Toon antwoorden</button>
         </mat-card>
@@ -198,25 +198,28 @@
         <mat-card class="subject_questions">
           <p>
             1. Op basis van welke stofeigenschap scheid je de stoffen bij filtreren? En wat is het verschil tussen zeven en filtreren?<br>
-            <span *ngIf="getShowAnswers('oplossingenscheiden')">Deeltjesgrootte; een filter is veel fijner (kleinere poriën/gaatjes) dan een zeef, dus je kan hele kleine deeltjes uit een oplossing halen.</span>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')" class="subjet_answer">Deeltjesgrootte; een filter is veel fijner (kleinere poriën/gaatjes) dan een zeef, dus je kan hele kleine deeltjes uit een oplossing halen.</span>
           </p>
           <p>
             2. In een bekerglas met een flinke hoeveelheid water doet men een beetje zout, krijt en zand. Het krijt en het zand lossen niet op in water, in tegenstelling tot het zout. Het geheel wordt goed geroerd en gefiltreerd. Waaruit bestaat het filtraat en waaruit bestaat het residu?<br>
-            <span *ngIf="getShowAnswers('oplossingenscheiden')">
+            <span *ngIf="getShowAnswers('oplossingenscheiden')" class="subjet_answer">
             Filtraat: een zoutoplossing<br>
             Residu: krijt en zand</span>
           </p>
           <p>
             3. Wat is het verschil tussen indampen en destilleren?<br>
-            <span *ngIf="getShowAnswers('oplossingenscheiden')">Bij indampen houd je één stof over en verdampt er één stof die uiteindelijk opgaat in de ruimte. Bij destilleren scheid je een mengsel waarbij je twee zuivere stoffen kunt overhouden.</span>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')" class="subjet_answer">Bij indampen houd je één stof over en verdampt er één stof die uiteindelijk opgaat in de ruimte.
+              Bij destilleren scheid je een mengsel waarbij je twee zuivere stoffen kunt overhouden.</span>
           </p>
           <p>
-            4. Een mengsel van chloroform en aceton wordt langzaam gedestilleerd. Het kookpunt van deze stoffen is achtereenvolgens 62 0C en 56 0C. Uit welke stof zal het residu vooral bestaan en uit welke stof het destillaat?<br>
-            <span *ngIf="getShowAnswers('oplossingenscheiden')">Het residu bestaat uit chloroform en het destillaat uit aceton.</span>
+            4. Een mengsel van chloroform en aceton wordt langzaam gedestilleerd.
+            Het kookpunt van deze stoffen is achtereenvolgens 62 0C en 56 0C.
+            Uit welke stof zal het residu vooral bestaan en uit welke stof het destillaat?<br>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')" class="subjet_answer">Het residu bestaat uit chloroform en het destillaat uit aceton.</span>
           </p>
           <p>
             5. In rode rozen zit de kleurstof anthocyanidine, dit zorgt voor de rode kleur van de bloemen. Deze kleurstof lost goed op in spiritus. Stel een werkplan op om het anthocyanidine uit de rode rozen te halen (tip: maak geen gebruik van adsorptie). In het werkplan vermeld je welke scheidingsmethoden je gebruikt en leg je bij elke scheiding uit wat er gebeurt.<br>
-            <span *ngIf="getShowAnswers('oplossingenscheiden')">
+            <span *ngIf="getShowAnswers('oplossingenscheiden')" class="subjet_answer">
             Extraheren à in een bekerglas met spiritus voeg je blaadjes van de rode rozen toe.<br>
             Filtreren à De blaadjes blijven achter in je filter. Dit heet het residu. Je filtraat bestaat uit een mengsel van spiritus en de kleurstof anthocyanidine.Wil je het in vaste vorm?<br>
             Indampen à spiritus verdampt en je kleurstof blijft over.</span>

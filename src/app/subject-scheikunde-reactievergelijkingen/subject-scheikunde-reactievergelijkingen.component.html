@@ -31,7 +31,7 @@
           Voorbeeld reactieschema:<br>
           Water → waterstof + zuurstof<br>
           Voorbeeld reactievergelijking:<br>
-          2 H2O(l)  → 2 H2(g) + O2(g)
+          2 H<span class="subscript">2</span>O(l)  → 2 H<span class="subscript">2</span>(g) + O<span class="subscript">2</span>(g)
         </p>
 
         <mat-card class="applet">
@@ -68,8 +68,8 @@
           <i>
             Onder extreme omstandigheden is het mogelijk om stikstof te verbranden.
             Hierbij ontstaat stikstofmono-oxide. Stel de kloppende reactievergelijking op.<br>
-            Stap 1: Stikstof + zuurstof → Stikstofmono-oxide.<br>
-            Stap 2: Stap 2: N2(g) + O2(g) → NO(g).<br>
+            Stap 1: Stikstof + zuurstof &rarr; Stikstofmono-oxide.<br>
+            Stap 2: Stap 2: N<span class="subscript">2</span>(g) + O<span class="subscript">2</span>(g) &rarr; NO(g).<br>
           </i>
         </p>
         <img src="../../assets/img/scheikunde/reactievergelijkingen/vergelijking_stikstofmonoxide.png">
@@ -78,7 +78,7 @@
             Stap 3: De aantallen atomen kloppen nog niet. Voor de pijl zijn er twee stikstof en twee zuurstofatomen.
             Na de pijl is er één zuurstof en één stikstofatoom. Dit los je op door een 2 voor het stikstofmono-oxide molecuul te zetten.
             Dit geeft aan dat er twee stikstofmono-oxide moleculen aanwezig zijn.<br>
-            N2(g) + O2(g) → 2 NO(g)
+            N<span class="subscript">2</span>(g) + O<span class="subscript">2</span>(g) → 2 NO(g)
           </i>
         </p>
         <img src="../../assets/img/scheikunde/reactievergelijkingen/vergelijking_stikstofmonoxide_kloppend.png">
@@ -86,8 +86,40 @@
           <i>
             Stap 4: Nu is er voor en na de reactie twee stikstof en twee zuurstof atomen aanwezig.
           </i>
-
         </p>
+
+        <mat-card class="subject_questions">
+          <h3>Maak de reactievergelijkingen kloppend</h3>
+          <p>
+            1. N<span class="subscript">2</span> + H<span class="subscript">2</span> &rarr; NH<span class="subscript">3</span><br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">N<span class="subscript">2</span> + 3 H<span class="subscript">2</span> &rarr; 2 NH<span class="subscript">3</span></span>
+          </p>
+          <p>
+            2. C + O<span class="subscript">2</span> &rarr; CO<br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">2 C + O<span class="subscript">2</span> &rarr; 2 CO</span>
+          </p>
+          <p>
+            3. Cu + S &rarr; Cu<span class="subscript">2</span>S<br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">2 Cu + S &rarr; Cu<span class="subscript">2</span>S</span>
+          </p>
+          <p>
+            4. N<span class="subscript">2</span> + O<span class="subscript">2</span> &rarr; NO<br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">N<span class="subscript">2</span> + O<span class="subscript">2</span> &rarr; 2 NO</span>
+          </p>
+          <p>
+            5. N<span class="subscript">2</span> + O<span class="subscript">2</span> &rarr; NO<span class="subscript">2</span><br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">N<span class="subscript">2</span> + 2 O<span class="subscript">2</span> &rarr; 2 NO<span class="subscript">2</span></span>
+          </p>
+          <p>
+            6. NO<span class="subscript">2</span> &rarr; N<span class="subscript">2</span>O<span class="subscript">4</span><br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">2 NO<span class="subscript">2</span> &rarr; 2 N<span class="subscript">2</span>O<span class="subscript">4</span></span>
+          </p>
+          <p>
+            7. Fe + O<span class="subscript">2</span> &rarr; FeO<br>
+            <span *ngIf="getShowAnswers('behoudmassa')" class="subjet_answer">2 FE + O<span class="subscript">2</span> &rarr; 2 FeO</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('behoudmassa')">Toon antwoorden</button>
+        </mat-card>
       </article>
     </div>
 
@@ -134,17 +166,17 @@
           </tr>
           <tr>
             <td>C</td>
-            <td>CO2</td>
+            <td>CO<span class="subscript">2</span></td>
             <td>Koolstofdioxide</td>
           </tr>
           <tr>
             <td>H</td>
-            <td>CO2</td>
+            <td>CO<span class="subscript">2</span></td>
             <td>Koolstofdioxide</td>
           </tr>
           <tr>
             <td>C</td>
-            <td>H2O</td>
+            <td>H<span class="subscript">2</span>O</td>
             <td>Water</td>
           </tr>
           <tr>
