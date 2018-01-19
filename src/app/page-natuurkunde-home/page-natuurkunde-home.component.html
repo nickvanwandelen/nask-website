@@ -3,13 +3,10 @@
     <mat-sidenav opened mode="side" position="start">
       <div class="side_nav">
         <span class="side_nav_title">Natuurkunde</span>
-        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['krachtbeweging']}}" routerLinkActive="active">Kracht en Beweging</button>
-        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['lichtgeluid']}}">Licht en Geluid</button>
-        <span class="side_nav_divider">Practica</span>
-        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_elektriciteit']}}">Elektriciteit</button>
-        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_geluid']}}">Geluid</button>
-        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_kracht_beweging']}}">Kracht en Beweging</button>
-        <button mat-button [routerLink]="{outlets: {natuurkunde_outlet: ['practicum_licht']}}">Licht</button>
+        <button id="button0" mat-button (click)="changeStyle(0)" [routerLink]="{outlets: {natuurkunde_outlet: ['home']}}">Home</button>
+        <button id="button1" mat-button (click)="changeStyle(1)" [routerLink]="{outlets: {natuurkunde_outlet: ['krachtbeweging']}}">Kracht en Beweging</button>
+        <button id="button2" mat-button (click)="changeStyle(2)" [routerLink]="{outlets: {natuurkunde_outlet: ['lichtgeluid']}}">Licht en Geluid</button>
+        <button id="button3" mat-button (click)="changeStyle(3)" [routerLink]="{outlets: {natuurkunde_outlet: ['elektriciteit']}}">Elektriciteit</button>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>

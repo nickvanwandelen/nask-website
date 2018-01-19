@@ -30,7 +30,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SubjectNatuurkundeHomeComponent } from './subject-natuurkunde-home/subject-natuurkunde-home.component';
 import { SubjectNatuurkundeKrachtbewegingComponent } from './subject-natuurkunde-krachtbeweging/subject-natuurkunde-krachtbeweging.component';
 import { PagePagenotfoundComponent } from './page-pagenotfound/page-pagenotfound.component';
-import {Subject} from 'rxjs/Subject';
 import { SubjectNatuurkundeLichtgeluidComponent } from './subject-natuurkunde-lichtgeluid/subject-natuurkunde-lichtgeluid.component';
 import { SubjectScheikundeHomeComponent } from './subject-scheikunde-home/subject-scheikunde-home.component';
 import { SubjectScheikundeScheidingsmethodesComponent } from './subject-scheikunde-scheidingsmethodes/subject-scheikunde-scheidingsmethodes.component';
@@ -48,6 +47,8 @@ import { ExperimentScheikundeFaseovergangenComponent } from './experiment-scheik
 import { ExperimentNatuurkundeLichtComponent } from './experiment-natuurkunde-licht/experiment-natuurkunde-licht.component';
 import { ExperimentNatuurkundeElektriciteitComponent } from './experiment-natuurkunde-elektriciteit/experiment-natuurkunde-elektriciteit.component';
 import { PageContactHomeComponent } from './page-contact-home/page-contact-home.component';
+import { SubjectScheikundeDichtheidComponent } from './subject-scheikunde-dichtheid/subject-scheikunde-dichtheid.component';
+import { SubjectScheikundeReactievergelijkingenComponent } from './subject-scheikunde-reactievergelijkingen/subject-scheikunde-reactievergelijkingen.component';
 
 
 const appRoutes: Routes = [
@@ -75,6 +76,11 @@ const appRoutes: Routes = [
       {
         path: 'home',
         component: SubjectNatuurkundeHomeComponent,
+        outlet: 'natuurkunde_outlet'
+      },
+      {
+        path: 'elektriciteit',
+        component: SubjectNatuurkundeElektriciteitComponent,
         outlet: 'natuurkunde_outlet'
       },
       {
@@ -121,6 +127,16 @@ const appRoutes: Routes = [
       {
         path: 'home',
         component: SubjectScheikundeHomeComponent,
+        outlet: 'scheikunde_outlet'
+      },
+      {
+        path: 'dichtheid',
+        component: SubjectScheikundeDichtheidComponent,
+        outlet: 'scheikunde_outlet'
+      },
+      {
+        path: 'reactievergelijkingen',
+        component: SubjectScheikundeReactievergelijkingenComponent,
         outlet: 'scheikunde_outlet'
       },
       {
@@ -196,6 +212,8 @@ const appRoutes: Routes = [
     ExperimentNatuurkundeLichtComponent,
     ExperimentNatuurkundeElektriciteitComponent,
     PageContactHomeComponent,
+    SubjectScheikundeDichtheidComponent,
+    SubjectScheikundeReactievergelijkingenComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),

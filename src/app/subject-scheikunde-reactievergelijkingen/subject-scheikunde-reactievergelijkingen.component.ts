@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-subject-scheikunde-faseovergangen',
-  templateUrl: './subject-scheikunde-faseovergangen.component.html',
-  styleUrls: ['./subject-scheikunde-faseovergangen.component.css']
+  selector: 'app-subject-scheikunde-reactievergelijkingen',
+  templateUrl: './subject-scheikunde-reactievergelijkingen.component.html',
+  styleUrls: ['./subject-scheikunde-reactievergelijkingen.component.css']
 })
-export class SubjectScheikundeFaseovergangenComponent implements OnInit {
+export class SubjectScheikundeReactievergelijkingenComponent implements OnInit {
 
   subjects = [
     {subject: 'introductie', show: true},
-    {subject: 'fasen', show: true},
-    {subject: 'faseovergangen', show: false},
-    {subject: 'practica', show: false, showAnswers: false}
+    {subject: 'chemischereactie', show: false},
+    {subject: 'behoudmassa', show: false},
+    {subject: 'endoexotherm', show: false},
+    {subject: 'reactievergelijkingen', show: false},
+    {subject: 'reactiesnelheid', show: false},
+    {subject: 'deeltjesmodel', show: false},
   ];
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   handleViewSubject(subject: string){
     for(let index = 0; index < this.subjects.length; index++){
@@ -33,6 +33,9 @@ export class SubjectScheikundeFaseovergangenComponent implements OnInit {
         return this.subjects[index].show;
       }
     }
+  }
+
+  ngOnInit() {
   }
 
 }

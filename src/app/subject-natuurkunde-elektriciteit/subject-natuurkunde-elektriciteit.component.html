@@ -1,3 +1,281 @@
-<p>
-  subject-natuurkunde-elektriciteit works!
-</p>
+<div class="main_content">
+  <mat-card class="main_card">
+
+    <div class="subject">
+      <h1 (click)="handleViewSubject('introductie')">Elektriciteit</h1>
+      <article *ngIf="getShowSubject('introductie')">
+        Een introductie komt hier te staan
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('lading')">Lading
+        <mat-icon *ngIf="getShowSubject('lading')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('lading')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('lading')">
+        <p>
+          Er zijn twee verschillende soort lading. Deze worden positieve en negatieve ladingen genoemd. Door het wrijven wordt de ballon negatief geladen.
+          De elektrische kracht die tussen twee voorwerpen werkt kun je dan verklaren.
+          De kracht tussen twee gelijk ladingen is afstotend. Dus wanneer een positief en een ander positief voorwerp bij elkaar houd zullen deze  elkaar afstoten.
+          De kracht tussen twee ongelijke ladingen trekken elkaar aan. Het symbool van lading is Q of q en de eenheid is coulomb, afgekort C.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('geleidersisolatoren')">Geleiders en Isolatoren
+        <mat-icon *ngIf="getShowSubject('geleidersisolatoren')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('geleidersisolatoren')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('geleidersisolatoren')">
+        <p>
+          Een geleider is een stof waar lading zich goed door kan verplaatsen.
+          In vrijwel alle metalen kunnen elektronen vrij bewegen.
+          Lading kan zich daarom makkelijk door metalen verplaatsen.
+          Deze metalen worden dan ook toegepast bij verschillende elektrische apparaten om stroom te verplaatsen.
+        </p>
+        <p>
+          Een isolator is een stof waar lading zich niet goed door kan verplaatsen.
+          In deze stoffen kunnen de elektronen zich minder goed of niet bewegen.
+          Het is dus niet mogelijk om stroom door een isolator te laten lopen. Voorbeelden van isolatoren zijn glas, plastic, hout en rubber.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('energieopwekken')">Energie opwekken
+        <mat-icon *ngIf="getShowSubject('energieopwekken')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('energieopwekken')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('energieopwekken')">
+        <p>
+          Er zijn verschillende manieren om elektrische energie op te wekken.
+          De manieren die mogelijk zijn:
+        </p>
+        <ul>
+          <li>Kolencentrales</li>
+          <li>Windturbines</li>
+          <li>Waterkrachtcentrale</li>
+          <li>Zonnepanelen</li>
+        </ul>
+
+        <div class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/WPzxo7uQeaE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('groeneenergie')">Groene energie/duurzame energie
+        <mat-icon *ngIf="getShowSubject('groeneenergie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('groeneenergie')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('groeneenergie')">
+        <p>
+          Energie die niet opgewekt wordt door brandstoffen die op kunnen raken noemen we duurzame energie.
+          Een ander woord voor duurzaam is hernieuwbaar. Dit betekent dat de energiebronnen niet opraken.
+          Immers zolang de zon blijft schijnen zal het altijd waaien en water door de waterkringloop blijven stromen.
+          Deze beweging, van lucht en water, kunnen we goed gebruiken om elektrische energie op te wekken met windmolens en waterkrachtcentrales.
+          In deze centrales worden ook turbines gebruikt om een generator aan te drijven die de elektrische energie maakt.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('stroominhuis')">Stroom in huis
+        <mat-icon *ngIf="getShowSubject('stroominhuis')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('stroominhuis')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('stroominhuis')">
+        <p>
+          Als de elektrische energie je huis inkomt dan zitten tussen de aanvoer vanuit de centrale en de apparaten die de energie gaan gebruiken beveiligingen.
+          Dat is nodig omdat elektriciteit gevaarlijk kan zijn wanneer je hier niet veilig mee omgaat.
+          De beveiligingen zorgen er allemaal voor dat de stroom wordt afgesloten als er een gevaarlijke situatie ontstaat.
+          Een gevaarlijke situatie is wanneer er te stroom door de draden gaat en hierdoor de draden te warm worden en smelten.
+          Om dit te voorkomen zitten er zekeringen in de stroomkring.
+          Er zijn twee soorten zekeringen, smeltzekeringen en automatische zekeringen.
+          Allebei de zekeringen hebben dezelfde functie, namelijk ervoor zorgen dat jij niet teveel stroom door de elektriciteitsleidingen laat gaan.
+          Ze zorgen  ervoor dat de stroomsterkte niet boven de 16 Ampère komt.
+        </p>
+        <p>
+          De zekeringen in de meterkast zorgen ervoor dat je niet teveel stroom door de draden laat gaan.
+          Het kan ook voorkomen dat de aansluiting van een apparaat niet helemaal goed is.
+          Bij een wasmachine kan het snoer een beetje kapot gaan zodat er een verbinding komt van de stroom met de buitenkant wasmachine.
+          Meestal is die buitenkant van metaal, wat de stroom goed geleidt, dus als je die dan aanraakt krijg je een schok.
+          Dat is niet alleen geen lekker gevoel, maar kan ook gevaarlijk zijn. Om dat gevaar tegen te gaan zijn apparaten met een metalen buitenkant geaard.
+          De aardlekschakelaar gaat nog verder: die schakelt de stroom af als er ergens stroom naar de aarde loopt.
+          Hiervoor meet de schakelaar de inkomende stroom en de uitgaande stroom en als daar verschil tussen zit dan schakelt hij uit.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('soortenstroomkringen')">Soorten stroomkringen
+        <mat-icon *ngIf="getShowSubject('soortenstroomkringen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('soortenstroomkringen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('soortenstroomkringen')">
+        <p>
+          Meestal bestaat een elektrische schakeling uit meerdere verbruikers.
+          Die onderling op een bepaalde manier met elkaar verbonden zijn.
+          Er zijn twee soorten schakelingen: de serieschakeling en de parallelschakeling.
+        </p>
+        <p>
+          <b>Serieschakeling</b>: Stroomkring waarin de lampjes als een ketting zijn verbonden, zoals bij een kerstboom: alle lampjes delen een stroombron.
+          Wanneer een van de lampjes stuk is, is de stroomkring niet meer gesloten en brandt er geen enkele lamp meer.
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/serieschakeling.png">
+        <p>
+          <b>Parralelschakeling</b>: stroomkring waarbij de lampjes parallel of evenwijdig met elkaar verbonden zijn. Elk lampje heeft zijn eigen stroomkring met de stroombron.
+          Wanneer een lamp stuk is, kan de elektriciteit nog steeds door naast de lamp, om een stroomkring te vormen, zo blijven de overige lampen wel nog branden.
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/parallelschakeling.png">
+
+        <mat-card class="youtube_clip">
+          <h3>Filmpje Schakelingen</h3>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/StY-n3JRjm4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </mat-card>
+
+        <mat-card class="applet">
+          <h3>Applet: Schakelingen</h3>
+          <div style="position: relative; width: 300px; height: 197px;"><a href="https://phet.colorado.edu/sims/signal-circuit/signal-circuit_nl.jnlp" style="text-decoration: none;"><img src="https://phet.colorado.edu/sims/signal-circuit/signal-circuit-600.png" alt="Stroomkirng" style="border: none;" width="300" height="197"/><div style="position: absolute; width: 200px; height: 80px; left: 50px; top: 58px; background-color: #FFF; opacity: 0.6; filter: alpha(opacity = 60);"></div><table style="position: absolute; width: 200px; height: 80px; left: 50px; top: 58px;"><tr><td style="text-align: center; color: #000; font-size: 24px; font-family: Arial,sans-serif;">Klik om op te starten</td></tr></table></a></div>
+        </mat-card>
+
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('stroomsterkte')">Stroomsterke
+        <mat-icon *ngIf="getShowSubject('stroomsterkte')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('stroomsterkte')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('stroomsterkte')">
+        <p>
+          Stroomsterkte is hoeveel lading (dus hoeveel elektronen) er eigenlijk elke seconde door een draad heen bewegen.
+          Elektrische lading wordt gemeten in Coulomb (afkorting C), stroomsterkte wordt gemeten in Ampère (afkorting A).
+          Als de stroomsterkte in een draad 1 Ampère is, betekent het dat er 1 Coulomb per seconde door deze draad stroomt.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('spanning')">Spanning
+        <mat-icon *ngIf="getShowSubject('spanning')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('spanning')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('spanning')">
+        <p>
+          Elektrische spanning wordt gemeten in Volts (afgekort V). Daarom spreekt men ook wel eens van voltage.
+          De spanning geeft aan hoeveel energie het voor de elektronen kost om een bepaald punt in een stroomkring naar een ander bepaald punt te bewegen (bijvoorbeeld door de gloeidraad van een lamp heen).
+          Een kleine batterij haalt ongeveer 1 volt en het stopcontact levert 230 volt.
+        </p>
+
+        <mat-card class="applet">
+          <h3>Applet: Spanning</h3>
+          <iframe src="https://phet.colorado.edu/sims/html/john-travoltage/latest/john-travoltage_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('weerstand')">Weerstand
+        <mat-icon *ngIf="getShowSubject('weerstand')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('weerstand')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('weerstand')">
+        <p>
+          In elk materiaal kost het voor elektronen een bepaalde hoeveelheid energie om er doorheen te bewegen.
+          Elk materiaal heeft namelijk zijn eigen weerstand.
+          Die weerstand wordt gemeten in Ohms (dat wordt aangegeven met de griekse letter Ω).
+          Hoe lager de weerstand van een materiaal, des te beter geleidt het materiaal.
+        </p>
+
+        <mat-card class="applet">
+          <h3>Applet: Weerstand</h3>
+          <iframe src="https://phet.colorado.edu/sims/html/ohms-law/latest/ohms-law_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+        </mat-card>
+
+        <mat-card class="applet">
+          <h3>Applet: Weerstand</h3>
+          <div style="position: relative; width: 300px; height: 197px;"><a href="https://phet.colorado.edu/sims/battery-resistor-circuit/battery-resistor-circuit_nl.jnlp" style="text-decoration: none;"><img src="https://phet.colorado.edu/sims/battery-resistor-circuit/battery-resistor-circuit-600.png" alt="Schakelling met batterij en weerstand" style="border: none;" width="300" height="197"/><div style="position: absolute; width: 200px; height: 80px; left: 50px; top: 58px; background-color: #FFF; opacity: 0.6; filter: alpha(opacity = 60);"></div><table style="position: absolute; width: 200px; height: 80px; left: 50px; top: 58px;"><tr><td style="text-align: center; color: #000; font-size: 24px; font-family: Arial,sans-serif;">Klik om op te starten</td></tr></table></a></div>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('vermogen')">Vermogen
+        <mat-icon *ngIf="getShowSubject('vermogen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('vermogen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('vermogen')">
+        <p>
+          Het vermogen geeft de hoeveelheid elektrische energie die een apparaat kan omzetten.
+          Elk apparaat verbruikt een ander aantal Watt. Het vermogen staat altijd weergeven in Watt (afgekort W).
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('kilowattuur')">KiloWattuur
+        <mat-icon *ngIf="getShowSubject('kilowattuur')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('kilowattuur')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('kilowattuur')">
+        <p>
+          Voor het uitrekenen van het energieverbruik moet je op twee factoren letten.
+          Dat is het vermogen in KiloWatt en de tijd in uur.
+          Wanneer je het vermogen van je apparaat keer de tijd in uren doet krijg je het energieverbruik.
+          Het energieverbruik geef je in kiloWattuur (afgekort kWh).
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('formules')">Formules
+        <mat-icon *ngIf="getShowSubject('formules')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('formules')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('formules')">
+        <p>
+          De weerstand kan je berekenen met de volgende formule:<br>
+          R = U/I<br>
+          R = Weerstand in Ω.<br>
+          U = Spanning in Volt.<br>
+          I = Stroomsterkte in Ampere.
+        </p>
+        <p>
+          Het energieverbruik kan je berekenen met de volgende formule:<br>
+          E = P * t<br>
+          E = Energieverbruik in kiloWattuur.<br>
+          P = Vermogen in kiloWatt.<br>
+          t = Tijd in uur.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('stroomsterktemeten')">Stroomsterkte en spanning in een schakeling meten
+        <mat-icon *ngIf="getShowSubject('stroomsterktemeten')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('stroomsterktemeten')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('stroomsterktemeten')">
+        <p>
+          Wanneer je de stroomsterkte wilt meten in een schakeling moet je de Ampèremeter in serie met het lampje zetten.
+          Wanneer je de spanning wilt meten in een schakeling moet je de voltmeter in parallel met het lampje zetten.
+          <img src="">
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('practica')">Practica Elektriciteit
+        <mat-icon *ngIf="getShowSubject('practica')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('practica')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('practica')">
+        <app-experiment-natuurkunde-elektriciteit></app-experiment-natuurkunde-elektriciteit>
+      </article>
+    </div>
+  </mat-card>
+</div>

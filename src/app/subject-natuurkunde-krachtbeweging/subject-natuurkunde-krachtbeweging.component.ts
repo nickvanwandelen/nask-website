@@ -24,7 +24,5 @@ export class SubjectNatuurkundeKrachtbewegingComponent implements OnInit {
   handleShowAwnsers(){
     this.show_awnsers = !this.show_awnsers;
   }
-
-
 }
 

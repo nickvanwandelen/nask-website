@@ -72,6 +72,18 @@ button{
   width: 55%;
 }
 
+.main_card h1, h2{
+  padding: 1%;
+}
+
+.main_card mat-icon{
+  float: right;
+}
+
+.main_card h1:hover, h2:hover{
+  background-color: lightgray;
+}
+
 .side_cards{
   float: right;
   width: 39%;
@@ -84,21 +96,45 @@ button{
 }
 
 .youtube_clip{
-  height: 300px;
+  margin-top: 3%;
+  background-color: steelblue;
+  color: white;
+  width: 90%;
+  height: 150%;
 }
 
 .youtube_clip iframe{
-  height: 100%;
+  height: 150%;
   width: 100%;
 }
 
-.awnsers{
-  background-color: #efbc04;
-  padding: 1%;
+.applet{
+  margin-top: 3%;
+  background-color: steelblue;
+  color: white;
 }
 
-.correct_awnser{
+.applet iframe{
+  max-width: 100%;
+  margin: auto;
+}
+
+.subject_questions{
+  margin-top: 3%;
+  background-color: steelblue;
+  color: white;
+}
+
+.subject_questions span{
   color: red;
+}
+
+.subject_questions button{
+  background-color: white;
+}
+
+.subject_questions button span{
+  color: black;
 }
 
 .navigator{
@@ -137,7 +173,6 @@ button{
   text-align: center;
 }
 
-.applet iframe{
-  max-width: 400px;
-}
+
+
 

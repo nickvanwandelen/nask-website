@@ -1,0 +1,237 @@
+<div class="main_content">
+  <mat-card class="main_card">
+
+    <div>
+      <h1 (click)="handleViewSubject('introductie')">Reactievergelijkingen
+        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
+      </h1>
+      <article *ngIf="getShowSubject('introductie')">
+        <p>
+          Introductie
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('chemischereactie')">Chemische reactie
+        <mat-icon *ngIf="getShowSubject('chemischereactie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('chemischereactie')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('chemischereactie')">
+        <p>
+          In de scheikunde kijken we naar chemische reacties.
+          We spreken van een chemische reactie wanneer de beginstof verdwijnt en er een reactieproduct ontstaat.
+          Beginstof(fen) zijn de moleculen die je aan het begin van de reactie hebt. Het reactieproduct is het molecuul dat is gevormd na de reactie.
+        </p>
+        <p>
+          Een chemische reactie kan je op verschillende manieren weergeven.
+          Dit kun je doen door een reactieschema te gebruiken of een reactievergelijking. Bij een reactieschema schrijf je de naam van de moleculen voluit.
+          Bij een reactievergelijking gebruik je de molecuulformule (de symbolen van de elementen).<br>
+          Voorbeeld reactieschema:<br>
+          Water → waterstof + zuurstof<br>
+          Voorbeeld reactievergelijking:<br>
+          2 H2O(l)  → 2 H2(g) + O2(g)
+        </p>
+
+        <mat-card class="applet">
+          <iframe src="https://phet.colorado.edu/sims/html/balancing-chemical-equations/latest/balancing-chemical-equations_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('behoudmassa')">Wet van behoud van massa
+        <mat-icon *ngIf="getShowSubject('behoudmassa')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('behoudmassa')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('behoudmassa')">
+        <p>
+          In 1793 was de Franse scheikundige Antione Lavoisier bezig met allerlei stoffen te verbranden.
+          Hij bepaalde voor en na de reactie de massa’s van de stoffen. Lavoisier kwam op het idee om de gassen mee te wegen want die hebben ook een massa.
+          Hierin zag hij dat de totale massa voor en na de reactie gelijk was. Zo kwam hij op de Wet van behoud van massa.
+        </p>
+        <p>
+          Als je de Wet van behoud van massa zie je ook terug in reactievergelijkingen, dit noemen we ook wel atoom-behoud.
+          Atoom-behoud wil niks anders zeggen dat het totaal aantal atomen (van een soort) voor de reactie gelijk moet zijn aan het totaal aantal atomen (van hetzelfde soort) na de reactie.
+        </p>
+        <p>
+          Voor het opstellen van de kloppende reactievergelijking volg je een stappenplan.<br>
+          Stap 1: Stel eerst het reactieschema op.<br>
+          Stap 2: Vervang nu elke stofnaam door de bijbehorende formule.<br>
+          Stap 3: Stel de kloppende reactievergelijking op. Dit door een coëfficiënt voor het molecuul te zetten.
+          Het coëfficiënt geeft aan hoe vaak het molecuul aanwezig is in de reactie.
+          Wanneer er geen coëfficiënt wordt aangegeven is het molecuul één keer aanwezig.<br>
+          Stap 4: Controleer of de reactievergelijking klopt. Controleer per atoomsoort hoeveel je er voor en na de reactie hebt.
+        </p>
+        <p>
+          <i>
+            Onder extreme omstandigheden is het mogelijk om stikstof te verbranden.
+            Hierbij ontstaat stikstofmono-oxide. Stel de kloppende reactievergelijking op.<br>
+            Stap 1: Stikstof + zuurstof → Stikstofmono-oxide.<br>
+            Stap 2: Stap 2: N2(g) + O2(g) → NO(g).<br>
+          </i>
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/vergelijking_stikstofmonoxide.png">
+        <p>
+          <i>
+            Stap 3: De aantallen atomen kloppen nog niet. Voor de pijl zijn er twee stikstof en twee zuurstofatomen.
+            Na de pijl is er één zuurstof en één stikstofatoom. Dit los je op door een 2 voor het stikstofmono-oxide molecuul te zetten.
+            Dit geeft aan dat er twee stikstofmono-oxide moleculen aanwezig zijn.<br>
+            N2(g) + O2(g) → 2 NO(g)
+          </i>
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/vergelijking_stikstofmonoxide_kloppend.png">
+        <p>
+          <i>
+            Stap 4: Nu is er voor en na de reactie twee stikstof en twee zuurstof atomen aanwezig.
+          </i>
+
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('endoexotherm')">Endotherm en Exotherm
+        <mat-icon *ngIf="getShowSubject('endoexotherm')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('endoexotherm')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('endoexotherm')">
+        <p>
+          In de scheikunde onderscheiden we reacties door te kijken of je constant energie aan de reactie moet toevoegen (endotherm) of dat er energie vrijkomt (exotherm).
+          Bij een endotherme reactie moet je energie blijven toevoegen anders stopt de reactie.
+          Voorbeelden van endotherme reacties zijn ontledingsreacties, ontledingsreacties zijn bijna altijd endotherm.
+          Je hebt drie soorten ontledingsreacties:
+        </p>
+        <p>
+          <b>Thermolyse</b>: Bij thermolyse ben je aan het ontleden door verhitting.
+          Een voorbeeld is wanneer voedsel te sterk verhit wordt.
+          Door de hitte worden koolstof bevattende stoffen in bijvoorbeeld brood ontleed en wordt er een vaste zwarte stof (koolstof) zichtbaar.
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/verbrande_tosti.jpg.png">
+        <p>
+          <b>Fotolyse</b>: Bij fotolyse ben je aan het ontleden door licht.
+          Een voorbeeld is bij planten die door middel van fotolyse koolstofdioxide en water omzetten in glucose en zuurstof.
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/fotolyse.png">
+        <p>
+          <b>Elektrolyse</b>: Bij elektrolyse ben je aan het ontleden door middel van elektrische stroom.
+          Een voorbeeld is bij elektrolyse-installatie van een zwembad.
+          De elektrolyse-installatie van het zwembad produceert chloor door opgelost natriumchloride (keukenzout) te elektrolyseren.
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/elektrolyse.png">
+        <p>
+          Als je gaat kijken naar exotherme reacties krijg je al gauw te maken met verbrandingsreacties.
+          Bij verbrandingsreacties wordt er een brandstof samen met zuurstof door middel van een beetje energie (activeringsenergie) op gang gebracht.
+          Wanneer de reactie eenmaal op gang gekomen is gaat deze vanzelf verder.
+          In het algemeen geldt dat bij een verbranding van een verbinding de oxiden ontstaan van de atoomsoorten die in verbinding staan (zie de tabel hieronder).
+        </p>
+        <table>
+          <tr>
+            <th>Atoomsoort in de brandstof</th>
+            <th>Formule verbrandingsproduct</th>
+            <th>Naam verbrandingsproduct</th>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>CO2</td>
+            <td>Koolstofdioxide</td>
+          </tr>
+          <tr>
+            <td>H</td>
+            <td>CO2</td>
+            <td>Koolstofdioxide</td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>H2O</td>
+            <td>Water</td>
+          </tr>
+          <tr>
+            <td>Mg</td>
+            <td>MgO</td>
+            <td>Magnesiumoxide</td>
+          </tr>
+        </table>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('reactiesnelheid')">Reactiesnelheid
+        <mat-icon *ngIf="getShowSubject('reactiesnelheid')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('reactiesnelheid')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('reactiesnelheid')">
+        <p>
+          De snelheid waarmee stoffen met elkaar reageren, noem je de reactiesnelheid.
+          De reactiesnelheid wordt door vijf verschillende factoren bepaald.
+          Dit zijn de volgende factoren:
+        </p>
+        <p>
+          <b>Soort stof</b>: Het ligt voor de hand dat de soort stof een rol speelt.
+          Elke stof heeft andere stofeigenschappen.
+          Zo roest ijzer sneller dan staal en gaat de verbranding van benzine sneller dan die van kaarsvet.
+        </p>
+        <p>
+          <b>Verdelingsgraad</b>: Wanneer de stof een grotere oppervlakte heeft zijn er meer punten om te reageren dan een kleiner oppervlak.
+          us hoe fijner de stof hoe beter de stof reageert.
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/reactiesnelheid_oppervlakten.png">
+        <p>
+          <b>Concentratie</b>: De concentratie of sterkte van een oplossing geeft aan hoeveel stof er is opgelost per hoeveelheid oplossing (of oplosmiddel).
+          In de afbeelding hieronder zie je steeds een concentratie stof die per maatcilinder afneemt.
+        </p>
+        <img src="../../assets/img/scheikunde/reactievergelijkingen/reactiesnelheid_concentratie.png">
+        <p>
+          <b>Temperatuur</b>: De temperatuur geeft energie aan de reactie. Hoe hoger de temperatuur hoe meer energie in de reactie gestoken wordt.
+        </p>
+        <p>
+          <b>Katalysator</b>: Een katalysator is een hulpstof die de reactie laat plaatsvinden wanneer dit niet gebeurd of de katalysator laat de reactie sneller verlopen.
+          Een voordeel van een katalysator is dat die helpt de reactie te versnellen maar zelf niet verbruikt wordt. Een voorbeeld van een katalysator zijn enzymen.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('deeltjesmodel')">Botsende deeltjesmodel
+        <mat-icon *ngIf="getShowSubject('deeltjesmodel')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('deeltjesmodel')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('deeltjesmodel')">
+        <p>
+          Je kunt verschillen in reactiesnelheid verklaren door middel van het botsende-deeltjesmodel.
+          Hierbij kijk je naar de moleculen en atomen tijdens de reactie.
+          De moleculen/atomen worden beschreven als rondde deeltjes.
+        </p>
+        <p>
+          Tijdens een reactie treedt een hergroepering van atomen op. Dikwijls gaat aan zo’n hergroepering een botsing van twee of meer moleculen van de diverse uitgangsstoffen vooraf.
+          Lang niet alle botsingen tussen moleculen hebben echter een reactie tot gevolg. Dit is slechts bij een gedeelte van het totale aantal botsingen het geval.
+          Dan spreekt men van effectieve botsingen. Hoe groter het aantal botsingen per seconde, des te groter is ook het aantal effectieve botsingen en des te sneller verloopt dan de reactie.
+          Hieronder staat per factor beschreven hoe de snelheid veranderd met betrekking tot het botsende deeltjesmodel.
+        </p>
+        <p>
+          <b>Verdelingsgraad</b>: Hoe groter de verdelingsgraad, hoe fijner de vaste stof verdeeld is, hoe groter het contactoppervlak.
+          Hierdoor neemt het aantal botsingen toe dat er per seconden aan het oppervlak heeft kunnen plaatsvinden.
+        </p>
+        <p>
+          <b>Concentratie</b>: Een vergroting van de concentratie van de reagerende deeltjes zal het aantal botsingen per seconde toenemen.
+          Hoe meer deeltjes zich in een bepaalde volume bevinden, des te groter de kans is dat deze deeltjes met elkaar botsen.
+        </p>
+        <p>
+          <b>Temperatuur</b>: Bij temperatuurverhoging gaan de deeltjes sneller bewegen.
+          Doordat de deeltjes sneller bewegen is de kans dat ze elkaar ontmoeten groter.
+          Dus het aantal botsingen per seconde neemt toe.
+        </p>
+      </article>
+    </div>
+  </mat-card>
+
+  <div class="side_cards">
+    <mat-card class="youtube_clip">
+      <iframe src="https://www.youtube.com/embed/DCdk4Sh9JbM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </mat-card>
+    <mat-card class="applet">
+      <iframe src="https://h5p.org/h5p/embed/169074" width="1090" height="805" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
+    </mat-card>
+  </div>
+</div>

@@ -7,33 +7,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectScheikundeKoolstofchemieComponent implements OnInit {
 
-  /*availableSubjects = [
-    {name: 'introductie', show: true},
-    {name: "fotosynthese", show: false},
-    {name: "aardolieraffinaderij", show: false},
-    {name: "opbouw_moleculen", show: false},
-    {name: "naamgeving_koolwaterstoffen", show: false},
-    {name: "benoeming_halogeenalkanen", show: false},
-    {name: "kunststoffen", show: false},
-    {name: "thermoharders_thermoplasten", show: false},
-    {name: 'monomeer_polymeer', show: false}
-  ];*/
+  subjects = [
+    {subject: 'introductie', show: true},
+    {subject: 'fossielebrandstoffen', show: false},
+    {subject: 'fotosynthese', show: false},
+    {subject: 'aardolieraffinaderij', show: false},
+    {subject: 'opbouw_moleculen', show: false},
+    {subject: 'naamgeving_koolwaterstoffen', show: false},
+    {subject: 'halogeenalkanen', show: false},
+    {subject: 'kunststoffen', show: false},
+    {subject: 'thermohardersplasten', show: false},
+    {subject: 'monopolymeer', show: false},
+    {subject: 'practica', show: false, showAnswers: false}
+  ];
 
   constructor() { }
+
+  handleViewSubject(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        this.subjects[index].show = !this.subjects[index].show;
+      }
+    }
+  }
+
+  getShowSubject(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        return this.subjects[index].show;
+      }
+    }
+  }
 
   ngOnInit() {
   }
 
-  showSubject(subjectToShow){
-    /*for(let subject = 0; subject < this.availableSubjects.length; subject++){
-      console.log('Called' + subjectToShow);
-      //this.availableSubjects[subject].show = this.availableSubjects[subject].name === subjectToShow;
-      return true;
-    }*/
-  }
 
-  handleScroll(elementToScrollTo){
-    window.scrollTo(0, elementToScrollTo.offsetTop);
-  }
 
 }

@@ -1,121 +1,245 @@
 <div class="main_content">
   <mat-card class="main_card">
-    <h1>Scheidingsmethodes</h1>
-    <p>Introductie over scheidingsmethodes...</p>
+    <div>
+      <h1 (click)="handleViewSubject('introductie')">Scheidingsmethodes
+        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
+      </h1>
+      <article *ngIf="getShowSubject('introductie')">
+        <p>Introductie over scheidingsmethodes...</p>
+      </article>
+    </div>
 
-    <h2 #zuivere_stof_mengsel>Zuivere stof/mengsel</h2>
-    <p>
-      In de scheikunde heb je te maken met zuivere stoffen en met mengsels. Een <b>zuivere stof</b> is een stof die bestaat uit 1 soort moleculen. Een voorbeeld van een zuivere stof is bijvoorbeeld goud. De meeste stoffen die je tegenkomt zijn geen zuivere stoffen. Dit zijn mengsels. Een <b>mengsel</b> is een stof die bestaat uit meerdere soorten moleculen. Een voorbeeld hiervan is bijvoorbeeld melk
-    </p>
+    <div>
+      <h2 (click)="handleViewSubject('zuiverestofmengsel')">Zuivere stof/mengsel
+        <mat-icon *ngIf="getShowSubject('zuiverestofmengsel')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('zuiverestofmengsel')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('zuiverestofmengsel')">
+        <p>
+          In de scheikunde heb je te maken met zuivere stoffen en met mengsels. Een <b>zuivere stof</b> is een stof die bestaat uit 1 soort moleculen.
+          Een voorbeeld van een zuivere stof is bijvoorbeeld goud.
+          De meeste stoffen die je tegenkomt zijn geen zuivere stoffen.
+          Dit zijn mengsels.
+          Een <b>mengsel</b> is een stof die bestaat uit meerdere soorten moleculen.
+          Een voorbeeld hiervan is bijvoorbeeld melk
+        </p>
 
-    <h2 #soorten_mengsels>Soorten mengels</h2>
-    <p>
-      Naast het verschil tussen zuivere stoffen en mengsels zijn er weer verschillende mengsels te onderscheiden. De verschillende soorten mengsels zijn hieronder weergegeven:
-    </p>
-    <table>
-      <tr>
-        <th>Soorten mengsel</th>
-        <th>Uitleg</th>
-      </tr>
-      <tr>
-        <td>Oplossing</td>
-        <td>Een helder mengsel van een stof (kan zowel vaste stof, vloeistof als gas zijn) in een vloeistof (het oplosmiddel). Het is een mengsel waarin de opgeloste stof is opgedeeld in losse moleculen die gelijkmatig verdeeld zijn. Een oplossing kan best gekleurd zijn.</td>
-      </tr>
-      <tr>
-        <td>Suspensie</td>
-        <td>Een vaste stof die niet oplost in een vloeistof. Bijvoorbeeld modder, verf, krijtpoeder in water. Een suspensie is altijd troebel en zal na enige tijd ontmengen (de vaste stof zakt naar de bodem).</td>
-      </tr>
-      <tr>
-        <td>Emulsie</td>
-        <td>Vloeistof die niet oplost in een andere vloeistof. Er zweven dus als het ware druppeltjes van de ene vloeistof in de andere. Door een emulgator toe te voegen blijven de stoffen wel gemengd. Voorbeelden van emulsies die door een emulgator gemengd blijven zijn: boter, melk en crème.</td>
-      </tr>
-      <tr>
-        <td>Schuim</td>
-        <td>Een gas dat niet oplost in een vloeistof. Zoals de schuimkraag op een pilsje, dit is koolstofdioxide in bier.</td>
-      </tr>
-      <tr>
-        <td>Rook</td>
-        <td>Kleine deeltjes vaste stof die niet oplossen in een gas</td>
-      </tr>
-      <tr>
-        <td>Nevel</td>
-        <td>Kleine druppels vloeistof die niet oplossen in een gas</td>
-      </tr>
-    </table>
+        <mat-card class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/72iZMlWAhc8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </mat-card>
 
-    <h2 #soorten_oplossingen>Soorten oplossingen</h2>
-    <p>
-      Een oplossing is zoals hierboven al is uitgelegd een stof waarbij twee stoffen zijn gemengd en waar de moleculen gelijkmatig over het geheel verdeeld zijn. Als we kijken naar een oplossing zijn er ook verschillende soorten oplossingen: <br>
-      <br>
-      <b>Onverzadigde oplossing: </b> Er kan nog meer stof oplossen<br>
-      <b>Verzadigde oplossing: </b> De maximale hoeveelheid stof is opgelost<br>
-      <b>Onverzadigde oplossing: </b> Niet alle stof is opgelost, want er is te veel<br>
-    </p>
-    <p>
-      Naast de verschillende soorten oplossingen kunnen we ook spreken over de <b>oplosbaarheid</b> van stoffen. De oplosbaarheid is e hoeveelheid stof die op kan lossen in een bepaalde hoeveelheid oplosmiddel:<br>
-      - Bij een oplossing van een <b>vaste stof</b> in een vloeistof geldt dat de <u>oplosbaarheid toeneemt</u> als de temperatuur toeneemt.<br>
-      - Bij een oplossing van een <b>gas</b> in een vloeistof geldt dat de <u>oplosbaarheid afneemt</u> als de <u>temperatuur toeneemt</u>.
-    </p>
+        <mat-card class="subject_questions">
+          <p>
+            1. Is wijn een zuivere stof of een mengsel?<br>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, wijn is namelijk een mengsel van alcohol, druivensap, suikers, water en nog wat andere bestandsdelen.</span>
+          </p>
+          <p>
+            2. Is melk een zuivere stof of een mengsel?<br>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, er zit namelijk vet, calcium en water in.</span>
+          </p>
+          <p>
+            3. Is koffie een zuivere stof of een mengsel?<br>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, het is namelijk een mengsel van koffiebonen en water.</span>
+          </p>
+          <p>
+            4. Is poedersuiker een zuivere stof of een mengsel?<br>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een zuivere stof, het bestaat uit enkel en alleen glucose.</span>
+          </p>
+          <p>
+            5. Is piepschuim een zuivere stof of een mengsel?<br>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een mengsel, het is een mengsel van een gas en een vaste stof.</span>
+          </p>
+          <p>
+            6. Is een mengsel van poedersuiker en korrelsuiker een zuivere stof of een mengsel?<br>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')">Een zuivere stof, het zijn namelijk allebei gewoon glucosemoleculen. Alleen de ene is gemalen suikerkorrels en de andere gewoon korrels.</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('zuiverestofmengsel')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+    </div>
 
-    <h2 #oplossingen_scheiden>Oplossingen scheiden</h2>
-    <p>
-      Men wilt oplossingen in sommige gevallen scheiden. Dit scheiden kan op verschillende manieren. Deze manieren noemen we <b>scheidingsmethoden</b>:
-    </p>
-    <table>
-      <tr>
-        <th>Scheidingsmethode</th>
-        <th>Uitleg</th>
-        <th>Voorbeeld opstelling</th>
-      </tr>
-      <tr>
-        <td>Filtreren</td>
-        <td>Deze methode wordt gebruikt als je te maken hebt met een suspensies. Deze methode werkt met het verschil in deeltjesgrootte. De kleine deeltjes zullen door het filter heen gaan en de grotere deeltjes zullen in het filter blijven hangen. Het deel dat door de filter heengaat heet het <b>filtraat</b> en het deel dat in het filter blijft liggen heet het <b>residu.</b></td>
-        <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/filtreren_voorbeeld.jpg"></td>
-      </tr>
-      <tr>
-        <td>Indampen</td>
-        <td>Deze methode wordt gebruikt bij een oplossing. Hierbij worden mengsels gescheiden waarbij een vaste stof is opgelost in een vloeistof. Hierbij maakt men gebruik van het kookpunt van de verschillende stoffen. Het kookpunt van de ene stof ligt dan lager dan die van een andere stof. Als het kookpunt van de eerste stof wordt bereikt (van de vloeistof) zal deze stof gaan koken en langzaam overgaan in de gasfase. Na enige tijd blijft alleen de vaste stof over.</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Extraheren</td>
-        <td>Deze methode wordt gebruikt bij bijvoorbeeld thee en koffie zetten. Deze methode werkt met de oplosbaarheid. Als van een mengsel één stof wel oplost en de andere niet. Extraheren wordt vaak gebruikt in combinatie met filtreren. Bij het extraheren worden de geur- kleur en smaakstoffen uit bijvoorbeeld koffiepoeder of theeblaadjes gehaald.</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Adsorberen</td>
-        <td>Bij deze methode wil je de opgeloste stof uit een mengsel halen. Deze methode werkt door het verschil in hechtvermogen aan een <b>adsorptiemiddel</b>. Het adsorptiemiddel is een stof die je toevoegt om de opgeloste stof uit het mengsel te halen. Het hechten van de stof vindt plaats aan de oppervlakte. Adsorptiemiddelen hebben dan ook altijd een groot oppervlak om ervoor te zorgen dat alle opgeloste stof zich kan hechten.</td>
-        <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/adsorberen_voorbeeld.jpg"></td>
-      </tr>
-      <tr>
-        <td>Destilleren</td>
-        <td>Deze methode pas je toe als je een oplossing van twee vloeistoffen wilt scheiden. Deze methode werkt ook met het verschil in kookpunt. Net als bij indampen zal een van de stoffen veranderen in een gas. Het verschil is hier alleen dat je beide vloeistoffen wilt overhouden. Het gas zal opstijgen en door de opstelling heen verplaatsen. Bij de koeler wordt deze damp afgekoeld waardoor de damp condenseert (weer vloeibaar wordt). Deze gecondenseerde damp heet het <b>destillaat</b>. De overgebleven vloeistof heet het <b>residu</b>.</td>
-        <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/destilleren_voorbeeld.jpg"></td>
-      </tr>
-      <tr>
-        <td>Bezinken</td>
-        <td>Deze methode wordt meestal gebruikt om een suspensie te scheiden. Deze methode kan ook gebruikt worden om mengsels te scheiden die niet in elkaar oplossen. Deze methode werkt met de dichtheid van een stof. De stof met de grootste dichtheid zal na verloop van tijd naar beneden zakken. Na het bezinken kun je <b>decanteren</b>. Dit is het afgieten van het mengsel.</td>
-        <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/bezinken_voorbeeld.jpg"></td>
-      </tr>
-    </table>
+    <div>
+      <h2 (click)="handleViewSubject('soortenmengsels')">Soorten mengsels
+        <mat-icon *ngIf="getShowSubject('soortenmengsels')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('soortenmengsels')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('soortenmengsels')">
+        <p>
+          Naast het verschil tussen zuivere stoffen en mengsels zijn er weer verschillende mengsels te onderscheiden. De verschillende soorten mengsels zijn hieronder weergegeven:
+        </p>
+        <table>
+          <tr>
+            <th>Soorten mengsel</th>
+            <th>Uitleg</th>
+          </tr>
+          <tr>
+            <td>Oplossing</td>
+            <td>Een helder mengsel van een stof (kan zowel vaste stof, vloeistof als gas zijn) in een vloeistof (het oplosmiddel).
+              Het is een mengsel waarin de opgeloste stof is opgedeeld in losse moleculen die gelijkmatig verdeeld zijn.
+              Een oplossing kan best gekleurd zijn.</td>
+          </tr>
+          <tr>
+            <td>Suspensie</td>
+            <td>Een vaste stof die niet oplost in een vloeistof. Bijvoorbeeld modder, verf, krijtpoeder in water.
+              Een suspensie is altijd troebel en zal na enige tijd ontmengen (de vaste stof zakt naar de bodem).</td>
+          </tr>
+          <tr>
+            <td>Emulsie</td>
+            <td>Vloeistof die niet oplost in een andere vloeistof.
+              Er zweven dus als het ware druppeltjes van de ene vloeistof in de andere.
+              Door een emulgator toe te voegen blijven de stoffen wel gemengd.
+              Voorbeelden van emulsies die door een emulgator gemengd blijven zijn: boter, melk en crème.</td>
+          </tr>
+          <tr>
+            <td>Schuim</td>
+            <td>Een gas dat niet oplost in een vloeistof.
+              Zoals de schuimkraag op een pilsje, dit is koolstofdioxide in bier.</td>
+          </tr>
+          <tr>
+            <td>Rook</td>
+            <td>Kleine deeltjes vaste stof die niet oplossen in een gas</td>
+          </tr>
+          <tr>
+            <td>Nevel</td>
+            <td>Kleine druppels vloeistof die niet oplossen in een gas</td>
+          </tr>
+        </table>
+
+        <mat-card class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ydbMQiMXPoY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </mat-card>
+
+        <mat-card class="subject_questions">
+          <h3>Vragen</h3>
+          <p>
+            1. Leg uit of je suiker van water kunt scheiden door filtratie.<br>
+            <span *ngIf="getShowAnswers('soortenmengsels')">Nee, suiker lost op in het water en kun je dus niet vast in handen krijgen als je het gaat filtreren.</span>
+          </p>
+          <p>
+            2. Is zeewater een oplossing of een suspensie?<br>
+            <span *ngIf="getShowAnswers('soortenmengsels')">Een suspensie, in zeewater zitten vaak diertjes, zand, zeewier, enz.</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('soortenmengsels')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+
+
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('soortenoplossingen')">Soorten oplossingen
+        <mat-icon *ngIf="getShowSubject('soortenoplossingen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('soortenoplossingen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('soortenoplossingen')">
+        <p>
+          Een oplossing is zoals hierboven al is uitgelegd een stof waarbij twee stoffen zijn gemengd en waar de moleculen gelijkmatig over het geheel verdeeld zijn. Als we kijken naar een oplossing zijn er ook verschillende soorten oplossingen: <br>
+          <br>
+          <b>Onverzadigde oplossing: </b> Er kan nog meer stof oplossen<br>
+          <b>Verzadigde oplossing: </b> De maximale hoeveelheid stof is opgelost<br>
+          <b>Onverzadigde oplossing: </b> Niet alle stof is opgelost, want er is te veel<br>
+        </p>
+        <p>
+          Naast de verschillende soorten oplossingen kunnen we ook spreken over de <b>oplosbaarheid</b> van stoffen. De oplosbaarheid is e hoeveelheid stof die op kan lossen in een bepaalde hoeveelheid oplosmiddel:<br>
+          - Bij een oplossing van een <b>vaste stof</b> in een vloeistof geldt dat de <u>oplosbaarheid toeneemt</u> als de temperatuur toeneemt.<br>
+          - Bij een oplossing van een <b>gas</b> in een vloeistof geldt dat de <u>oplosbaarheid afneemt</u> als de <u>temperatuur toeneemt</u>.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('oplossingenscheiden')">Oplossingen scheiden
+        <mat-icon *ngIf="getShowSubject('oplossingenscheiden')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('oplossingenscheiden')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('oplossingenscheiden')">
+        <p>
+          Men wilt oplossingen in sommige gevallen scheiden. Dit scheiden kan op verschillende manieren. Deze manieren noemen we <b>scheidingsmethoden</b>:
+        </p>
+        <table>
+          <tr>
+            <th>Scheidingsmethode</th>
+            <th>Uitleg</th>
+            <th>Voorbeeld opstelling</th>
+          </tr>
+          <tr>
+            <td>Filtreren</td>
+            <td>Deze methode wordt gebruikt als je te maken hebt met een suspensies. Deze methode werkt met het verschil in deeltjesgrootte. De kleine deeltjes zullen door het filter heen gaan en de grotere deeltjes zullen in het filter blijven hangen. Het deel dat door de filter heengaat heet het <b>filtraat</b> en het deel dat in het filter blijft liggen heet het <b>residu.</b></td>
+            <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/filtreren_voorbeeld.jpg"></td>
+          </tr>
+          <tr>
+            <td>Indampen</td>
+            <td>Deze methode wordt gebruikt bij een oplossing. Hierbij worden mengsels gescheiden waarbij een vaste stof is opgelost in een vloeistof. Hierbij maakt men gebruik van het kookpunt van de verschillende stoffen. Het kookpunt van de ene stof ligt dan lager dan die van een andere stof. Als het kookpunt van de eerste stof wordt bereikt (van de vloeistof) zal deze stof gaan koken en langzaam overgaan in de gasfase. Na enige tijd blijft alleen de vaste stof over.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Extraheren</td>
+            <td>Deze methode wordt gebruikt bij bijvoorbeeld thee en koffie zetten. Deze methode werkt met de oplosbaarheid. Als van een mengsel één stof wel oplost en de andere niet. Extraheren wordt vaak gebruikt in combinatie met filtreren. Bij het extraheren worden de geur- kleur en smaakstoffen uit bijvoorbeeld koffiepoeder of theeblaadjes gehaald.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Adsorberen</td>
+            <td>Bij deze methode wil je de opgeloste stof uit een mengsel halen. Deze methode werkt door het verschil in hechtvermogen aan een <b>adsorptiemiddel</b>. Het adsorptiemiddel is een stof die je toevoegt om de opgeloste stof uit het mengsel te halen. Het hechten van de stof vindt plaats aan de oppervlakte. Adsorptiemiddelen hebben dan ook altijd een groot oppervlak om ervoor te zorgen dat alle opgeloste stof zich kan hechten.</td>
+            <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/adsorberen_voorbeeld.jpg"></td>
+          </tr>
+          <tr>
+            <td>Destilleren</td>
+            <td>Deze methode pas je toe als je een oplossing van twee vloeistoffen wilt scheiden. Deze methode werkt ook met het verschil in kookpunt. Net als bij indampen zal een van de stoffen veranderen in een gas. Het verschil is hier alleen dat je beide vloeistoffen wilt overhouden. Het gas zal opstijgen en door de opstelling heen verplaatsen. Bij de koeler wordt deze damp afgekoeld waardoor de damp condenseert (weer vloeibaar wordt). Deze gecondenseerde damp heet het <b>destillaat</b>. De overgebleven vloeistof heet het <b>residu</b>.</td>
+            <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/destilleren_voorbeeld.jpg"></td>
+          </tr>
+          <tr>
+            <td>Bezinken</td>
+            <td>Deze methode wordt meestal gebruikt om een suspensie te scheiden. Deze methode kan ook gebruikt worden om mengsels te scheiden die niet in elkaar oplossen. Deze methode werkt met de dichtheid van een stof. De stof met de grootste dichtheid zal na verloop van tijd naar beneden zakken. Na het bezinken kun je <b>decanteren</b>. Dit is het afgieten van het mengsel.</td>
+            <td class="imgTableData"><img src="../../assets/img/scheikunde/scheidingsmethodes/bezinken_voorbeeld.jpg"></td>
+          </tr>
+        </table>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Op basis van welke stofeigenschap scheid je de stoffen bij filtreren? En wat is het verschil tussen zeven en filtreren?<br>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')">Deeltjesgrootte; een filter is veel fijner (kleinere poriën/gaatjes) dan een zeef, dus je kan hele kleine deeltjes uit een oplossing halen.</span>
+          </p>
+          <p>
+            2. In een bekerglas met een flinke hoeveelheid water doet men een beetje zout, krijt en zand. Het krijt en het zand lossen niet op in water, in tegenstelling tot het zout. Het geheel wordt goed geroerd en gefiltreerd. Waaruit bestaat het filtraat en waaruit bestaat het residu?<br>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')">
+            Filtraat: een zoutoplossing<br>
+            Residu: krijt en zand</span>
+          </p>
+          <p>
+            3. Wat is het verschil tussen indampen en destilleren?<br>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')">Bij indampen houd je één stof over en verdampt er één stof die uiteindelijk opgaat in de ruimte. Bij destilleren scheid je een mengsel waarbij je twee zuivere stoffen kunt overhouden.</span>
+          </p>
+          <p>
+            4. Een mengsel van chloroform en aceton wordt langzaam gedestilleerd. Het kookpunt van deze stoffen is achtereenvolgens 62 0C en 56 0C. Uit welke stof zal het residu vooral bestaan en uit welke stof het destillaat?<br>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')">Het residu bestaat uit chloroform en het destillaat uit aceton.</span>
+          </p>
+          <p>
+            5. In rode rozen zit de kleurstof anthocyanidine, dit zorgt voor de rode kleur van de bloemen. Deze kleurstof lost goed op in spiritus. Stel een werkplan op om het anthocyanidine uit de rode rozen te halen (tip: maak geen gebruik van adsorptie). In het werkplan vermeld je welke scheidingsmethoden je gebruikt en leg je bij elke scheiding uit wat er gebeurt.<br>
+            <span *ngIf="getShowAnswers('oplossingenscheiden')">
+            Extraheren à in een bekerglas met spiritus voeg je blaadjes van de rode rozen toe.<br>
+            Filtreren à De blaadjes blijven achter in je filter. Dit heet het residu. Je filtraat bestaat uit een mengsel van spiritus en de kleurstof anthocyanidine.Wil je het in vaste vorm?<br>
+            Indampen à spiritus verdampt en je kleurstof blijft over.</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('oplossingenscheiden')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('practica')">Practica
+        <mat-icon *ngIf="getShowSubject('practica')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('practica')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('practica')">
+        <app-experiment-scheikunde-scheidingsmethodes></app-experiment-scheikunde-scheidingsmethodes>
+      </article>
+    </div>
   </mat-card>
 
   <div class="side_cards">
-    <mat-card class="navigator">
-      <h2>Inhoud</h2>
-      <button mat-button (click)="handleScroll(zuivere_stof_mengsel)">Zuivere stof/mengsel</button>
-      <button mat-button (click)="handleScroll(soorten_mengsels)">Soorten mengsels</button>
-      <button mat-button (click)="handleScroll(soorten_oplossingen)">Soorten oplossingen</button>
-      <button mat-button (click)="handleScroll(oplossingen_scheiden)">Oplossingen scheiden</button>
-    </mat-card>
     <mat-card class="youtube_clip">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/8icg86XTyOQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    </mat-card>
-    <mat-card class="youtube_clip">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ydbMQiMXPoY" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    </mat-card>
-    <mat-card class="youtube_clip">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/72iZMlWAhc8" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </mat-card>
   </div>
 </div>

@@ -1,16 +1,14 @@
 <div class="container">
   <mat-sidenav-container>
-    <mat-sidenav opened mode="side" position="start">
+    <mat-sidenav opened="true" mode="side" position="start">
       <div class="side_nav">
         <span class="side_nav_title">Scheikunde</span>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['faseovergangen']}}">Faseovergangen</button>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['scheidingsmethodes']}}" routerLinkActive="active">Scheidingsmethodes</button>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['koolstofchemie']}}">Koolstofchemie</button>
-        <span class="side_nav_divider">Practica</span>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_dichtheid']}}">Dichtheid</button>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_faseovergangen']}}">Faseovergangen</button>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_koolstofchemie']}}">Koolstofchemie</button>
-        <button mat-button [routerLink]="{outlets: {scheikunde_outlet: ['practicum_scheidingsmethodes']}}">Scheidingsmethodes</button>
+        <button id="button0" mat-button (click)="changeStyle(0)" [routerLink]="{outlets: {scheikunde_outlet: ['home']}}">Home</button>
+        <button id="button1" mat-button (click)="changeStyle(1)" [routerLink]="{outlets: {scheikunde_outlet: ['dichtheid']}}">Dichtheid</button>
+        <button id="button2" mat-button (click)="changeStyle(2)" [routerLink]="{outlets: {scheikunde_outlet: ['faseovergangen']}}">Faseovergangen</button>
+        <button id="button3" mat-button (click)="changeStyle(3)" [routerLink]="{outlets: {scheikunde_outlet: ['koolstofchemie']}}">Koolstofchemie</button>
+        <button id="button4" mat-button (click)="changeStyle(4)" [routerLink]="{outlets: {scheikunde_outlet: ['reactievergelijkingen']}}">Reactievergelijkingen</button>
+        <button id="button5" mat-button (click)="changeStyle(5)" [routerLink]="{outlets: {scheikunde_outlet: ['scheidingsmethodes']}}">Scheidingsmethodes</button>
       </div>
     </mat-sidenav>
     <mat-sidenav-content>

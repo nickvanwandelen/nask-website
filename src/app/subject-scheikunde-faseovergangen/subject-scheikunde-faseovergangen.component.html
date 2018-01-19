@@ -1,45 +1,73 @@
 <div class="main_content">
   <mat-card class="main_card">
-    <h1>Faseovergangen</h1>
-    <p>Introductie over faseovergangen...</p>
 
-    <h2 #fasen>Fasen</h2>
-    <p>
-      Water komt in de natuur voor als:<br>
-      - Vaste stof: ijs.<br>
-      - Vloeibaar: water.<br>
-      - Gas: waterdamp.<br>
-    </p>
-    <p>
-      De drie toestanden waarin je water (en andere stoffen) kunt tegenkomen, noem je fasen.
-      Soms wordt de naam ‘waterdamp’ gebruikt voor een nevel die uit fijne druppeltjes bestaat, maar dat klopt niet.
-      Waterdamp bestaat niet uit fijne waterdruppeltjes die je kunt zien, het is een onzichtbaar gas.
-    </p>
+    <div>
+      <h1 (click)="handleViewSubject('introductie')">Faseovergangen
+        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
+      </h1>
+      <article *ngIf="getShowSubject('introductie')">
+        <p>Introductie over faseovergangen...</p>
+      </article>
+    </div>
 
-    <h2 #fase_overgangen>Fase-overgangen</h2>
-    <p>
-      Als ijs smelt, zie je water van fase veranderen: van vast wordt het vloeibaar. Daarom noem je smelten een fase-overgang.
-      De volgende driehoek is belangrijk om te kennen. De g staat voor gas, de l staat voor liquid (vloeibaar) en de s staat voor solid (vast).
-    </p>
-    <img src="../../assets/img/scheikunde/faseovergangen/faseovergangen.png">
-    <p>
-      Bij de meeste fase-overgangen kun je wel een voorstelling bij maken, maar sommige zijn iets lastiger voor je te zien:<br>
-      - Smelten: ijs wordt water.<br>
-      - Verdampen: water wordt waterdamp (denk maar aan het koken van water).<br>
-      - Condenseren: waterdamp wordt water. Als je tegen een koude ruit aan blaast, zie je waterdruppeltjes ontstaan op het glas.<br>
-      - Stollen: bijvoorbeeld gesmolten kaarsvet wordt vast.<br>
-      - Rijpen: kleine ijskristallen aan een boom.<br>
-      - Sublimeren: bij sneeuw, als daar een zonnestraal opstaat, kan het zo zijn dat het sneeuw deeltje direct ‘vervluchtigd’.
-      Dat wil zeggen dat het direct een gas wordt. De vloeibare fase wordt dus overgeslagen.
-    </p>
+
+    <div>
+      <h2 (click)="handleViewSubject('fasen')">Fasen
+        <mat-icon *ngIf="getShowSubject('fasen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('fasen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('fasen')">
+        <p>
+          Water komt in de natuur voor als:<br>
+          - Vaste stof: ijs.<br>
+          - Vloeibaar: water.<br>
+          - Gas: waterdamp.<br>
+        </p>
+        <p>
+          De drie toestanden waarin je water (en andere stoffen) kunt tegenkomen, noem je fasen.
+          Soms wordt de naam ‘waterdamp’ gebruikt voor een nevel die uit fijne druppeltjes bestaat, maar dat klopt niet.
+          Waterdamp bestaat niet uit fijne waterdruppeltjes die je kunt zien, het is een onzichtbaar gas.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('faseovergangen')">Fase-overgangen
+        <mat-icon *ngIf="getShowSubject('faseovergangen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('faseovergangen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('faseovergangen')">
+        <p>
+          Als ijs smelt, zie je water van fase veranderen: van vast wordt het vloeibaar. Daarom noem je smelten een fase-overgang.
+          De volgende driehoek is belangrijk om te kennen. De g staat voor gas, de l staat voor liquid (vloeibaar) en de s staat voor solid (vast).
+        </p>
+        <img src="../../assets/img/scheikunde/faseovergangen/faseovergangen.png">
+        <p>
+          Bij de meeste fase-overgangen kun je wel een voorstelling bij maken, maar sommige zijn iets lastiger voor je te zien:<br>
+          - Smelten: ijs wordt water.<br>
+          - Verdampen: water wordt waterdamp (denk maar aan het koken van water).<br>
+          - Condenseren: waterdamp wordt water. Als je tegen een koude ruit aan blaast, zie je waterdruppeltjes ontstaan op het glas.<br>
+          - Stollen: bijvoorbeeld gesmolten kaarsvet wordt vast.<br>
+          - Rijpen: kleine ijskristallen aan een boom.<br>
+          - Sublimeren: bij sneeuw, als daar een zonnestraal opstaat, kan het zo zijn dat het sneeuw deeltje direct ‘vervluchtigd’.
+          Dat wil zeggen dat het direct een gas wordt. De vloeibare fase wordt dus overgeslagen.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('practica')">Practica
+        <mat-icon *ngIf="getShowSubject('practica')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('practica')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('practica')">
+        <app-experiment-scheikunde-faseovergangen></app-experiment-scheikunde-faseovergangen>
+      </article>
+    </div>
   </mat-card>
 
   <div class="side_cards">
-    <mat-card class="navigator">
-      <h2>Inhoud</h2>
-      <button mat-button (click)="handleScroll(fasen)">Fasen</button>
-      <button mat-button (click)="handleScroll(fase_overgangen)">Fase-overgangen</button>
-    </mat-card>
     <mat-card class="youtube_clip">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/CIwAph93d3Y" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </mat-card>
