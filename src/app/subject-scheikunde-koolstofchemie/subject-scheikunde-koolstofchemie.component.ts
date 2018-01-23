@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SubjectScheikundeKoolstofchemieComponent implements OnInit {
 
   subjects = [
-    {subject: 'introductie', show: true, showAnswers: false},
-    {subject: 'fossielebrandstoffen', show: false, showAnswers: false},
+    {subject: 'fossielebrandstoffen', show: true, showAnswers: false},
     {subject: 'fotosynthese', show: false, showAnswers: false},
     {subject: 'aardolieraffinaderij', show: false, showAnswers: false},
     {subject: 'opbouw_moleculen', show: false, showAnswers: false},

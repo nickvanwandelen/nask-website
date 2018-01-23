@@ -1,15 +1,7 @@
-<div class="main_content">
-  <mat-card class="main_card">
+<div class="no_sidecard_main_content">
+  <mat-card>
     <div>
-      <h1 (click)="handleViewSubject('introductie')">Koolstofchemie
-        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
-        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
-      </h1>
-      <article *ngIf="getShowSubject('introductie')">
-        <p>
-          Introductie over koolstofchemie
-        </p>
-      </article>
+      <h1>Koolstofchemie</h1>
     </div>
 
       <div>
@@ -236,27 +228,27 @@
           Als een halogeenalkaan verschillende halogenen bevat, dan is de afspraak dat we deze in alfabetische volgorde voor de naam zetten. Hierbij negeren we de Griekse telwoorden.
           Dus het molecuul in voorbeeld 3 heet dibroomchloormethaan, omdat de b van broom voor de c van chloor komt.<br>
 
-          Voorbeeld 1:<br>
-          <img src=""><br>
+          Voorbeeld 1: chloormethaan<br>
+          <img src="../../assets/img/scheikunde/koolstofchemie/chloormethaan.png"><br>
 
-          Voorbeeld 2:<br>
-          <img src=""><br>
+          Voorbeeld 2: dichloormethaan<br>
+          <img src="../../assets/img/scheikunde/koolstofchemie/dichloormethaan.png"><br>
 
-          Voorbeeld 3:<br>
-          <img src=""><br>
+          Voorbeeld 3: dibroomchloormethaan<br>
+          <img src="../../assets/img/scheikunde/koolstofchemie/dibroomchloormethaan.png"><br>
         </p>
         <p>
           Als een halogeenalkaan uit meerdere C-atomen bestaat, dan moeten we ook aangeven aan welk koolstofatoom het halogeen is gebonden.
           Als een halogeen in het midden van een molecuul of aan het uiteinde zit, maakt namelijk al verschil voor de eigenschappen van dit molecuul.<br>
 
-          Voorbeeld 4:<br>
-          <img src=""><br>
+          Voorbeeld 4: 2-broompropaan<br>
+          <img src="../../assets/img/scheikunde/koolstofchemie/2-broompropaan.png"><br>
 
-          Voorbeeld 5:<br>
-          <img src=""><br>
+          Voorbeeld 5: 1-broompropaan<br>
+          <img src="../../assets/img/scheikunde/koolstofchemie/1-broompropaan.png"><br>
 
-          Voorbeeld 6:<br>
-          <img src=""><br>
+          Voorbeeld 6: 3-broom-1,3-difluorbutaan<br>
+          <img src="../../assets/img/scheikunde/koolstofchemie/3-broom-13-difluorbutaan.png"><br>
         </p>
         <p>
           Het molecuul in voorbeeld 4 heet 2-broompropaan en die in voorbeeld 5 heet 1-broompropaan. Om de plek van het Br-atoom aan te geven, nummeren we de koolstofatomen.
@@ -278,6 +270,37 @@
           Om de laagste nummering te bepalen vergelijk je bij beide het laagste nummer, dat is bij de ene een 2 en bij de andere een 1.
           Dus moet je hier vanaf rechts nummeren. Als het eerste getal hetzelfde is, dan ga je het tweede getal vergelijken, enz.
         </p>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Teken de structuurformules bij de volgende molecuulformules, houd hierbij rekening met de covalentie van elk atoomsoort.<br>
+            1a. H<sub>2</sub><br>
+            1b. HF<br>
+            1c. H<sub>2</sub>O<br>
+            1d. NH<sub>3</sub><br>
+            1e. C<sub>3</sub>H<sub>8</sub><br>
+            1f. C<sub>2</sub>H<sub>5</sub>Br<br>
+            1g. O<sub>2</sub><br>
+            1h. CO<sub>2</sub><br>
+            1i. C<sub>2</sub>F<sub>4</sub><br>
+            1j. N<sub>2</sub><br>
+            <span *ngIf="getShowAnswers('halogeenalkanen')" class="subject_answer">
+              <img src="../../assets/img/scheikunde/koolstofchemie/antwoorden1.png">
+            </span>
+          </p>
+          <p>
+            2. Teken de structuurformules die horen bij de volgende namen:<br>
+            2a. difluormethaan<br>
+            2b. 1,3-dichloorpropaan<br>
+            2c. pentajoodethaan<br>
+            2d. 2, 4-dibroom-1-chloorhexaan<br>
+            2e. 2,4-dibroom-1-chloorhexaan<br>
+            <span *ngIf="getShowAnswers('halogeenalkanen')" class="subject_answer">
+              <img src="../../assets/img/scheikunde/koolstofchemie/antwoorden2.png">
+            </span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('halogeenalkanen')">Toon antwoorden</button>
+        </mat-card>
       </article>
     </div>
 
@@ -338,6 +361,35 @@
           De ketens kunnen gemakkelijk over elkaar of langs elkaar glijden.
           Als we deze kunststoffen gaan verhitten worden ze steeds zachter tot ze vloeibaar worden, je kunt er dan draden van trekken. Zo’n kunststof noemen we een <b>thermoplast.</b>
         </p>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Zeilboten worden tegenwoordig vooral gemaakt van kunststof (een synthetische polymeer).
+            Vroeger werden ze natuurlijk van hout gemaakt (een natuurlijk polymeer). Noem een voordeel en een nadeel van het gebruik hier van synthetische polymeren.<br>
+          </p>
+          <p>
+            2. Leg uit hoe je kan testen of een PVC buis een thermoharder of een thermoplast is?<br>
+          </p>
+          <p>
+            3. Teken de structuurformule van het monomeer waarvan het onderstaande polymeer is gemaakt. De formule van het monomeer is C<sub>2</sub>H<sub>3</sub>Cl.<br>
+            <span *ngIf="getShowAnswers('thermohardersplasten')" class="subject_answer">
+              <img src="../../assets/img/scheikunde/koolstofchemie/antwoorden_t3.png">
+            </span>
+          </p>
+          <p>
+            4. Teken de structuurformule van het monomeer waarvan het onderstaande polymeer is gemaakt. De formule van het monomeer is C<sub>3</sub>H<sub>6</sub>Cl.<br>
+            <span *ngIf="getShowAnswers('thermohardersplasten')" class="subject_answer">
+              <img src="../../assets/img/scheikunde/koolstofchemie/antwoorden_t4.png">
+            </span>
+          </p>
+          <p>
+            5. Teken de structuurformule van het monomeer waarvan het onderstaande polymeer is gemaakt. De formule van het monomeer is C<sub>4</sub>H<sub>8</sub>.<br>
+            <span *ngIf="getShowAnswers('thermohardersplasten')" class="subject_answer">
+              <img src="../../assets/img/scheikunde/koolstofchemie/antwoorden_t5.png">
+            </span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('thermohardersplasten')">Toon antwoorden</button>
+        </mat-card>
       </article>
     </div>
 

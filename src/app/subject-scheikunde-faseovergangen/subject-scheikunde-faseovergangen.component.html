@@ -1,14 +1,7 @@
-<div class="main_content">
-  <mat-card class="main_card">
-
+<div class="no_sidecard_main_content">
+  <mat-card>
     <div>
-      <h1 (click)="handleViewSubject('introductie')">Faseovergangen
-        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
-        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
-      </h1>
-      <article *ngIf="getShowSubject('introductie')">
-        <p>Introductie over faseovergangen...</p>
-      </article>
+      <h1>Faseovergangen</h1>
     </div>
 
 
@@ -29,6 +22,10 @@
           Soms wordt de naam ‘waterdamp’ gebruikt voor een nevel die uit fijne druppeltjes bestaat, maar dat klopt niet.
           Waterdamp bestaat niet uit fijne waterdruppeltjes die je kunt zien, het is een onzichtbaar gas.
         </p>
+
+        <mat-card class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/CIwAph93d3Y" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </mat-card>
       </article>
     </div>
 
@@ -53,6 +50,22 @@
           - Sublimeren: bij sneeuw, als daar een zonnestraal opstaat, kan het zo zijn dat het sneeuw deeltje direct ‘vervluchtigd’.
           Dat wil zeggen dat het direct een gas wordt. De vloeibare fase wordt dus overgeslagen.
         </p>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Als ik ijsklontjes aan mijn drinken toevoeg, vindt er dan een faseovergang plaats?<br>
+            <span *ngIf="getShowAnswers('faseovergangen')" class="subject_answer">Ja, het ijsblokje zal langzaam smelten.</span>
+          </p>
+          <p>
+            2. Hoe noem je de faseovergang als de ramen beslaan in de auto?<br>
+            <span *ngIf="getShowAnswers('faseovergangen')" class="subject_answer">Condenseren</span>
+          </p>
+          <p>
+            3. In welke fase bevindt water zich bij -5 graden Celsius?<br>
+            <span *ngIf="getShowAnswers('faseovergangen')" class="subject_answer">Vast</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('faseovergangen')">Toon antwoorden</button>
+        </mat-card>
       </article>
     </div>
 
@@ -66,10 +79,4 @@
       </article>
     </div>
   </mat-card>
-
-  <div class="side_cards">
-    <mat-card class="youtube_clip">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/CIwAph93d3Y" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    </mat-card>
-  </div>
 </div>

@@ -50,6 +50,7 @@ import { PageContactHomeComponent } from './page-contact-home/page-contact-home.
 import { SubjectScheikundeDichtheidComponent } from './subject-scheikunde-dichtheid/subject-scheikunde-dichtheid.component';
 import { SubjectScheikundeReactievergelijkingenComponent } from './subject-scheikunde-reactievergelijkingen/subject-scheikunde-reactievergelijkingen.component';
 import { SubjectNatuurkundeDichtheidComponent } from './subject-natuurkunde-dichtheid/subject-natuurkunde-dichtheid.component';
+import { PagePracticaComponent } from './page-practica/page-practica.component';
 
 
 const appRoutes: Routes = [
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
     path: 'toetsen', component: PageToetsenHomeComponent
   },
   {
-    path: 'contact', component: PageContactHomeComponent
+    path: 'practica', component: PagePracticaComponent
   },
   {
     path: 'natuurkunde',
@@ -221,6 +222,7 @@ const appRoutes: Routes = [
     SubjectScheikundeDichtheidComponent,
     SubjectScheikundeReactievergelijkingenComponent,
     SubjectNatuurkundeDichtheidComponent,
+    PagePracticaComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),

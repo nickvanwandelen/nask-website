@@ -59,11 +59,6 @@ button{
   color: white;
 }
 
-.main_content{
-  width: 100%;
-  background-color: cyan;
-}
-
 .main_card{
   float: left;
   margin: 1% 0% 1% 1%;
@@ -127,7 +122,7 @@ button{
   color: white;
 }
 
-.subjet_answer{
+.subject_answer{
   color: indianred;
 }
 
@@ -162,6 +157,8 @@ button{
   color: black;
   width: 94%;
 }
+
+
 
 .practicum_link{
   text-align: center;

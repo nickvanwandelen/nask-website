@@ -1,0 +1,16 @@
+.natuurkunde_home{
+  margin: 1%;
+}
+
+.natuurkunde_intro{
+  background-color: steelblue;
+  color: white;
+  margin-bottom: 2%;
+}
+
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

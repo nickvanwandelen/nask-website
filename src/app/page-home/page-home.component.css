@@ -1,6 +1,7 @@
 div{
   text-align: center;
-  color: white;
+  color: steelblue;
+  text-shadow: 2px 2px 4px #000000;
   font-family: "Tahoma", "Comic Sans MS", serif;
   position: fixed;
   width: 100%;
@@ -29,7 +30,7 @@ div{
   height: 73%;
   width: 90%;
   margin: 3%;
-  background: url(../../assets/pictures/other/home_picture.png) no-repeat;
+  background: url(../../assets/img/general/home_page.jpg) no-repeat;
   background-size: cover;
 }
 
@@ -42,4 +43,5 @@ div{
   background-color: rgba(0,0,0,0.3);
   margin: 2%;
   width: 20%;
+  color: black;
 }

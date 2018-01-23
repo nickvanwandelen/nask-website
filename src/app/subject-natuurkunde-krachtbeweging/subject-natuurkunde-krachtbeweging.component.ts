@@ -10,8 +10,7 @@ import {Router} from '@angular/router';
 export class SubjectNatuurkundeKrachtbewegingComponent implements OnInit {
 
   subjects = [
-    {subject: 'introductie', show: true, showAnswers: false},
-    {subject: 'krachten', show: false, showAnswers: false},
+    {subject: 'krachten', show: true, showAnswers: false},
     {subject: 'vormveranderen', show: false, showAnswers: false},
     {subject: 'krachtentekenen', show: false, showAnswers: false},
     {subject: 'soortenkrachten', show: false, showAnswers: false},
@@ -21,6 +20,7 @@ export class SubjectNatuurkundeKrachtbewegingComponent implements OnInit {
     {subject: 'snelheidberekenen', show: false, showAnswers: false},
     {subject: 'versnellingberekenen', show: false, showAnswers: false},
     {subject: 'omrekenen', show: false, showAnswers: false},
+    {subject: 'applets', show: false, showAnswers: false},
     {subject: 'practica', show: false, showAnswers: false}
   ];
 

@@ -1,11 +1,7 @@
-<div class="main_content">
-  <mat-card class="main_card">
-
-    <div class="subject">
+<div class="no_sidecard_main_content">
+  <mat-card>
+    <div>
       <h1 (click)="handleViewSubject('introductie')">Elektriciteit</h1>
-      <article *ngIf="getShowSubject('introductie')">
-        Een introductie komt hier te staan
-      </article>
     </div>
 
     <div>
@@ -15,10 +11,43 @@
       </h2>
       <article *ngIf="getShowSubject('lading')">
         <p>
-          Er zijn twee verschillende soort lading. Deze worden positieve en negatieve ladingen genoemd. Door het wrijven wordt de ballon negatief geladen.
+          Er zijn twee verschillende soort lading.
+          Deze worden <b>positieve lading</b> en <b>negatieve ladingen</b> genoemd.
+          Een positieve lading is een positief geladen deeltje, ook wel een proton genoemd.
+          Een negatieve lading is een negatief geladen deeltje, ook wel een elektron genoemd.
+          Een voorwerp wilt altijd <b>neutraal</b> geladen zijn, dit houd in dat er net zo veel positieve lading is als negatieve lading
+        </p>
+        <p>
+          Een lading kan je veroorzaken door wrijving.
+          Bijvoorbeeld door een ballon over een ander voorwerp te wrijven wordt de ballon negatief geladen.
+          Dit houd in dat hij meer negatieve deeltjes dan positieve deeltjes heeft.
           De elektrische kracht die tussen twee voorwerpen werkt kun je dan verklaren.
-          De kracht tussen twee gelijk ladingen is afstotend. Dus wanneer een positief en een ander positief voorwerp bij elkaar houd zullen deze  elkaar afstoten.
-          De kracht tussen twee ongelijke ladingen trekken elkaar aan. Het symbool van lading is Q of q en de eenheid is coulomb, afgekort C.
+          De kracht tussen twee gelijk ladingen is <b>afstotend</b>.
+          Dus wanneer een positief en een ander positief voorwerp bij elkaar houd zullen deze elkaar afstoten.
+          De kracht tussen twee ongelijke ladingen <b>trekken elkaar aan</b>.
+        </p>
+        <img src="">
+        <img src="">
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('elektriciteit')">Elektriciteit
+        <mat-icon *ngIf="getShowSubject('elektriciteit')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('elektriciteit')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('elektriciteit')">
+        <p>
+          Bij elektriciteit heb je te maken met de negatieve deeltjes (de elektronen). Deze elektronen bewegen en hierdoor ontstaat er stroom.
+          Als je kijkt naar een batterij zie je altijd een plus en een min. Dit heeft te maken met de lading van deeltjes.
+          Bij de <b>plus</b> zijn te weinig elektronen (negatieve deeltjes) en bij de min zijn te veel elektronen (negatieve deeltjes).
+          De elektronen zullen dan van de plus naar de min gaan.
+          Dit noem je de <b>elektronen richting</b>. Dit is de richting van de elektronen.
+        </p>
+        <p>
+          Naast de elektronen richting wordt er ook gesproken over de stroomrichting.
+          Hierbij kijken ze naar een positieve richting (dus het tegenovergestelde van de negatieve deeltjes).
+          De <b>stroomrichting</b> is de richting van de stroom en deze is altijd van de plus naar de min.
         </p>
       </article>
     </div>
@@ -30,15 +59,15 @@
       </h2>
       <article *ngIf="getShowSubject('geleidersisolatoren')">
         <p>
-          Een geleider is een stof waar lading zich goed door kan verplaatsen.
-          In vrijwel alle metalen kunnen elektronen vrij bewegen.
-          Lading kan zich daarom makkelijk door metalen verplaatsen.
-          Deze metalen worden dan ook toegepast bij verschillende elektrische apparaten om stroom te verplaatsen.
+          Je hebt stoffen die elektriciteit goed doorgeven en stoffen die elektriciteit niet goed doorgeven.
+          Een <b>geleider</b> is een stof waar lading zich goed door kan verplaatsen.
+          In vrijwel alle metalen kunnen elektronen vrij bewegen. Lading kan zich daarom makkelijk door metalen verplaatsen.
         </p>
         <p>
-          Een isolator is een stof waar lading zich niet goed door kan verplaatsen.
+          Een <b>isolator</b> is een stof waar lading zich niet goed door kan verplaatsen.
           In deze stoffen kunnen de elektronen zich minder goed of niet bewegen.
-          Het is dus niet mogelijk om stroom door een isolator te laten lopen. Voorbeelden van isolatoren zijn glas, plastic, hout en rubber.
+          Het is dus niet mogelijk om stroom door een isolator te laten lopen.
+          Voorbeelden van isolatoren zijn glas, plastic, hout en rubber.
         </p>
       </article>
     </div>
@@ -53,12 +82,110 @@
           Er zijn verschillende manieren om elektrische energie op te wekken.
           De manieren die mogelijk zijn:
         </p>
-        <ul>
-          <li>Kolencentrales</li>
-          <li>Windturbines</li>
-          <li>Waterkrachtcentrale</li>
-          <li>Zonnepanelen</li>
-        </ul>
+        <table>
+          <tr>
+            <th>Voorbeeld</th>
+            <th>Uitleg</th>
+            <th>Voordelen</th>
+            <th>Nadelen</th>
+          </tr>
+          <tr>
+            <td>Elektriciteitscentrale</td>
+            <td>
+              In een elektriciteitscentrale wordt een fossiele brandstof verbrand en hierbij komt veel warmte vrij.
+              Deze warmte stijgt in de ketel op en boven in de ketel zitten buizen met water.
+              De warmte zorgt ervoor dat dit water zo warm wordt dat het stoom wordt.
+              Deze stoom zorgt ervoor dat een turbine gaat draaien en hierdoor word elektriciteit opgewekt.
+            </td>
+            <td>
+              <ol>
+                <li>Je kan altijd elektriciteit opwekken.</li>
+                <li>Relatief goedkoop.</li>
+              </ol>
+            </td>
+            <td>
+              <ol>
+                <li>Fossiele brandstoffen raken op.</li>
+                <li>Veel CO<span class="subscript">2</span></li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>Kerncentrale</td>
+            <td>
+              Door middel van kernreacties wordt elektriciteit opgewekt. Er worden deeltjes op elkaar geschoten en hier ontstaat energie.
+            </td>
+            <td>
+              <ol>
+                <li>Goedkope en snelle manier.</li>
+              </ol>
+            </td>
+            <td>
+              <ol>
+                <li>Ontploffingsgevaar.</li>
+                <li>Veel radioactief afval.</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>Windmolens</td>
+            <td>
+              De wind zet de wieken van een windmolen in beweging waardoor er een turbine gaat draaien. Deze turbine zet de beweging om in elektrische energie.
+            </td>
+            <td>
+              <ol>
+                <li>Duurzaam.</li>
+                <li>Na plaatsing kost het geen geld meer.</li>
+              </ol>
+            </td>
+            <td>
+              <ol>
+                <li>Duur in aanschaf.</li>
+                <li>Kan voor geluidsoverlast zorgen.</li>
+                <li>Er is niet ieder gewenst moment genoeg wind.</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>Stuwdammen</td>
+            <td>
+              In de bergen kan met het water met behulp van een stuwdam goed vasthouden.
+              Bovenin de stuwdam dit een opening waar ze het water kunnen laten stromen en dit water valt dan tientallen meters naar beneden.
+              Dit water komt op een turbine en deze turbine gaat bewegen.
+              Deze beweging wordt omgezet in elektriciteit.
+            </td>
+            <td>
+              <ol>
+                <li>Goedkoop na plaatsing.</li>
+                <li>Duurzaam.</li>
+              </ol>
+            </td>
+            <td>
+              <ol>
+                <li>Kan alleen in de bergen.</li>
+                <li>In de zomer is er vaak niet genoeg water in de stuwdam.</li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>Zonnepanelen</td>
+            <td>
+              Door een zonnepaneel op je dak te plaatsen en hier zon op te schijnen wordt de warmte omgezet in elektriciteit.
+            </td>
+            <td>
+              <ol>
+                <li>Goedkoop na plaatsing.</li>
+                <li>Duurzaam.</li>
+              </ol>
+            </td>
+            <td>
+              <ol>
+                <li>Niet altijd genoeg zonlicht.</li>
+                <li>Aanschaf is erg duur.</li>
+              </ol>
+            </td>
+          </tr>
+        </table>
 
         <div class="youtube_clip">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/WPzxo7uQeaE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -73,11 +200,10 @@
       </h2>
       <article *ngIf="getShowSubject('groeneenergie')">
         <p>
-          Energie die niet opgewekt wordt door brandstoffen die op kunnen raken noemen we duurzame energie.
-          Een ander woord voor duurzaam is hernieuwbaar. Dit betekent dat de energiebronnen niet opraken.
+          Energie die niet opgewekt wordt door brandstoffen die op kunnen raken noemen we <b>duurzame energie</b>.
+          Een ander woord voor duurzaam is hernieuwbaar.
+          Dit betekent dat de energiebronnen niet opraken.
           Immers zolang de zon blijft schijnen zal het altijd waaien en water door de waterkringloop blijven stromen.
-          Deze beweging, van lucht en water, kunnen we goed gebruiken om elektrische energie op te wekken met windmolens en waterkrachtcentrales.
-          In deze centrales worden ook turbines gebruikt om een generator aan te drijven die de elektrische energie maakt.
         </p>
       </article>
     </div>
@@ -89,25 +215,32 @@
       </h2>
       <article *ngIf="getShowSubject('stroominhuis')">
         <p>
+          Als elektriciteit bij je huis aankomt heeft het een spanning van 230 V.
+          Op ieder stopcontact in Nederland is deze spanning hetzelfde. In andere laden kan dit verschillend zijn:
+        </p>
+        <img src="../../assets/img/natuurkunde/elektriciteit/voltages_world.png">
+        <p>
           Als de elektrische energie je huis inkomt dan zitten tussen de aanvoer vanuit de centrale en de apparaten die de energie gaan gebruiken beveiligingen.
           Dat is nodig omdat elektriciteit gevaarlijk kan zijn wanneer je hier niet veilig mee omgaat.
           De beveiligingen zorgen er allemaal voor dat de stroom wordt afgesloten als er een gevaarlijke situatie ontstaat.
           Een gevaarlijke situatie is wanneer er te stroom door de draden gaat en hierdoor de draden te warm worden en smelten.
           Om dit te voorkomen zitten er zekeringen in de stroomkring.
+        </p>
+        <p>
           Er zijn twee soorten zekeringen, smeltzekeringen en automatische zekeringen.
           Allebei de zekeringen hebben dezelfde functie, namelijk ervoor zorgen dat jij niet teveel stroom door de elektriciteitsleidingen laat gaan.
-          Ze zorgen  ervoor dat de stroomsterkte niet boven de 16 Ampère komt.
+          Ze zorgen ervoor dat de stroomsterkte niet boven de 16 Ampère komt.
         </p>
         <p>
           De zekeringen in de meterkast zorgen ervoor dat je niet teveel stroom door de draden laat gaan.
           Het kan ook voorkomen dat de aansluiting van een apparaat niet helemaal goed is.
           Bij een wasmachine kan het snoer een beetje kapot gaan zodat er een verbinding komt van de stroom met de buitenkant wasmachine.
           Meestal is die buitenkant van metaal, wat de stroom goed geleidt, dus als je die dan aanraakt krijg je een schok.
-          Dat is niet alleen geen lekker gevoel, maar kan ook gevaarlijk zijn. Om dat gevaar tegen te gaan zijn apparaten met een metalen buitenkant geaard.
-          De aardlekschakelaar gaat nog verder: die schakelt de stroom af als er ergens stroom naar de aarde loopt.
-          Hiervoor meet de schakelaar de inkomende stroom en de uitgaande stroom en als daar verschil tussen zit dan schakelt hij uit.
+          Dat is niet alleen geen lekker gevoel, maar kan ook gevaarlijk zijn.
+          Om dat gevaar tegen te gaan zijn apparaten met een metalen buitenkant geaard.
+          De aardlekschakelaar gaat nog verder: die schakelt de stroom af als er ergens stroom naar de aarde loopt. Hiervoor meet de
+          schakelaar de inkomende stroom en de uitgaande stroom en als daar verschil tussen zit dan schakelt hij uit.
         </p>
-        <img src="../../assets/img/natuurkunde/elektriciteit/voltages_world.png">
       </article>
     </div>
 
@@ -153,7 +286,7 @@
       </h2>
       <article *ngIf="getShowSubject('stroomsterkte')">
         <p>
-          Stroomsterkte is hoeveel lading (dus hoeveel elektronen) er eigenlijk elke seconde door een draad heen bewegen.
+          <b>Stroomsterkte</b> is hoeveel lading (dus hoeveel elektronen) er eigenlijk elke seconde door een draad heen bewegen.
           Elektrische lading wordt gemeten in Coulomb (afkorting C), stroomsterkte wordt gemeten in Ampère (afkorting A).
           Als de stroomsterkte in een draad 1 Ampère is, betekent het dat er 1 Coulomb per seconde door deze draad stroomt.
         </p>
@@ -163,7 +296,10 @@
           Als je een rondje hebt waarbij je maar 1 route kan rijden is er 1 plek waar alle auto’s vertrekken.
           Op iedere plek kan je tellen hoeveel auto’s er rijden. Het aantal auto’s is de stroomsterkte.
           In de werkelijkheid is de stroomsterkte het aantal elektronen dat per seconde langs komt.
-          De stroomsterkte kan je aan de hand hiervan ook bepalen. In een serieschakeling, waarbij je maar 1 route hebt, zullen dus overal evenveel auto’s zijn:<br>
+          De stroomsterkte kan je aan de hand hiervan ook bepalen. In een serieschakeling, waarbij je maar 1 route hebt, zullen dus overal evenveel auto’s zijn
+        </p>
+        <p>
+          De stroomsterkte kan je aan de hand hiervan ook bepalen. In een serieschakeling, waarbij je maar 1 route hebt, zullen dus overal evenveel auto’s zijn:
         </p>
         <img src="../../assets/img/natuurkunde/elektriciteit/stroomsterkte_serie.png">
         <p>
@@ -178,6 +314,18 @@
           Als we de twee schakelingen mengen kan je dus de stroomsterkte voorspellen:<br>
         </p>
         <img src="../../assets/img/natuurkunde/elektriciteit/voorspelling.png">
+        <p>
+          Als de Ampèremeter 0,6 A aangeeft weten we dat het lampje ernaast ook 0,6 A is.
+          In een serieschakeling veranderde het aantal auto’s niet. Dit betekend dat op punt B ook 0,6 A gemeten wordt.
+        </p>
+        <p>
+          Bij de Ampèremeter links wordt 1,0 A gemeten. Deze splitst zich op.
+          We weten dat 0,6 A door de onderste vertakking gaat.
+          Dit betekend dat: 1,0 A= 0,6 A + vertakking 1.
+          Bij vertakking 1 heb je dan dus 0,4 A.
+          Dit zal je dan op plek a en c meten omdat hier tussen de auto’s niet weg kunnen.
+          Op plaats D komen alle auto’s weer samen en heb je net zo veel auto’s als in het begin, dit betekend dat je hier weer 1,0 A hebt.
+        </p>
       </article>
     </div>
 
@@ -366,6 +514,21 @@
     </div>
 
     <div>
+      <h2 (click)="handleViewSubject('applets')">Applets Elektriciteit
+        <mat-icon *ngIf="getShowSubject('applets')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('applets')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('applets')">
+        <mat-card class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lY6B2oC1uEs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </mat-card>
+        <mat-card class="applet">
+          <iframe src="https://phet.colorado.edu/sims/html/balloons-and-static-electricity/latest/balloons-and-static-electricity_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
       <h2 (click)="handleViewSubject('practica')">Practica Elektriciteit
         <mat-icon *ngIf="getShowSubject('practica')">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="!getShowSubject('practica')">keyboard_arrow_down</mat-icon>
@@ -375,13 +538,4 @@
       </article>
     </div>
   </mat-card>
-
-  <div class="side_cards">
-    <mat-card class="youtube_clip">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/lY6B2oC1uEs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </mat-card>
-    <mat-card class="applet">
-      <iframe src="https://phet.colorado.edu/sims/html/balloons-and-static-electricity/latest/balloons-and-static-electricity_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
-    </mat-card>
-  </div>
 </div>

@@ -8,21 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class SubjectNatuurkundeElektriciteitComponent implements OnInit {
 
   subjects = [
-    {subject: 'introductie', show: true},
-    {subject: 'lading', show: false},
-    {subject: 'geleidersisolatoren', show: false},
-    {subject: 'energieopwekken', show: false},
-    {subject: 'groeneenergie', show: false},
-    {subject: 'stroominhuis', show: false},
-    {subject: 'soortenstroomkringen', show: false},
-    {subject: 'stroomsterkte', show: false},
-    {subject: 'spanning', show: false},
-    {subject: 'weerstand', show: false},
-    {subject: 'vermogen', show: false},
-    {subject: 'kilowattuur', show: false},
-    {subject: 'stroomsterktespanningmeten', show: false},
-    {subject: 'stroomsterktemeten', show: false},
-    {subject: 'practica', show: false}
+    {subject: 'lading', show: true, showAnswers: false},
+    {subject: 'elektriciteit', show: false, showAnswers: false},
+    {subject: 'geleidersisolatoren', show: false, showAnswers: false},
+    {subject: 'energieopwekken', show: false, showAnswers: false},
+    {subject: 'groeneenergie', show: false, showAnswers: false},
+    {subject: 'stroominhuis', show: false, showAnswers: false},
+    {subject: 'soortenstroomkringen', show: false, showAnswers: false},
+    {subject: 'stroomsterkte', show: false, showAnswers: false},
+    {subject: 'spanning', show: false, showAnswers: false},
+    {subject: 'weerstand', show: false, showAnswers: false},
+    {subject: 'vermogen', show: false, showAnswers: false},
+    {subject: 'kilowattuur', show: false, showAnswers: false},
+    {subject: 'stroomsterktespanningmeten', show: false, showAnswers: false},
+    {subject: 'stroomsterktemeten', show: false, showAnswers: false},
+    {subject: 'applets', show: false, showAnswers: false},
+    {subject: 'practica', show: false, showAnswers: false}
   ];
 
   constructor() { }

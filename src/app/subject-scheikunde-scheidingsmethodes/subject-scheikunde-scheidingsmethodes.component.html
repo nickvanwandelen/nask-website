@@ -1,13 +1,7 @@
-<div class="main_content">
-  <mat-card class="main_card">
+<div class="no_sidecard_main_content">
+  <mat-card>
     <div>
-      <h1 (click)="handleViewSubject('introductie')">Scheidingsmethodes
-        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
-        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
-      </h1>
-      <article *ngIf="getShowSubject('introductie')">
-        <p>Introductie over scheidingsmethodes...</p>
-      </article>
+      <h1>Scheidingsmethodes</h1>
     </div>
 
     <div>
@@ -32,27 +26,27 @@
         <mat-card class="subject_questions">
           <p>
             1. Is wijn een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, wijn is namelijk een mengsel van alcohol, druivensap, suikers, water en nog wat andere bestandsdelen.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subject_answer">Een mengsel, wijn is namelijk een mengsel van alcohol, druivensap, suikers, water en nog wat andere bestandsdelen.</span>
           </p>
           <p>
             2. Is melk een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, er zit namelijk vet, calcium en water in.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subject_answer">Een mengsel, er zit namelijk vet, calcium en water in.</span>
           </p>
           <p>
             3. Is koffie een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, het is namelijk een mengsel van koffiebonen en water.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subject_answer">Een mengsel, het is namelijk een mengsel van koffiebonen en water.</span>
           </p>
           <p>
             4. Is poedersuiker een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een zuivere stof, het bestaat uit enkel en alleen glucose.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subject_answer">Een zuivere stof, het bestaat uit enkel en alleen glucose.</span>
           </p>
           <p>
             5. Is piepschuim een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een mengsel, het is een mengsel van een gas en een vaste stof.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subject_answer">Een mengsel, het is een mengsel van een gas en een vaste stof.</span>
           </p>
           <p>
             6. Is een mengsel van poedersuiker en korrelsuiker een zuivere stof of een mengsel?<br>
-            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subjet_answer">Een zuivere stof, het zijn namelijk allebei gewoon glucosemoleculen. Alleen de ene is gemalen suikerkorrels en de andere gewoon korrels.</span>
+            <span *ngIf="getShowAnswers('zuiverestofmengsel')" class="subject_answer">Een zuivere stof, het zijn namelijk allebei gewoon glucosemoleculen. Alleen de ene is gemalen suikerkorrels en de andere gewoon korrels.</span>
           </p>
           <button mat-button (click)="handleShowAnswers('zuiverestofmengsel')">Toon antwoorden</button>
         </mat-card>
@@ -114,11 +108,11 @@
           <h3>Vragen</h3>
           <p>
             1. Leg uit of je suiker van water kunt scheiden door filtratie.<br>
-            <span *ngIf="getShowAnswers('soortenmengsels')" class="subjet_answer">Nee, suiker lost op in het water en kun je dus niet vast in handen krijgen als je het gaat filtreren.</span>
+            <span *ngIf="getShowAnswers('soortenmengsels')" class="subject_answer">Nee, suiker lost op in het water en kun je dus niet vast in handen krijgen als je het gaat filtreren.</span>
           </p>
           <p>
             2. Is zeewater een oplossing of een suspensie?<br>
-            <span *ngIf="getShowAnswers('soortenmengsels')" class="subjet_answer">Een suspensie, in zeewater zitten vaak diertjes, zand, zeewier, enz.</span>
+            <span *ngIf="getShowAnswers('soortenmengsels')" class="subject_answer">Een suspensie, in zeewater zitten vaak diertjes, zand, zeewier, enz.</span>
           </p>
           <button mat-button (click)="handleShowAnswers('soortenmengsels')">Toon antwoorden</button>
         </mat-card>
@@ -195,6 +189,10 @@
           </tr>
         </table>
 
+        <mat-card class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/8icg86XTyOQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </mat-card>
+
         <mat-card class="subject_questions">
           <p>
             1. Op basis van welke stofeigenschap scheid je de stoffen bij filtreren? En wat is het verschil tussen zeven en filtreren?<br>
@@ -230,6 +228,21 @@
     </div>
 
     <div>
+      <h2 (click)="handleViewSubject('applets')">Applets Scheidingsmethodes
+        <mat-icon *ngIf="getShowSubject('applets')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('applets')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('applets')">
+        <mat-card class="applet">
+          <iframe src="https://h5p.org/h5p/embed/170533" width="1091" height="951" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
+        </mat-card>
+        <mat-card class="applet">
+          <iframe src="https://h5p.org/h5p/embed/170554" width="1091" height="1002" frameborder="0" allowfullscreen="allowfullscreen"></iframe><script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
       <h2 (click)="handleViewSubject('practica')">Practica
         <mat-icon *ngIf="getShowSubject('practica')">keyboard_arrow_up</mat-icon>
         <mat-icon *ngIf="!getShowSubject('practica')">keyboard_arrow_down</mat-icon>
@@ -239,10 +252,4 @@
       </article>
     </div>
   </mat-card>
-
-  <div class="side_cards">
-    <mat-card class="youtube_clip">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/8icg86XTyOQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    </mat-card>
-  </div>
 </div>
