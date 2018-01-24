@@ -44,6 +44,22 @@ export class SubjectNatuurkundeElektriciteitComponent implements OnInit {
     }
   }
 
+  handleShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        this.subjects[index].showAnswers = !this.subjects[index].showAnswers;
+      }
+    }
+  }
+
+  getShowAnswers(subject: string){
+    for(let index = 0; index < this.subjects.length; index++){
+      if(this.subjects[index].subject === subject){
+        return this.subjects[index].showAnswers;
+      }
+    }
+  }
+
   ngOnInit() {
   }
 

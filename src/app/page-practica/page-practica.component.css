@@ -1,0 +1,36 @@
+.practica_intro{
+  top: 72px;
+}
+
+.practica_card{
+  top: 72px;
+  background-color: steelblue;
+  color: white;
+}
+
+.practica_selector{
+  background-color: steelblue;
+  color: white;
+}
+
+mat-card{
+  margin-bottom: 1%;
+}
+
+div h2:hover{
+  background-color: steelblue;
+  color: white;
+}
+
+div h3{
+  padding: 1%;
+}
+
+div h3:hover{
+  background-color: lightsteelblue;
+  color: white;
+}
+
+mat-icon{
+  float: right;
+}

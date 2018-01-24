@@ -1,187 +1,736 @@
-<div class="main_content">
-  <mat-card class="main_card">
-    <h1>Licht en geluid</h1>
-    <section>
-      <p>
-        In dit hoofdstuk gaan we kijken naar licht en geluid.
-        Licht en geluid hebben veel overeenkomsten maar ook zeker veel verschillen.
-        We gaan eerst kijken naar deze verschillen en overeenkomsten.
-        We kijken hierbij naar de volgende onderdelen:<br>
-        - Bron: Hoe noemen we de bron waar het afkomstig van is.<br>
-        - Snelheid: hoe snel beweegt het (door lucht).<br>
-        - Tussenstof: heeft het een tussenstof nodig om zich te verplaatsen.<br>
-        - Soort verplaatsing.<br>
-        - Wat meten we.<br>
-      </p>
+<div class="no_sidecard_main_content">
+  <mat-card>
+    <div>
+      <h1>Licht en Geluid</h1>
+    </div>
 
-      <table>
-        <tr>
-          <th>Onderwerp</th>
-          <th>Licht</th>
-          <th>Geluid</th>
-        </tr>
-        <tr>
-          <td>Bron</td>
-          <td>Lichtbron</td>
-          <td>Geluidsbron</td>
-        </tr>
-        <tr>
-          <td>Snelheid</td>
-          <td>299.792 m/s</td>
-          <td>343 m/s</td>
-        </tr>
-        <tr>
-          <td>Tussenstof</td>
-          <td>Heeft geen tussenstof nodig om zich te verplaatsen.</td>
-          <td>Heeft wel een tussenstof nodig om zich te verplaatsen.</td>
-        </tr>
-        <tr>
-          <td>Soort verplaatsing</td>
-          <td>Licht is een golf</td>
-          <td>Geluid is een trilling..</td>
-        </tr>
-        <tr>
-          <td>Wat meten we</td>
-          <td>Bij een golf meten we de golflengte (de lengte van 1 golf).</td>
-          <td>Bij een trilling meten we de trillingstijd (hoe lang doet 1 trilling erover).</td>
-        </tr>
-      </table>
+    <div>
+      <h2 (click)="handleViewSubject('introductie')">Introductie
+        <mat-icon *ngIf="getShowSubject('introductie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('introductie')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('introductie')">
+        <p>
+          In dit hoofdstuk gaan we kijken naar licht en geluid.
+          Licht en geluid hebben veel overeenkomsten maar ook zeker veel verschillen.
+          We gaan eerst kijken naar deze verschillen en overeenkomsten.
+          We kijken hierbij naar de volgende onderdelen:
+        </p>
+        <ol>
+          <li>Bron: hoe noemen we de bron waar het afkomstig is.</li>
+          <li>Snelheid: hoe snel beweegt het (door lucht).</li>
+          <li>Tussenstof: heeft het een tussenstof nodig om zich te verplaatsen.</li>
+          <li>Soort verplaatsing</li>
+          <li>Wat meten we.</li>
+        </ol>
+        <table>
+          <tr>
+            <th>Onderwerp</th>
+            <th>Licht</th>
+            <th>Geluid</th>
+          </tr>
+          <tr>
+            <td>Bron</td>
+            <td>Lichtbron</td>
+            <td>Geluidsbron</td>
+          </tr>
+          <tr>
+            <td>Snelheid</td>
+            <td>299.729 m/s</td>
+            <td>343 m/s</td>
+          </tr>
+          <tr>
+            <td>Tussenstof</td>
+            <td>Heeft geen tussenstof nodig om zich te verplaatsen</td>
+            <td>heeft wel een tussenstof nodig om zich te verplaatsen</td>
+          </tr>
+          <tr>
+            <td>Soort verplaatsing</td>
+            <td>Licht is een golf</td>
+            <td>Geluid is een trilling</td>
+          </tr>
+          <tr>
+            <td>Wat meten we</td>
+            <td>Bij een golf meten we de golflengte (de lengte van 1 golf)</td>
+            <td>Bij een trilling meten we de trillingstijd (hoe lang doet 1 trilling erover)</td>
+          </tr>
+        </table>
+        <p>In de rest van dit hoofdstuk gaan we naar verschillende principes van zowel licht als geluid kijken.</p>
 
-      <p>
-        In de rest van dit hoofdstuk gaan we naar verschillende pricipes van zowel licht als geluid kijken.
-      </p>
-    </section>
+        <mat-card class="subject_questions">
+          <p>
+            1. Leg uit of licht en geluid zich kunnen voortplanten door een vacuum?<br>
+            <span *ngIf="getShowAnswers('introductie')" class="subject_answer">
+              Licht kan zich voortplanten door een vacuüm, geluid niet.
+              Licht is een golf en deze heeft geen medium nodig.
+              Geluid is een trilling, hierbij heb je wel een medium nodig.</span>
+          </p>
+          <p>
+            2. Hoe komt het dat je bij onweer eerst de flits ziet en daarna pas de donder hoort?<br>
+            <span *ngIf="getShowAnswers('introductie')" class="subject_answer">licht verplaatst zich sneller dan geluid. Daardoor is het licht eerder bij jou dan het geluid.</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('introductie')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+    </div>
 
-    <section>
-      <h3 #voorwerpen_zien>Voorwerpen zien</h3>
-      <p>
-        Voordat je een voorwerp kunt zien moet er eerst een lichtstraal van dat voorwerp op jou ogen vallen.
-        Als er geen lichtstaal op jou ogen valt, kan je dit voorwerp ook niet zien.
-        <b>Lichtstralen</b> zijn rechte lijnen die zich vanaf een <b>lichtbron</b> (uitzender van het licht) voortbewegen tot ze uiteindelijk in jou oog terecht komen.
-      </p>
-      <p>
-        We kennen twee soorten lichtbronnen:<br>
-        - <b>Natuurlijke lichtbron:</b> dit is natuurlijk licht, bijvoorbeeld de zon.<br>
-        - <b>Kunstmatige lichtbron:</b> dit is een lichtbron waarbij licht gegenereerd wordt door een toepassing gemaakt door de mens, bijvoorbeeld een lamp of kaars.
-      </p>
-      <p>
-        De lichtstralen vanuit deze lichtbronnen botsen tegen allerlei voorwerpen aan.
-        Als ze hier tegenaan boten worden de lichtstralen weerkaatst.
-        Dit weerkaatsen kan op 2 manieren:<br>
-        - <b>Spiegelende weerkaatsing:</b> hierbij valt het licht op een zeer vlak voorwerp zoals een spiegel.<br>
-        - <b>Diffuse weerkaatsing:</b>: Hierbij valt het licht op een geribbeld voorwerp zoals een muur of een bal.
-      </p>
-      <p>
-        Bij een diffuse weerkaatsing gaat het licht alle kanten op.
-        Bij een spiegelende weerkaatsing kunnen we wel zeggen waar de lichtstralen naartoe gaat.
-        Als je dit gaat tekenen heet dat <b>lichtstralen construeren</b>.
-        Bij een spiegel geldt een belangrijke regel: <u>de hoek van inval is gelijk aan de hoek van terugkaatsing</u>.
-        Dit betekend dat de hoek waarmee de lichtstraal op de spiegel valt even groot is als de hoek waarmee de lichtstraal de spiegel zal verlaten.
-        Aan de hand van deze regel kan je de lichtstralen tekenen.
-      </p>
-      <img src="../../assets/img/natuurkunde/licht_geluid/hoek_van_inval.jpg">
-      <p>
-        Dit doe je als volgt:
-      </p>
-      <ol>
-        <li>Teken een normaal loodrecht op een spiegel (dit doe je met de loodlijn in je geodriehoek). Zie de tekening 2</li>
-        <li>Meet de hoek van inval op met je geodriehoek. Zie tekening 3</li>
-        <li>Teken de hoek van terugkaatsing met een klein stipje. Zie tekening 4</li>
-        <li>Vermeld de letters i en t in je tekening</li>
-      </ol>
-      <img src="../../assets/img/natuurkunde/licht_geluid/tekenen_hoek_van_inval.jpg">
-    </section>
+    <div>
+      <h2 (click)="handleViewSubject('voorwerpenzien')">Voorwerpen zien
+        <mat-icon *ngIf="getShowSubject('voorwerpenzien')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('voorwerpenzien')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('voorwerpenzien')">
+        <p>Voordat je een voorwerp kunt zien moet er eerst een lichtstraal van dat voorwerp op jou ogen vallen.
+          Als er geen lichtstaal op jou ogen valt, kan je dit voorwerp ook niet zien.
+          Lichtstralen zijn rechte lijnen die zich vanaf een lichtbron (uitzender van het licht) voortbewegen tot ze uiteindelijk in jou oog terecht komen.
+        </p>
+        <p>
+          We kennen twee soorten lichtbronnen:<br>
+          - <b>Natuurlijke lichtbron</b>: dit is natuurlijk licht, bijvoorbeeld de zon.<br>
+          - <b>Kunstmatige lichtbron</b>: dit is een lichtbron waarbij licht gegenereerd wordt door een toepassing gemaakt door de mens, bijvoorbeeld een kaars of lamp.<br>
+        </p>
+        <p>
+          De lichtstralen vanuit deze lichtbronnen botsen tegen allerlei voorwerpen aan.
+          Als ze hier tegenaan boten worden de lichtstralen weerkaatst. Dit weerkaatsen kan op 2 manieren:<br>
+          - <b>Spiegelende weerkaatsing</b>: hierbij valt het licht op een zeer vlak voorwerp zoals een spiegel.<br>
+          - <b>Diffuse weerkaatsing</b>: hierbij valt het licht op een geribbeld voorwerp zoals een muur of een bal.
+        </p>
+        <p>
+          Bij een diffuse weerkaatsing gaat het licht alle kanten op.
+          Bij een spiegelende weerkaatsing kunnen we wel zeggen waar de lichtstralen naartoe gaat.
+          Als je dit gaat tekenen heet dat <b>lichtstralen construeren</b>.
+          Bij een spiegel geldt een belangrijke regel: <u>de hoek van inval is gelijk aan de hoek van terugkaatsing</u>.
+          Dit betekend dat de hoek waarmee de lichtstraal op de spiegel valt even groot is als de hoek waarmee de lichtstraal de spiegel zal verlaten.
+          Aan de hand van deze regel kan je de lichtstralen tekenen.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/hoek_van_inval_gelijk.png">
+        <p>
+          Dit doe je als volgt:<br>
+          - Stap 1: Teken een normaal loodrecht op de spiegel (dit doe je met de loodlijn in je geodriehoek). Zie tekening 2<br>
+          - Stap 2: Meet de hoek van inval op met je geodriehoek. Zie tekening 3<br>
+          - Stap 3: Teken de hoek van terugkaatsing met een klein stipje<br>
+          - Stap 4: Trek een lijn vanuit de spiegel door dit punt zie tekening 4<br>
+          - Stap 5: Vermeld de letters i en t in je tekening<br>
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/tekenen_hoek_van_inval_gelijk.png">
 
-    <section>
-      <h3 #spiegelbeeld_tekeken>Spiegelbeeld tekenen</h3>
-      <p>
-        Naast het tekenen van de lichtstralen kunnen we ook het spiegelbeeld tekenen.
-        Het <b>spiegelbeeld</b> is het beeld dat achter de spiegel lijkt te liggen.
-        Dit is er niet echt en daarom noemen we dit een virtueel beeld. Het beeld dat er lijkt te zijn licht op precies dezelfde plek achter de spiegel.
-        Dit kan je ook tekenen door het beeld (bijvoorbeeld punt v hieronder).
-      </p>
-      <p>
-        Je kan tekenen met de regel bij een spiegel hoe deze lichtstraal verder gaat en in het oog komt.
-        Met de rode lijn zie je dat punt b precies achter de spiegel op dezelfde plek als punt v voor de spiegel.
-      </p>
-      <img src="../../assets/img/natuurkunde/licht_geluid/tekeken_spiegelbeeld.jpg">
-    </section>
+        <mat-card class="subject_questions">
+          <p>
+            1. Wat is een voorwaarde om een voorwerp te kunnen zien?<br>
+            <span *ngIf="getShowAnswers('voorwerpenzien')" class="subject_answer">Er moet eerst licht op een voorwerp vallen en dit licht moet in jou oog terecht komen.</span>
+          </p>
+          <p>
+            2. Noem een voorbeeld van een kunstmatige lichtbron<br>
+            <span *ngIf="getShowAnswers('voorwerpenzien')" class="subject_answer">De meeste lichtbronnen die wij kennen zijn kunstmatige lichtbronnen. Voorbeelden zijn, een kaars of een lamp.</span>
+          </p>
+          <p>
+            3. We kennen 2 soorten weerkaatsing, leg het verschil uit tussen deze 2.<br>
+            <span *ngIf="getShowAnswers('voorwerpenzien')" class="subject_answer">
+              We maken onderscheid tussen spiegelede weerkaatsing en diffuse terugkaatsing.
+              Bij een spiegelende terugkaatsing geld de regel hoek van inval is gelijk aan de hoek van breking.
+              Hierbij kaatsen de lichtstralen dus hetzelfde terug als dat ze invielen op de spiegel.
+              Bij diffuse terugkaatsing heb je een hobbelig oppervlak en zal het licht alle kanten op gaan.
+            </span>
+          </p>
+          <p>
+            4. Welke regel geld bij een spiegel?<br>
+            <span *ngIf="getShowAnswers('voorwerpenzien')" class="subject_answer">De hoek van inval is gelijk aan de hoek van breking.</span>
+          </p>
+          <p>
+            5. Teken een spiegel, teken een lichtstaal die met een hoek van 40 graden invalt op deze spiegel, teken het verloop van deze lichtstraal.<br>
+            <span *ngIf="getShowAnswers('voorwerpenzien')" class="subject_answer">
+              <img src="../../assets/img/natuurkunde/lichtgeluid/antwoord_spiegelwet.jpg">
+            </span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('voorwerpenzien')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+    </div>
 
-    <section>
-      <h3 #lenzen>Lenzen</h3>
-      <p>
-        Bij het onderwerp licht en zien kennen we ook lenzen.
-        Veel mensen dragen een bril en lenzen worden in het dagelijks leven ook gebruikt in vergrootglazen, in een camera of telescopen.
-        We kennen twee soorten lenzen:
-      </p>
-      <table>
-        <tr>
-          <th>Soort lens</th>
-          <th>Omschrijving</th>
-          <th>Negatief/Positief</th>
-          <th>Voorbeeld</th>
-        </tr>
-        <tr>
-          <td>Holle lens</td>
-          <td>Aan de buitenkant breder dan aan de binnenkant.</td>
-          <td>Negatief</td>
-          <td><img src="../../assets/img/natuurkunde/licht_geluid/holle_lens.jpg"></td>
-        </tr>
-        <tr>
-          <td>Bolle lens</td>
-          <td>Aan de binnenkant breder dan aan de buitenkant.</td>
-          <td>Positief</td>
-          <td><img src="../../assets/img/natuurkunde/licht_geluid/bolle_lens.jpg"></td>
-        </tr>
-      </table>
-      <p>
-        Deze lenzen hebben een andere werking.
-        Een bolle (positieve) lens zorgt ervoor dat het licht naar binnen wordt gebroken.
-        Dat ziet er als volgt uit:
-      </p>
-      <img src="../../assets/img/natuurkunde/licht_geluid/voorbeeld_bolle_lens.jpg">
-      <p>
-        Een holle (negatieve) lens zorgt ervoor dat het licht naar buiten wordt gebroken.
-        Dat ziet er als volgt uit:
-      </p>
-      <img src="../../assets/img/natuurkunde/licht_geluid/voorbeeld_holle_lens.jpg">
-      <p>
-        In beide tekeningen is te zien dat de lichtstralen ergens samenkomen.
-        Dit punt noemt men het <b>brandpunt.</b>
-        Dit punt licht op een bepaalde afstand van de lens en heet de brandpuntsafstand.
-      </p>
-      <p>
-        ALs je naar de 2 afbeeldingen hierboven kijkt zie je dat er drie soorten <b>lichtbundels</b> zijn.
-        Dit zijn groepen lichtstralen.
-        De drie soorten lichtbundels die we kennen zijn:
-      </p>
-      <table>
-        <tr>
-          <th>Lichtbundel</th>
-          <th>Uitleg</th>
-          <th>Voorbeeld</th>
-        </tr>
-        <tr>
-          <td>Evenwijdig</td>
-          <td>De lichtstralen lopen evenwijdig aan elkaar.</td>
-          <td><img src="../../assets/img/natuurkunde/licht_geluid/evenwijdige_lichtbundel.jpg"></td>
-        </tr>
-        <tr>
-          <td>Convergent</td>
-          <td>De lichtstralen gaan naar elkaar toe.</td>
-          <td><img src="../../assets/img/natuurkunde/licht_geluid/convergente_lichtbundel.jpg"></td>
-        </tr>
-        <tr>
-          <td>Divergent</td>
-          <td>De lichtstralen gaan van elkaar af.</td>
-          <td><img src="../../assets/img/natuurkunde/licht_geluid/divergente_lichtbundel.jpg"></td>
-        </tr>
-      </table>
-    </section>
+    <div>
+      <h2 (click)="handleViewSubject('spiegelbeeldtekenen')">Spiegelbeeld tekenen
+        <mat-icon *ngIf="getShowSubject('spiegelbeeldtekenen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('spiegelbeeldtekenen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('spiegelbeeldtekenen')">
+        <p>
+          Naast het tekenen van de lichtstralen kunnen we ook het spiegelbeeld tekenen.
+          Het spiegelbeeld is het beeld dat achter de spiegel lijkt te liggen. Dit is er niet echt en daarom noemen we dit een virtueel beeld.
+          Het beeld dat er lijkt te zijn licht op precies dezelfde plek achter de spiegel.
+          Dit kan je ook tekenen door het beeld (bijvoorbeeld punt v hieronder).
+        </p>
+        <p>
+          Je kan tekenen met de regel bij een spiegel hoe deze lichtstraal verder gaat en in het oog komt.
+          Met de rode lijn zie je dat punt b precies achter de spiegel op dezelfde plek als punt v voor de spiegel.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/spiegelbeeld_tekenen.png">
+      </article>
+    </div>
 
-    <section>
-      <h3 #lenzen_bij_mensen></h3>
-      <span>To be continued...</span>
-    </section>
+    <div>
+      <h2 (click)="handleViewSubject('lenzen')">Lenzen
+        <mat-icon *ngIf="getShowSubject('lenzen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('lenzen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('lenzen')">
+        <p>
+          Bij het onderwerp licht en zien kennen we ook lenzen.
+          Veel mensen dragen een bril en lenzen worden in het dagelijks leven ook gebruikt in vergrootglazen, in een camera of telescopen.
+          We kennen twee soorten lenzen:
+        </p>
+        <table>
+          <tr>
+            <th>Type lens</th>
+            <th>Beschrijving</th>
+            <th>Positief/Negatief</th>
+            <th>Voorbeeld</th>
+          </tr>
+          <tr>
+            <td>Holle lenzen</td>
+            <td>Aan de buitenkant breder dan aan de binnenkant</td>
+            <td>Negatief</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/holle_lens.jpg"></td>
+          </tr>
+          <tr>
+            <td>Bolle lenzen</td>
+            <td>Aan de binnenkant breder dan aan de buitenkant</td>
+            <td>Positief</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens.jpg"></td>
+          </tr>
+        </table>
+        <p>
+          Deze lenzen hebben een andere werking. Een bolle (positieve) lens zorgt ervoor dat het licht naar binnen wordt gebroken. Dat ziet er als volgt uit:
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens_werking.jpg">
+        <p>
+          Een holle (negatieve) lens zorgt ervoor dat het licht naar buiten wordt gebroken. Dat ziet er als volgt uit>
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/holle_lens_werking.jpg">
+        <p>
+          In beide tekeningen is te zien dat de lichtstralen ergens samenkomen. Dit punt noemt men het <b>brandpunt</b>.
+          Dit punt licht op een bepaalde afstand van de lens en dit heet de <b>brandpuntsafstand</b>.
+          Als je naar de 2 afbeeldingen hierboven kijkt zie je dat er drie soorten <b>lichtbundels</b> zijn. Dit zijn groepen lichtstralen. De drie soorten lichtbundels die we kennen zijn:
+        </p>
+        <table>
+          <tr>
+            <th>Lichtbundel</th>
+            <th>Uitleg</th>
+            <th>Voorbeeld</th>
+          </tr>
+          <tr>
+            <td>Evenwijdig</td>
+            <td>De lichtstralen lopen evenwijdig aan elkaar.</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/evenwijdig.jpg"></td>
+          </tr>
+          <tr>
+            <td>Convergent</td>
+            <td>De lichtstalen gaan naar elkaar toe.</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/convergent.jpg"></td>
+          </tr>
+          <tr>
+            <td>Divergent</td>
+            <td>De lichtstalen gaan van elkaar af.</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/divergent.jpg"></td>
+          </tr>
+        </table>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. In onderstaand figuur is een doorsnede van een bolle lens getekend. Noteer de drie namen van de soort lichtbundel van links naar rechts<br>
+            <img src="../../assets/img/natuurkunde/lichtgeluid/lenzen_vraag1.jpg"><br>
+            <span *ngIf="getShowAnswers('lenzen')" class="subject_answer">Convergent, Divergent en Evenwijdig</span>
+          </p>
+          <p>
+            2. In onderstaand figuur zie je negen lenzen in doorsnede afgebeeld. Leg uit welke lenzen positief zijn.<br>
+            <img src="../../assets/img/natuurkunde/lichtgeluid/lenzen_vraag2.jpg"><br>
+            <span *ngIf="getShowAnswers('lenzen')" class="subject_answer">Lens 1,2,6,7,9 : deze zijn boller in het midden</span>
+          </p>
+          <p>
+            3. In onderstaand figuur gaan er lichtbundels door vier lenzen. Beschrijf per lens of deze bol/hol is en of deze positief/negatief is.<br>
+            <img src="../../assets/img/natuurkunde/lichtgeluid/lenzen_vraag3.jpg"><br>
+            <span *ngIf="getShowAnswers('lenzen')" class="subject_answer">
+              1: bol, positief<br>
+              2: hol, negatief<br>
+              3: hol, negatief<br>
+              4: bol, positief<br>
+            </span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('lenzen')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('lenzenmensen')">Lenzen bij mensen
+        <mat-icon *ngIf="getShowSubject('lenzenmensen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('lenzenmensen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('lenzenmensen')">
+        <p>
+          Veel mensen dragen tegenwoordig een bril of contactlenzen. Dit doen ze omdat ze anders niet goed kunnen zien.
+          We kenen 3 varianten:
+        </p>
+        <table>
+          <tr>
+            <th>Naam</th>
+            <th>Wat zie je wel/niet?</th>
+            <th>Waar valt het brandpunt?</th>
+            <th>Soort lens</th>
+            <th>Voorbeeld</th>
+          </tr>
+          <tr>
+            <td>Bijziend</td>
+            <td>Dichtbij zie je goed, veraf zie je niet goed.</td>
+            <td>Het brandpunt valt dan nog voor het netvlies.</td>
+            <td>Negatieve lens</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/bijziend_oog.png"></td>
+          </tr>
+          <tr>
+            <td>Verziend</td>
+            <td>Veraf zie je goed, dichtbij zie je niet goed.</td>
+            <td>Het brandpunt valt dan achter het netvlies.</td>
+            <td>Positieve lens</td>
+            <td><img src="../../assets/img/natuurkunde/lichtgeluid/verziendoog.png"></td>
+          </tr>
+          <tr>
+            <td>Oudziend</td>
+            <td>Dichtbij zie je goed, veraf zie je niet goed</td>
+            <td>Het brandpunt valt dan achter het netvlies.</td>
+            <td>Positieve lens</td>
+            <td>Hetzelfde als een verziend oog</td>
+          </tr>
+        </table>
+        <p>
+          De sterkte van de lens hangt af van het brandpunt. De sterkte van de lens bepaald hoe scherp de lichtbundel gebroken wordt.
+          De sterkte van de lens kan je berekenen met de volgende formule:<br>
+          S = 1 / f
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Grootheid symbool</th>
+            <th>Eenheid</th>
+            <th>Eenheid symbool</th>
+          </tr>
+          <tr>
+            <td>Sterkte</td>
+            <td>S</td>
+            <td>Dioptrie</td>
+            <td>dpt.</td>
+          </tr>
+          <tr>
+            <td>Brandpuntsafstand</td>
+            <td>f</td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+        </table>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Wat wordt er bedoeld met het accommoderen van het oog? Leg uit!<br>
+            <span *ngIf="getShowAnswers('lenzen')" class="subject_answer">Het scherpstellen van je lens</span>
+          </p>
+          <p>
+            2. Josée heeft behoorlijk sterke negatieve contactlenzen. Is ze verziend of bijziend?<br>
+            <span *ngIf="getShowAnswers('lenzen')" class="subject_answer">Jose is dan bijziend</span>
+          </p>
+          <p>
+            3. Jan heeft een sterkte van +3 dpt. Bereken de brandpuntsafstand.<br>
+            <span *ngIf="getShowAnswers('lenzen')" class="subject_answer">
+            S = 1/f<br>
+            F = 1/S<br>
+            F = 1/3<br>
+            F = 0,333 m = 33 cm
+          </span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('lenzen')">Toon antwoorden</button>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('tekenenbollelens')">Beeld tekenen met een bolle lens
+        <mat-icon *ngIf="getShowSubject('tekenenbollelens')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('tekenenbollelens')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('tekenenbollelens')">
+        <p>
+          Als je een voorwerp voor een positieve lens zet ontstaat er een beeld achter de lens. Dit doe je met vier stappen:<br>
+          - Stap 1: Trek een lijn van het puntje van het voorwerp, door de kruising van de lens en de hoofdas door.<br>
+          <img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens_tekenen1.png"><br>
+          - Stap 2: Teken een lijn loodrecht aan de hoofdas tot aan de lens. Teken hem vanaf hier door het brandpunt naar beneden door.<br>
+          <img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens_tekenen2.png"><br>
+          - Stap 3: Teken een lijn vanaf het puntje van het voorwerp door het brandpunt tot aan de lens. Trek hem vanaf hier loodrecht aan de hoofdas door.<br>
+          <img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens_tekenen3.png"><br>
+          - Stap 4: Op de plaats waar de lijnen samen komen is het beeld. Teken deze vanaf de hoofdas tot aan dit punt.<br>
+          <img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens_tekenen4.png"><br>
+        </p>
+        <p>
+          Als je het voorwerp voor het brandpunt staat zal het juist uitkomen. Het beeld kan ook op andere plaatsen staan.
+          Als hij op het brandpunt staat zal de lichtbundel evenwijdig doorlopen en hierbij ontstaat geen beeld:
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/bolle_lens_voor_brandpunt.png">
+        <p>
+          Als het beeld tussen het brandpunt en de lens staat ontstaat er een beeld aan dezelfde zijde van de lens. Dit beeld is er niet echt en heet een <b>virtueel beeld</b>.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/virtueel_beeld.png">
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('lenzenformule')">Lenzenformule
+        <mat-icon *ngIf="getShowSubject('lenzenformule')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('lenzenformule')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('lenzenformule')">
+        <p>
+          Net heb je gekeken hoe je de lichtstralen bij een positieve lens kunt tekenen. We kunnen hier ook aan rekenen. Dit doe je met de lenzenformule:<br>
+          1/f = 1/v + 1/b
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Grootheid symbool</th>
+            <th>Eenheid</th>
+            <th>Eenheid symbool</th>
+          </tr>
+          <tr>
+            <td>Brandpuntsafstand</td>
+            <td>f</td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+          <tr>
+            <td>Voorwerpsafstand</td>
+            <td>v</td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+          <tr>
+            <td>Beeldafstand</td>
+            <td>b</td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+        </table>
+        <p>
+          De afstand het voorwerp tot de lens noem je de <b>voorwerpsafstand</b>.<br>
+          De afstand van de lens tot het beeld noem je de <b>beeldafstand</b>.<br>
+          De afstand van de lens tot het brandpunt noem je de <b>brandpuntsafstand</b>.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/voorbeeld_begrippen_lenzenformule.png">
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('vergrotingberekenen')">Vergroting berekenen
+        <mat-icon *ngIf="getShowSubject('vergrotingberekenen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('vergrotingberekenen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('vergrotingberekenen')">
+        <p>
+          Als je een tekening hebt gemaakt van de situatie zie je dat het voorwerp en het beeld een andere grootte hebben.
+          Je kan de vergroting van dit beeld berekenen. Hiervoor zijn twee bijna dezelfde formules:<br>
+          N = b / v<br>
+          N = lengte beeld / lengte voorwerp
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Grootheid symbool</th>
+            <th>Eenheid</th>
+            <th>Eenheid symbool</th>
+          </tr>
+          <tr>
+            <td>Vergroting</td>
+            <td>N</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Beeldafstand</td>
+            <td>b</td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+          <tr>
+            <td>Voorwerpafstand</td>
+            <td>v</td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+          <tr>
+            <td>Lengte beeld</td>
+            <td></td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+          <tr>
+            <td>Lengte voorwerp</td>
+            <td></td>
+            <td>Centimeter</td>
+            <td>cm</td>
+          </tr>
+        </table>
+        <p>
+          Als je dit invult krijg je de <b>vergroting</b> van het beeld. Als de vergoding kleiner is dan ‘0’ is dit een <b>verkleining</b>.
+          Je spreekt dan wel van de vergroting.
+          Als je de verkleining wilt weten doe je de lengte van het voorwerp/ de lengte van het beeld.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('kleurenzien')">Kleuren zien
+        <mat-icon *ngIf="getShowSubject('kleurenzien')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('kleurenzien')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('kleurenzien')">
+        <p>
+          Zoals we al eerder omschreven zie je iets pas als het licht vanaf het voorwerp in jou ogen terecht komt. Nu gaan we kijken naar de verschillende kleuren.
+          Hoe kan het dat wij groen zien als goed ect.?
+        </p>
+        <p>
+          Licht van de zon (wit licht) bestaat uit alle kleuren van de regenboog.
+          Dit zijn de kleuren rood, oranje geel groen blauw en violet.
+          De regenboog komt dan ook vanuit dit licht van de zon.
+          Als licht op een andere stof bijvoorbeeld water of ijs valt, zal het licht breken zoals dit heet.
+          Dat betekend dat er een kleine knik in de lichtstraal komt en de richting iets veranderd.
+          Dit principe heet <b>lichtbreking</b>.
+          Deze lichtbreking verschilt per kleur licht.
+          Als wit licht op een prisma (piramidevormig stuk glas) valt breekt dit verschillend en ontstaat er een regenboog.
+          Dit principe heb je ook als licht op water of ijs valt zoals dit bij de voor ons bekende regenboog gebeurd.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/lichtbreking.png">
+        <p>
+          Hiermee hebben we nog niet de vraag beantwoord hoe het dan komt dat wij groen zien als groen ect. Dit heeft te maken met de kleur van het voorwerp en de kleur van het licht dat hierop valt.
+          Als je wit licht op een blauw voorwerp valt zullen alle kleuren worden geabsorbeerd (opgenomen worden) door dit voorwerp, alleen de blauwe lichtstralen zullen worden <b>weerkaatst</b> (teruggekaatst).
+          Dit geldt eigenlijk voor elke kleur. Als je een blauw voorwerp hebt en hier valt alleen maar rood licht op zal je het voorwerp zien als zwart. Doordat dit rode licht voortdurend word weerkaatst en niet allemaal geadsorbeerd wordt zal het voorwerp wel een rode kleur krijgen.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/kleur_weerkaatsing.png">
+
+        <mat-card class="youtube_clip">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/LlSrCl5AqQE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('kleurenmengen')">Kleuren mengen
+        <mat-icon *ngIf="getShowSubject('kleurenmengen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('kleurenmengen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('kleurenmengen')">
+        <p>
+          Bij tekenen kennen we drie <b>primaire kleuren</b> (kleuren waarmee je andere kleuren kan mengen) dit zijn geel, rood en blauw.
+          Bij licht is dit anders. Bij licht zijn dit groen, blauw en rood.
+          Met deze drie kleuren licht kun je iedere kleur licht maken die je wilt.
+          Als je alle kleuren samen mengt krijg je wit licht.
+          In de linker cirkels die je hoe het mengen werkt bij licht.
+          In de rechter cirkels zie je hoe dit gaat bij tekenen.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/kleur_mengen.jpg">
+
+        <mat-card class="applet">
+          <iframe src="https://phet.colorado.edu/sims/html/color-vision/latest/color-vision_nl.html" width="800" height="600" scrolling="no" allowfullscreen></iframe>
+        </mat-card>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('spectrumlicht')">Spectrum van licht
+        <mat-icon *ngIf="getShowSubject('spectrumlicht')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('spectrumlicht')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('spectrumlicht')">
+        <p>
+          Licht bestaat uit golven. Deze golven hebben een bepaalde <b>golflengte</b>, dit is de lengte van 1 golf.
+          We kennen licht met vele soorten golflengte. Iedere golflengte heeft een ander soort licht.
+          Dit ordenen we netjes en zo een geordend patroon noemen we het <b>spectrum</b>.
+          In zo een spectrum is weergegeven welke soorten we hebben en wat na elkaar komt.
+          In zo een spectrum vind je zichtbaar en niet zichtbaar licht.
+        </p>
+        <p>
+          Als je naar het spectrum kijkt is maar een klein deel zichtbaar licht.
+          Iedere kleur licht heeft zijn eigen golflengte en dit zie je in het spectrum.
+          Naast het <b>zichtbare licht</b> is er ook licht dat wij mensen niet kunnen zien.
+          Een voorbeeld hiervan is ultraviolet licht. Dit zit in het spectrum naast het paarse licht.
+          <b>Ultraviolet licht</b> wordt ook uitgezonden door de zon, hier wordt je bruin van.
+          Aan de andere kant van het zichtbare licht zie je naast de kleur rood infrarood straling.
+          <b>Infraroodstraling</b> is een warmtestraling.
+          Ieder voorwerp dat warmte uitzend, zend ook infrarood straling uit. Dit kan je zien met een warmtecamera.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/licht_spectrum.png">
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('geluid')">Geluid
+        <mat-icon *ngIf="getShowSubject('geluid')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('geluid')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('geluid')">
+        <p>
+          Geluid plant zichzelf voort met een trilling.
+          Deze trilling wordt veroorzaakt door een geluidsbron.
+          Deze geluidsbron trilt en dit wordt doorgegeven aan de omgeving.
+          In tegenstelling tot licht moet geluid een tussenstof hebben om zich te verplaatsen.
+          Zonder zo een tussenstof is er dus geen geluid te horen aan de andere kant van de ruimte.
+          Zo een tussenstof wordt ook wel een medium genoemd.
+          Een tussenstof kan bijvoorbeeld lucht of water zijn. De snelheid van geluid is dan ook afhankelijk van deze tussenstof.
+          In lucht is de snelheid van geluid 343 m/s.
+        </p>
+        <p>
+          De snelheid van geluid in verschillende stoffen is bepaald. Enkele snelheden zijn:
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/geluidssnelheden.jpg">
+        <p>
+          Je kan de snelheid door een medium ook berekenen, dit kan je doen met de formule:<br>
+          v = s / t
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Grootheid symbool</th>
+            <th>Eenheid</th>
+            <th>Eenheid symbool</th>
+          </tr>
+          <tr>
+            <td>Snelheid</td>
+            <td>v</td>
+            <td>meter per seconde</td>
+            <td>m/s</td>
+          </tr>
+          <tr>
+            <td>Tijd</td>
+            <td>t</td>
+            <td>seconde</td>
+            <td>s</td>
+          </tr>
+          <tr>
+            <td>Afstand</td>
+            <td>s</td>
+            <td>meter</td>
+            <td>m</td>
+          </tr>
+        </table>
+        <p>
+          De snelheid van geluid is minder dan de snelheid van licht (299.792 m/s).
+          Dit klopt ook wel want als je naar een onweersbui kijkt zie je eerst de flits en enkele seconden later hoor je pas de knal.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('soortentonen')">Soorten tonen
+        <mat-icon *ngIf="getShowSubject('soortentonen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('soortentonen')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('soortentonen')">
+        <p>
+          Bij geluid kennen we soorten tonen. Iedere trilling heeft twee eigenschappen:<br>
+          - <b>Trillingstijd</b>: dit is de tijd die een trilling erover doet. In de onderstaande afbeelding de periode.
+          - <b>Amplitude</b>: dit is de uitrekking van de trilling. Hoe ver komt de trilling van de evenwichtsstand.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/eigenschappen_trilling.png">
+        <p>
+          Als je gaat varieerden in deze eigenschappen kan je te toon veranderen.
+          Als je de amplitude groter of kleiner maakt verander je het volume.
+          Als je een kleine amplitude hebt, heb je een zachte toon. Als je een grote amplitude hebt, heb je een harde toon.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/zachtehardetoon.png">
+        <p>
+          Als je de trillingstijd groter of kleiner maakt verander je de hoogte van de toon.
+          Als je een kleine trillingstijd hebt, heb je een hoge toon.
+          Als je een grote trillingstijd hebt, heb je een lage toon.
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/lagehogetoon.png">
+        <p>
+          Met de trillingstijd van geluid kan je de frequentie van het geluid bepalen.
+          De frequentie zegt iets over het aantal trillingen in een seconde.
+          Je kan de frequentie berekenen met de volgende formule:<br>
+          f = 1 / T
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Grootheid symbool</th>
+            <th>Eenheid</th>
+            <th>Eenheid symbool</th>
+          </tr>
+          <tr>
+            <td>Frequentie</td>
+            <td>f</td>
+            <td>Hertz</td>
+            <td>Hz</td>
+          </tr>
+          <tr>
+            <td>Trillingstijd</td>
+            <td>T</td>
+            <td>seconde</td>
+            <td>s</td>
+          </tr>
+        </table>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('geluidmeten')">Geluid meten
+        <mat-icon *ngIf="getShowSubject('geluidmeten')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('geluidmeten')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('geluidmeten')">
+        <p>
+          Geluid kan je meten met een geluidsmeter
+        </p>
+        <table>
+          <tr>
+            <th>Grootheid</th>
+            <th>Grootheid symbool</th>
+            <th>Eenheid</th>
+            <th>Eenheid symbool</th>
+          </tr>
+          <tr>
+            <td>Geluidssterkte</td>
+            <td></td>
+            <td>Decibel</td>
+            <td>dB</td>
+          </tr>
+        </table>
+        <p>
+          Wij mensen kunnen lang niet alle geluidssterktes horen.
+          Bij geluid spreken we van een <b>gehoordrempel</b>.
+          Dit is het punt vanaf waar we geluid kunnen horen. We kunnen ook niet maximaal geluid hebben.
+          Wij mensen hebben een <b>pijngrens</b>.
+          Vanaf deze grens doet het pijn aan je oren en vanaf daarboven horen wij het geluid niet meer.
+          Hieronder zie je de geluidssterkte van enkele situaties:
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/pijngrens.png">
+        <p>
+          Wij mensen hebben een ander gehoorbereik dan andere dieren.
+          In onderstaand diagram is een vergelijking te zien.
+          Hierin is te zien wat ze kunnen horen (in het blauw) en wat ze kunnen produceren (in het roze):
+        </p>
+        <img src="../../assets/img/natuurkunde/lichtgeluid/gehoorbereik.jpg">
+        <p>
+          Als we geluid gaan verdubbelen gebeurd er iets geks. Als je een auto hebt die ongeveer 80 dB produceert en je verdubbelt het aantal naar 2 auto’s ontstaat er geen dubbel zo grote geluidssterkte.
+          Als je de geluidssterkte verdubbeld komt er 3 dB bij.
+          Als je dus 2 auto’s van 80 dB hebt wordt de geluidssterkte 83 dB.
+          Verdubbeld dit aantal dan weer, dus nu 4 auto’s dan komt er weer 3 dB bij dus krijg je 86 dB.
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <h2 (click)="handleViewSubject('practica')">Practica Licht en Geluid
+        <mat-icon *ngIf="getShowSubject('practica')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShowSubject('practica')">keyboard_arrow_down</mat-icon>
+      </h2>
+      <article *ngIf="getShowSubject('practica')">
+        <app-experiment-natuurkunde-licht></app-experiment-natuurkunde-licht>
+        <app-experiment-natuurkunde-geluid></app-experiment-natuurkunde-geluid>
+      </article>
+    </div>
   </mat-card>
 </div>

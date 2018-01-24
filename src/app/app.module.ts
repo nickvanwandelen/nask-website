@@ -51,6 +51,7 @@ import { SubjectScheikundeDichtheidComponent } from './subject-scheikunde-dichth
 import { SubjectScheikundeReactievergelijkingenComponent } from './subject-scheikunde-reactievergelijkingen/subject-scheikunde-reactievergelijkingen.component';
 import { SubjectNatuurkundeDichtheidComponent } from './subject-natuurkunde-dichtheid/subject-natuurkunde-dichtheid.component';
 import { PagePracticaComponent } from './page-practica/page-practica.component';
+import { SubjectScheikundePeriodieksysteemComponent } from './subject-scheikunde-periodieksysteem/subject-scheikunde-periodieksysteem.component';
 
 
 const appRoutes: Routes = [
@@ -162,6 +163,11 @@ const appRoutes: Routes = [
         outlet: 'scheikunde_outlet'
       },
       {
+        path: 'periodieksysteem',
+        component: SubjectScheikundePeriodieksysteemComponent,
+        outlet: 'scheikunde_outlet'
+      },
+      {
         path: 'practicum_dichtheid',
         component: ExperimentScheikundeDichtheidComponent,
         outlet: 'scheikunde_outlet'
@@ -223,6 +229,7 @@ const appRoutes: Routes = [
     SubjectScheikundeReactievergelijkingenComponent,
     SubjectNatuurkundeDichtheidComponent,
     PagePracticaComponent,
+    SubjectScheikundePeriodieksysteemComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),

@@ -69,6 +69,16 @@
           Het is dus niet mogelijk om stroom door een isolator te laten lopen.
           Voorbeelden van isolatoren zijn glas, plastic, hout en rubber.
         </p>
+
+        <mat-card class="subject_questions">
+          <p>1. Vul de ontbrekende woorden in:<br>
+            Een (<span *ngIf="getShowAnswers('geleidersisolatoren')" class="subject_answer">elektrische</span>) stroom kan alleen maar onstaan als je een spanningsbron en een (<span *ngIf="getShowAnswers('geleidersisolatoren')" class="subject_answer">gesloten</span>) stroomkring hebt.<br>
+            (<span *ngIf="getShowAnswers('geleidersisolatoren')" class="subject_answer">Gelijke</span>) ladingen stoten elkaar af.<br>
+            Een (<span *ngIf="getShowAnswers('geleidersisolatoren')" class="subject_answer">isolator</span>) houdt de stroom tegen.<br>
+            Je krijgt een (<span *ngIf="getShowAnswers('geleidersisolatoren')" class="subject_answer">gesloten</span>) stroomkring als je (<span *ngIf="getShowAnswers('geleidersisolatoren')" class="subject_answer">geleiders</span>) in de stroomkring opneemt.<br>
+          </p>
+          <button mat-button (click)="handleShowAnswers('geleidersisolatoren')">Toon antwoorden</button>
+        </mat-card>
       </article>
     </div>
 
@@ -241,6 +251,14 @@
           De aardlekschakelaar gaat nog verder: die schakelt de stroom af als er ergens stroom naar de aarde loopt. Hiervoor meet de
           schakelaar de inkomende stroom en de uitgaande stroom en als daar verschil tussen zit dan schakelt hij uit.
         </p>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Wat is het maximale aantal Ampere dat door een zekering kan gaan?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">16 Ampere</span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('stroominhuis')">Toon antwoorden</button>
+        </mat-card>
       </article>
     </div>
 
@@ -265,6 +283,33 @@
           Wanneer een lamp stuk is, kan de elektriciteit nog steeds door naast de lamp, om een stroomkring te vormen, zo blijven de overige lampen wel nog branden.
         </p>
         <img src="../../assets/img/natuurkunde/elektriciteit/parallelschakeling.png">
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Welke schakelingen zijn parallel schakelingen?<br>
+            <img src="../../assets/img/natuurkunde/elektriciteit/stroomkring_vraag1.jpg">
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">A, B en D</span>
+          </p>
+          <p>
+            2. Welke schakelaars moet je sluiten zodat:<br>
+            <img src="../../assets/img/natuurkunde/elektriciteit/stroomkring_vraag2.jpg"><br>
+            2a. Lampje 1 brandt?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S1, S5 en S6</span><br>
+            2a. Lampje 2 brandt?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S2, S4 en S6</span><br>
+            2a. Lampje 3 brandt?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S2, S3 en S6</span><br>
+            2a. Lampje 4 brandt?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S2, S5 en S7</span><br>
+            2a. Lampje 1 en 2 allebei branden?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S1, 45 en S6</span><br>
+            2a. Lampje 1 en 3 allebei branden?<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S2, S3, S4 en S6</span><br>
+            2a. LAlle lampjes branden<br>
+            <span *ngIf="getShowAnswers('stroominhuis')" class="subject_answer">S1, S3, S4 en S7</span><br>
+          </p>
+          <button mat-button (click)="handleShowAnswers('stroominhuis')">Toon antwoorden</button>
+        </mat-card>
 
         <mat-card class="youtube_clip">
           <h3>Filmpje Schakelingen</h3>
@@ -390,6 +435,30 @@
             <td>A</td>
           </tr>
         </table>
+
+        <mat-card class="subject_questions">
+          <p>
+            1. Door een dunne draad loopt een elektrische stroom met een stroomsterkte van 4 A. De spanning over deze draad is 45 V. Bereken de weerstand van de dunne draad.<br>
+            <span *ngIf="getShowAnswers('weerstand')" class="subject_answer">
+              I = 4 A<br>
+              U = 45 V<br>
+              R = U / I<br>
+              R = 45 / 4 = 11,25<br>
+              De weerstand van de dunne draad is 11,25 Ω
+            </span>
+          </p>
+          <p>
+            2. Een dunne draad met een weerstandswaarde van 50 Ω is aangesloten op een spanningsbron van 8,5 V. Bereken de stroomsterkte in de draad.<br>
+            <span *ngIf="getShowAnswers('weerstand')" class="subject_answer">
+              R = 50 Ω<br>
+              U = 8,5 V<br>
+              I = U / R<br>
+              I = 50 / 8,5 = 0,17 A<br>
+              De stroomsterkte in de dunne draad is 0,17 A
+            </span>
+          </p>
+          <button mat-button (click)="handleShowAnswers('weerstand')">Toon antwoorden</button>
+        </mat-card>
 
         <mat-card class="applet">
           <h3>Applet: Weerstand</h3>

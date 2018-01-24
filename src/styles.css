@@ -45,13 +45,13 @@ td{
   text-align: left;
 }
 
-.imgTableData{
-  width: 50%;
-}
-
 img{
   max-width: 50%;
   max-height: 50%;
+}
+
+mat-icon{
+  float: right;
 }
 
 button{
@@ -59,57 +59,29 @@ button{
   color: white;
 }
 
-.main_card{
-  float: left;
-  margin: 1% 0% 1% 1%;
-  background-color: white;
-  color: black;
-  width: 55%;
+article mat-card{
+  width: 50%;
+  margin: auto;
 }
 
-.main_card h1, h2{
+article img {
+  display: block;
+  max-width: 50%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subject_container img{
+  float: left;
+}
+
+h2, h3{
   padding: 1%;
 }
 
-.main_card mat-icon{
-  float: right;
-}
-
-.main_card h1:hover, h2:hover{
+h2:hover{
   background-color: lightgray;
-}
-
-.side_cards{
-  float: right;
-  width: 39%;
-  height: 100%;
-}
-
-.side_cards mat-card{
-  margin: 2% 2% 2% 2%;
-  background-color: steelblue;
-}
-
-.youtube_clip{
-  margin-top: 3%;
-  background-color: steelblue;
-  color: white;
-}
-
-.youtube_clip iframe{
-  max-width: 100%;
-  margin: 2% 2% 2% 0%;
-}
-
-.applet{
-  margin-top: 3%;
-  background-color: steelblue;
-  color: white;
-}
-
-.applet iframe{
-  max-width: 100%;
-  margin: 2% 2% 2% 0%;
 }
 
 .subscript{
@@ -134,18 +106,6 @@ button{
   color: black;
 }
 
-.navigator{
-  color: white;
-  text-align: center;
-}
-
-.navigator button{
-  background-color: steelblue;
-  color: white;
-  width: 100%;
-  text-align: center;
-}
-
 .no_sidecard_main_content{
   top: 72px;
   width: 100%;
@@ -158,19 +118,32 @@ button{
   width: 94%;
 }
 
-
-
-.practicum_link{
-  text-align: center;
-  color: white;
-}
-
-.practicum_link button{
+.no_sidecard_main_content .subject_questions{
   background-color: steelblue;
   color: white;
-  width: 100%;
-  text-align: center;
 }
+
+.no_sidecard_main_content .youtube_clip{
+  margin-top: 3%;
+  background-color: steelblue;
+  color: white;
+}
+
+.no_sidecard_main_content .youtube_clip iframe{
+  width: 100%;
+}
+
+.no_sidecard_main_content .applet{
+  margin-top: 3%;
+  background-color: steelblue;
+  color: white;
+}
+
+.no_sidecard_main_content .applet iframe{
+  max-width: 100%;
+  margin: 2% 2% 2% 0%;
+}
+
 
 
 

@@ -141,11 +141,11 @@
         <mat-card class="subject_questions">
           <p>
             1. Welke krachten kennen we? (noem er 5).<br>
-            <span *ngIf="getShowAnswers('soortenkrachten')" class="subjet_answer">Spierkracht, zwaartekracht, veerkracht, spankracht, magnetische kracht, wrijvingskracht (weerstandskracht) en gewicht.</span>
+            <span *ngIf="getShowAnswers('soortenkrachten')" class="subject_answer">Spierkracht, zwaartekracht, veerkracht, spankracht, magnetische kracht, wrijvingskracht (weerstandskracht) en gewicht.</span>
           </p>
           <p>
             2. Wat is het gewicht?<br>
-            <span *ngIf="getShowAnswers('soortenkrachten')" class="subjet_answer">De kracht van de ondersteuning op het voorwerp</span>
+            <span *ngIf="getShowAnswers('soortenkrachten')" class="subject_answer">De kracht van de ondersteuning op het voorwerp</span>
           </p>
           <button mat-button (click)="handleShowAnswers('soortenkrachten')">Toon antwoorden</button>
         </mat-card>
@@ -242,7 +242,7 @@
         <mat-card class="subject_questions">
           <p>
             1. Op een vreemde planeet werkt er op een voorwerp met een massa van 2,3 kg een zwaartekracht van 46 N. Bereken de gravitatieversnelling op deze planeet.<br>
-            <span *ngIf="getShowAnswers('zwaartekrachtberekenen')" class="subjet_answer">De gravitatieversnelling op deze planeet is: Fz / m -> 46N / 2,3 kg = 20 N/kg</span>
+            <span *ngIf="getShowAnswers('zwaartekrachtberekenen')" class="subject_answer">De gravitatieversnelling op deze planeet is: Fz / m -> 46N / 2,3 kg = 20 N/kg</span>
           </p>
           <button mat-button (click)="handleShowAnswers('zwaartekrachtberekenen')">Toon antwoorden</button>
         </mat-card>

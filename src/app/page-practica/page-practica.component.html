@@ -1,0 +1,92 @@
+<mat-card class="practica_intro">
+  <div>
+    <h1>Practica</h1>
+    <p>Op deze pagina vind je een overzicht van alle practica die wij aanbieden.</p>
+  </div>
+</mat-card>
+
+<mat-card class="practica_card">
+  <div>
+    <h2>Natuurkunde</h2>
+  </div>
+  <div class="practica_selector">
+    <h3 (click)="handleShowPracticum('dichtheid')">Practicum Dichtheid
+      <mat-icon *ngIf="getShouldShowPracticum('dichtheid')">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="!getShouldShowPracticum('dichtheid')">keyboard_arrow_down</mat-icon>
+    </h3>
+    <div *ngIf="getShouldShowPracticum('dichtheid')">
+      <app-experiment-scheikunde-dichtheid></app-experiment-scheikunde-dichtheid>
+    </div>
+  </div>
+  <div class="practica_selector">
+    <h3 (click)="handleShowPracticum('elektriciteit')">Practicum Elektriciteit
+      <mat-icon *ngIf="getShouldShowPracticum('elektriciteit')">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="!getShouldShowPracticum('elektriciteit')">keyboard_arrow_down</mat-icon>
+    </h3>
+    <div *ngIf="getShouldShowPracticum('elektriciteit')">
+      <app-experiment-natuurkunde-elektriciteit></app-experiment-natuurkunde-elektriciteit>
+    </div>
+  </div>
+  <div class="practica_selector">
+    <h3 (click)="handleShowPracticum('geluid')">Practicum Geluid
+      <mat-icon *ngIf="getShouldShowPracticum('geluid')">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="!getShouldShowPracticum('geluid')">keyboard_arrow_down</mat-icon>
+    </h3>
+    <div *ngIf="getShouldShowPracticum('geluid')">
+      <app-experiment-natuurkunde-geluid></app-experiment-natuurkunde-geluid>
+    </div>
+  </div>
+  <div class="practica_selector">
+    <h3 (click)="handleShowPracticum('krachtbeweging')">Practicum Kracht en Beweging
+      <mat-icon *ngIf="getShouldShowPracticum('krachtbeweging')">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="!getShouldShowPracticum('elektriciteit')">keyboard_arrow_down</mat-icon>
+    </h3>
+    <div *ngIf="getShouldShowPracticum('krachtbeweging')">
+      <app-experiment-natuurkunde-krachtbeweging></app-experiment-natuurkunde-krachtbeweging>
+    </div>
+  </div>
+  <div class="practica_selector">
+    <h3 (click)="handleShowPracticum('licht')">Practicum Licht
+      <mat-icon *ngIf="getShouldShowPracticum('licht')">keyboard_arrow_up</mat-icon>
+      <mat-icon *ngIf="!getShouldShowPracticum('licht')">keyboard_arrow_down</mat-icon>
+    </h3>
+    <div *ngIf="getShouldShowPracticum('licht')">
+      <app-experiment-natuurkunde-licht></app-experiment-natuurkunde-licht>
+    </div>
+  </div>
+</mat-card>
+
+<mat-card class="practica_card">
+  <div>
+    <h2>Scheikunde</h2>
+    <div class="practica_selector">
+      <h3 (click)="handleShowPracticum('faseovergangen')">Practicum Faseovergangen
+        <mat-icon *ngIf="getShouldShowPracticum('faseovergangen')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShouldShowPracticum('faseovergangen')">keyboard_arrow_down</mat-icon>
+      </h3>
+      <div *ngIf="getShouldShowPracticum('faseovergangen')">
+        <app-experiment-scheikunde-faseovergangen></app-experiment-scheikunde-faseovergangen>
+      </div>
+    </div>
+    <div class="practica_selector">
+      <h3 (click)="handleShowPracticum('koolstofchemie')">Practicum Koolstofchemie
+        <mat-icon *ngIf="getShouldShowPracticum('koolstofchemie')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShouldShowPracticum('koolstofchemie')">keyboard_arrow_down</mat-icon>
+      </h3>
+      <div *ngIf="getShouldShowPracticum('koolstofchemie')">
+        <app-experiment-scheikunde-koolstofchemie></app-experiment-scheikunde-koolstofchemie>
+      </div>
+    </div>
+    <div class="practica_selector">
+      <h3 (click)="handleShowPracticum('scheidingsmethodes')">Practicum Scheidingsmethodes
+        <mat-icon *ngIf="getShouldShowPracticum('scheidingsmethodes')">keyboard_arrow_up</mat-icon>
+        <mat-icon *ngIf="!getShouldShowPracticum('scheidingsmethodes')">keyboard_arrow_down</mat-icon>
+      </h3>
+      <div *ngIf="getShouldShowPracticum('scheidingsmethodes')">
+        <app-experiment-scheikunde-scheidingsmethodes></app-experiment-scheikunde-scheidingsmethodes>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+
