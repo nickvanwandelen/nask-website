@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from "@angular/material";
+import { MatDividerModule } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AngularFireModule} from 'angularfire2';
@@ -52,6 +53,7 @@ import { SubjectScheikundeReactievergelijkingenComponent } from './subject-schei
 import { SubjectNatuurkundeDichtheidComponent } from './subject-natuurkunde-dichtheid/subject-natuurkunde-dichtheid.component';
 import { PagePracticaComponent } from './page-practica/page-practica.component';
 import { SubjectScheikundePeriodieksysteemComponent } from './subject-scheikunde-periodieksysteem/subject-scheikunde-periodieksysteem.component';
+import { AppletScheikundeScheidingsmethodesComponent } from './applet-scheikunde-scheidingsmethodes/applet-scheikunde-scheidingsmethodes.component';
 
 
 const appRoutes: Routes = [
@@ -230,6 +232,7 @@ const appRoutes: Routes = [
     SubjectNatuurkundeDichtheidComponent,
     PagePracticaComponent,
     SubjectScheikundePeriodieksysteemComponent,
+    AppletScheikundeScheidingsmethodesComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {enableTracing: true}),
@@ -247,6 +250,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),

@@ -1,74 +1,73 @@
-<mat-card *ngIf="called">
-  <div *ngIf="!generated">
-    <span>Toets aan het genereren...</span>
-  </div>
-
-  <div *ngIf="generated">
-    <div *ngIf="!showFinalScore">
-      <article>
-        <h2>Toets</h2>
-
-        <p>
-          Introductie van de toets..
-        </p>
-      </article>
+<mat-card class="toetsen_container" *ngIf="loaded">
+  <article class="toetsen_header">
+    <div>
+      <h1>Toets</h1>
     </div>
+  </article>
 
-    <div *ngIf="showFinalScore">
-      <article>
-        <h2 #scoreToScrollTo>Score</h2>
-        Totaal aantal vragen: {{countCorrect + countIncorrect}}.<br>
-        Waarvan goed: {{countCorrect}}.<br>
-        Waarvan fout: {{countIncorrect}}.<br>
-        Slagingspecentage: {{percentageCorrect}}%.<br>
-        Cijfer: <b>{{grade}}</b>.<br>
-      </article>
-    </div>
+  <article *ngIf="showScore">
+    <h2>Score</h2>
+    <p>Aantal vragen: {{correct + incorrect}}</p>
+    <p>Correct: {{correct}}</p>
+    <p>Incorrect: {{incorrect}}</p>
+    <p>Percentage: {{percentage}}%</p>
+    <p>Cijfer: <b>{{grade}}</b></p>
+  </article>
 
-    <mat-card *ngIf="natuurkundeSubjects.length !== 0">
+  <article class="toetsen_test">
+    <mat-card class="test_container" *ngIf="natuurkundeSubjectsArray.length !== 0">
       <h2>Natuurkunde</h2>
-      <div class="question" *ngFor="let nat_subject of natuurkundeSubjects">
-        <h3>{{nat_subject.subject}}</h3>
-        <div class="question_list" *ngFor="let nat_question of nat_subject.questions; let i = index">
-          <br>
-          <span>Vraag {{i + 1}}: {{nat_question.question.Vraag}}</span>
+      <div class="subject_container" *ngFor="let natSubject of natuurkundeSubjectsArray">
+        <h3>{{natSubject.subject}}</h3>
+        <div *ngFor="let natQuestion of natSubject.questions; let i = index">
 
-          <mat-form-field *ngIf="nat_question.question.Type == 'open'" required>
-            <input id="nat_open_{{nat_question.questionID}}" matInput placeholder="Jouw antwoord">
-          </mat-form-field>
+          <article class="toetsen_question">
+            <span>Vraag {{i + 1}}: {{natQuestion.Vraag}}</span>
+            <p *ngIf="showScore" id="hint_nat_{{natSubject.subject}}_question_{{i}}">Correcte antwoord is: {{natQuestion.Antwoord}}</p>
 
-          <div *ngIf="nat_question.question.Type == 'mpc'">
-            <mat-radio-group id="nat_mpc_{{nat_question.questionID}}" required>
-              <mat-radio-button *ngFor="let possible_answer of this.getRandomizedPossibleAwnsers(nat_question)" id="nat_mpc_{{nat_question.questionID}}_{{possible_answer}}"[value]="possible_answer" (change)="changeMpcValue(nat_question, possible_answer)">{{possible_answer}}</mat-radio-button>
-            </mat-radio-group>
-          </div>
+            <div>
+              <mat-radio-group *ngIf="natQuestion.Type == 'mpc'" name="nat_{{natSubject.subject}}_question_{{i}}" required>
+                <mat-radio-button [value]="{question: natQuestion, submittedValue: natQuestion.Antwoord}" *ngFor="let randomizedAnswer of natQuestion.RandomizedAnswers">{{randomizedAnswer}}</mat-radio-button>
+              </mat-radio-group>
+
+              <mat-form-field *ngIf="natQuestion.Type == 'open'">
+                <input matInput type="text" placeholder="Jouw antwoord" name="nat_{{natSubject.subject}}_question_{{i}}" required>
+              </mat-form-field>
+            </div>
+            <mat-divider></mat-divider>
+          </article>
 
         </div>
       </div>
+
     </mat-card>
 
-    <mat-card *ngIf="scheikundeSubjects.length !== 0">
+    <mat-card class="test_container" *ngIf="scheikundeSubjectsArray.length !== 0">
       <h2>Scheikunde</h2>
-      <div class="subject" *ngFor="let sch_subject of scheikundeSubjects">
-        <h3>{{sch_subject.subject}}</h3>
-        <div class="question_list" *ngFor="let sch_question of sch_subject.questions; let i = index" >
-          <br>
-          <span>Vraag {{i + 1}}: {{sch_question.question.Vraag}}</span>
 
-          <mat-form-field *ngIf="sch_question.question.Type == 'open'">
-            <input id="sch_open_{{sch_question.questionID}}" matInput placeholder="Jouw antwoord">
-          </mat-form-field>
+      <div class="subject_container" *ngFor="let schSubject of scheikundeSubjectsArray">
+        <h3>{{schSubject.subject}}</h3>
+        <div *ngFor="let schQuestion of schSubject.questions; let i = index">
 
-          <div *ngIf="sch_question.question.Type == 'mpc'">
-            <mat-radio-group id="sch_mpc_{{sch_question.questionID}}">
-                <mat-radio-button *ngFor= "let possible_awnser of this.getRandomizedPossibleAwnsers(sch_question)" id=sch_mpc_{{sch_question.questionID}}_{{possible_awnser}} (change)="changeMpcValue(sch_question, possible_awnser)" [checked]="false">{{possible_awnser}}</mat-radio-button>
-            </mat-radio-group>
-          </div>
+          <article>
+            <span>Vraag {{i + 1}}: {{schQuestion.Vraag}}</span>
+            <p *ngIf="showScore" id="hint_sch_{{schSubject.subject}}_question_{{i}}">Correcte antwoord is: {{schQuestion.Antwoord}}</p>
+
+            <div>
+              <mat-radio-group *ngIf="schQuestion.Type == 'mpc'" name="sch_{{schSubject.subject}}_question_{{i}}" required>
+                <mat-radio-button [value]="{question: schQuestion, submittedValue: schQuestion.Antwoord}" *ngFor="let randomizedAnswer of schQuestion.RandomizedAnswers">{{randomizedAnswer}}</mat-radio-button>
+              </mat-radio-group>
+
+              <mat-form-field *ngIf="schQuestion.Type == 'open'">
+                <input matInput type="text" placeholder="Jouw antwoord">
+              </mat-form-field>
+            </div>
+          </article>
+
         </div>
       </div>
     </mat-card>
-  </div>
+  </article>
 
-  <button mat-button (click)="submitTest(scoreToScrollTo)">Controleer Toets</button>
+  <button mat-button (click)="submitTest()">Check scores</button>
 </mat-card>
-

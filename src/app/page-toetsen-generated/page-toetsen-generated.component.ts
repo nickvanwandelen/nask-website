@@ -9,190 +9,224 @@ import {MatRadioChange} from '@angular/material';
 })
 export class PageToetsenGeneratedComponent implements OnInit {
 
-  generated = false;
-  called = false;
-  showFinalScore = false;
+  loaded: boolean = false;
 
-  countCorrect: number;
-  countIncorrect: number;
-  percentageCorrect: string;
-  grade: string;
+  natuurkundeSubjectsArray;
+  scheikundeSubjectsArray;
 
-  natuurkundeSubjects: any;
-  scheikundeSubjects: any;
+  showScore: boolean = false;
+  correct: number;
+  incorrect: number;
+  percentage;
+  grade: number;
 
-  submittedMpcAnswers: any;
 
   constructor(private afs: AngularFirestore){
-    this.natuurkundeSubjects = [];
-    this.scheikundeSubjects = [];
-  }
-
-  generateTest(natSubjects, schSubjects){
-    this.called = true;
-    this.generated = false;
-    this.showFinalScore = false;
-
-    this.natuurkundeSubjects = [];
-    this.scheikundeSubjects = [];
-    this.submittedMpcAnswers = [];
-
-    let localNatSubjectContainer = this.natuurkundeSubjects; //create local array
-    let localSchSubjectContainer = this.scheikundeSubjects;
-
-
-
-    for(let subject = 0; subject < natSubjects.length; subject++){ //loop through selected subjects
-      console.log('Retrieving subject: ' + natSubjects[subject].subject + ' from database'); //debug
-
-      var natReference = this.afs.collection('natuurkunde').doc(natSubjects[subject].subject).collection('vragen'); //create a database reference of the selected subject
-      natReference.ref.get().then(function(returnedCollection){
-
-        var natSubjectContainer = { //create a subject container, containing the name and questions
-          subject: natSubjects[subject].subject,
-          questions: []
-        };
-
-        returnedCollection.forEach(function(document){ //loop through each question and push them in the subject container
-          natSubjectContainer.questions.push({questionID: document.id, question: document.data(), randomized_answers: []})
-        });
-
-        localNatSubjectContainer.push(natSubjectContainer); //push the subject container in the natSubjectContainer object
-      });
-    }
-
-    for(let subject = 0; subject < schSubjects.length; subject++){ //loop through selected subjects
-      console.log('Retrieving subject: ' + schSubjects[subject].subject + ' from database'); //debug
-
-      let schReference = this.afs.collection('scheikunde').doc(schSubjects[subject].subject).collection('vragen'); //create a database reference of the selected subject
-      schReference.ref.get().then(function(returnedCollection){
-
-        let schSubjectContainer = { //create a subject container, containing the name and questions
-          subject: schSubjects[subject].subject,
-          questions: []
-        };
-
-        returnedCollection.forEach(function(document){ //loop through each question and push them in the subject container
-          schSubjectContainer.questions.push({questionID: document.id, question: document.data(), randomized_answers: []});
-        });
-
-        localSchSubjectContainer.push(schSubjectContainer); //push the subject container in the natSubjectContainer object
-      });
-    }
-
-    this.generated = true;
 
   }
 
   ngOnInit() {
   }
 
-  getRandomizedPossibleAwnsers(questionObject: any){
+  randomizeAnswers(questionToRandomize: any){
+    let randomizedAnswers = [];
+    randomizedAnswers.push(questionToRandomize.Antwoord);
 
-    if(questionObject.randomized_answers.length === 0){
-
-      for(let wrongAwnserIndex = 0; wrongAwnserIndex < questionObject.question.FoutieveAntwoorden.length; wrongAwnserIndex++){
-        questionObject.randomized_answers.push(questionObject.question.FoutieveAntwoorden[wrongAwnserIndex]);
-      }
-      questionObject.randomized_answers.push(questionObject.question.Antwoord);
-
-      for (var i = questionObject.randomized_answers.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = questionObject.randomized_answers[i];
-        questionObject.randomized_answers[i] = questionObject.randomized_answers[j];
-        questionObject.randomized_answers[j] = temp;
-      }
-
+    for(let index = 0; index < questionToRandomize.FoutieveAntwoorden.length; index++){
+      randomizedAnswers.push(questionToRandomize.FoutieveAntwoorden[index]);
     }
 
-    return questionObject.randomized_answers;
+    let currentIndex = randomizedAnswers.length, tempValue, randomIndex;
+    while(currentIndex !== 0){
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      tempValue = randomizedAnswers[currentIndex];
+      randomizedAnswers[currentIndex] = randomizedAnswers[randomIndex];
+      randomizedAnswers[randomIndex] = tempValue;
+    }
+
+    return randomizedAnswers;
   }
 
-  submitTest(scoreToScrollTo){
-    let submittedAwnsers = [];
+  generateTest(loadNatSubjects: any, loadSchSubjects: any){
+    this.natuurkundeSubjectsArray = [];
+    this.scheikundeSubjectsArray = [];
+    this.showScore = false;
 
-    for(let nat_subject = 0; nat_subject < this.natuurkundeSubjects.length; nat_subject++){
-      for(let nat_question = 0; nat_question < this.natuurkundeSubjects[nat_subject].questions.length; nat_question++){
-        if(this.natuurkundeSubjects[nat_subject].questions[nat_question].question.Type === "open"){
-          submittedAwnsers.push({
-            input: document.getElementById("nat_open_" + this.natuurkundeSubjects[nat_subject].questions[nat_question].questionID),
-            questionContext: this.natuurkundeSubjects[nat_subject].questions[nat_question]
-          });
-        }
-      }
+    let countNatMpcQuestions = 0, countSchMpcQuestions = 0;
+
+    //Loading Natuurkunde questions
+    for(let natIndex = 0; natIndex < loadNatSubjects.length; natIndex++){
+      let subjectQuestionsContainer = [];
+      let natReference = this.afs.collection('natuurkunde').doc(loadNatSubjects[natIndex].subject).collection('vragen');
+      natReference.ref.get().then(function(returnedCollection){
+        returnedCollection.forEach(function(document){
+          subjectQuestionsContainer.push(document.data());
+
+          if(document.data().Type === "mpc"){
+            let randomizedAnswers = [];
+            randomizedAnswers.push(document.data().Antwoord);
+
+            for(let index = 0; index < document.data().FoutieveAntwoorden.length; index++){
+              randomizedAnswers.push(document.data().FoutieveAntwoorden[index]);
+            }
+
+            let currentIndex = randomizedAnswers.length, tempValue, randomIndex;
+            while(currentIndex !== 0){
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+              tempValue = randomizedAnswers[currentIndex];
+              randomizedAnswers[currentIndex] = randomizedAnswers[randomIndex];
+              randomizedAnswers[randomIndex] = tempValue;
+            }
+
+            subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomizedAnswers = randomizedAnswers;
+
+            for(let checkForCorrectAnswer = 0; checkForCorrectAnswer < subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomizedAnswers.length; checkForCorrectAnswer++){
+              if(subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomizedAnswers[checkForCorrectAnswer] === document.data().Antwoord){
+                subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomAnswerIndex = checkForCorrectAnswer;
+                break;
+              }
+            }
+          }
+        });
+      });
+      this.natuurkundeSubjectsArray.push({subject: loadNatSubjects[natIndex].subject, questions: subjectQuestionsContainer});
     }
 
-    for(let sch_subject = 0; sch_subject < this.scheikundeSubjects.length; sch_subject++){
-      for(let sch_question = 0; sch_question < this.scheikundeSubjects[sch_subject].questions.length; sch_question++){
-        if(this.scheikundeSubjects[sch_subject].questions[sch_question].question.Type === "open"){
-          submittedAwnsers.push({
-            input: document.getElementById("sch_open_" + this.scheikundeSubjects[sch_subject].questions[sch_question].questionID),
-            questionContext: this.scheikundeSubjects[sch_subject].questions[sch_question]
-          });
-        }
-      }
+    //Loading Scheikunde questions
+    for(let schIndex = 0; schIndex < loadSchSubjects.length; schIndex++){
+      let subjectQuestionsContainer = [];
+      let schReference = this.afs.collection('scheikunde').doc(loadSchSubjects[schIndex].subject).collection('vragen');
+      schReference.ref.get().then(function(returnedCollection){
+        returnedCollection.forEach(function(document){
+          subjectQuestionsContainer.push(document.data());
+          if(document.data().Type === "mpc"){
+            let randomizedAnswers = [];
+            randomizedAnswers.push(document.data().Antwoord);
+
+            for(let index = 0; index < document.data().FoutieveAntwoorden.length; index++){
+              randomizedAnswers.push(document.data().FoutieveAntwoorden[index]);
+            }
+
+            let currentIndex = randomizedAnswers.length, tempValue, randomIndex;
+            while(currentIndex !== 0){
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+              tempValue = randomizedAnswers[currentIndex];
+              randomizedAnswers[currentIndex] = randomizedAnswers[randomIndex];
+              randomizedAnswers[randomIndex] = tempValue;
+            }
+
+            subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomizedAnswers = randomizedAnswers;
+
+            for(let checkForCorrectAnswer = 0; checkForCorrectAnswer < subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomizedAnswers.length; checkForCorrectAnswer++){
+              if(subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomizedAnswers[checkForCorrectAnswer] === document.data().Antwoord){
+                subjectQuestionsContainer[subjectQuestionsContainer.length - 1].RandomAnswerIndex = checkForCorrectAnswer;
+                break;
+              }
+            }
+          }
+
+        });
+      });
+      this.scheikundeSubjectsArray.push({subject: loadSchSubjects[schIndex].subject, questions: subjectQuestionsContainer});
     }
 
-    this.countCorrect = 0;
-    this.countIncorrect = submittedAwnsers.length + this.submittedMpcAnswers.length;
-
-    for(let questionToCheck = 0; questionToCheck < submittedAwnsers.length; questionToCheck++) {
-      if (submittedAwnsers[questionToCheck].questionContext.question.Type === "open") {
-        if (("" + submittedAwnsers[questionToCheck].input.value).toUpperCase() === ("" + submittedAwnsers[questionToCheck].questionContext.question.Antwoord).toUpperCase()) {
-          this.countCorrect++;
-          this.countIncorrect--;
-          submittedAwnsers[questionToCheck].input.style.color = "#00FF00";
-        }
-        else {
-          submittedAwnsers[questionToCheck].input.style.color = "#FF0000";
-        }
-        submittedAwnsers[questionToCheck].input.disabled = true;
-      }
-    }
-
-    for(let mpcQuestionToCheck = 0; mpcQuestionToCheck < this.submittedMpcAnswers.length; mpcQuestionToCheck++){
-      console.log(this.submittedMpcAnswers[mpcQuestionToCheck]);
-      if(("" + this.submittedMpcAnswers[mpcQuestionToCheck].question.question.Antwoord) === ("" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue)){
-        this.countCorrect++;
-        this.countIncorrect--;
-
-        document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue).style.color = "#00FF00";
-
-      }
-      else{
-        document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].submittedValue).style.color = "#FF0000";
-        document.getElementById("sch_mpc_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.questionID + "_" + this.submittedMpcAnswers[mpcQuestionToCheck].question.question.Antwoord).style.color = "#00FF00";
-      }
-    }
-
-    console.log('Calculating scores');
-    this.percentageCorrect = (this.countCorrect / (this.countCorrect + this.countIncorrect) * 100).toFixed(2);
-    this.grade = (this.countCorrect / (this.countCorrect + this.countIncorrect) * 9 + 1).toFixed(1);
-
-    this.showFinalScore = true;
-    console.log(scoreToScrollTo);
-    //window.scrollTo(0, scoreToScrollTo.offsetTop);
+    this.loaded = true;
   }
 
-  changeMpcValue(question: any, value: any){
-    let alreadyPushed = false;
-    let pushedIndex = 0;
+  submitTest(){
+    this.correct = 0;
+    this.incorrect = 0;
+    this.percentage = 0;
+    this.grade = 0;
 
-    console.log('called');
 
-    for(let mpcQuestion = 0; mpcQuestion < this.submittedMpcAnswers.length; mpcQuestion++){
-      if(this.submittedMpcAnswers[mpcQuestion].question.questionID === question.questionID){
-        alreadyPushed = true;
-        pushedIndex = mpcQuestion;
-        break;
+    for(let natSubIndex = 0; natSubIndex < this.natuurkundeSubjectsArray.length; natSubIndex++){
+      for(let natQuestionIndex = 0; natQuestionIndex < this.natuurkundeSubjectsArray[natSubIndex].questions.length; natQuestionIndex++){
+        if(this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].Type === "open"){
+          let input = document.getElementsByName("nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex)[0];
+
+          if("" + input.value === "" + this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].Antwoord){
+            this.correct++;
+            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#008000";
+          }
+          else{
+            this.incorrect++;
+            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#FF0000";
+          }
+
+          input.disabled = true;
+        }
+        else{
+          console.log("Checking MPC Question");
+          let radioGroup = document.getElementsByName("nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex);
+          let randomIndex = this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].RandomAnswerIndex;
+          if(radioGroup[randomIndex].checked){ //correctly answerd
+            this.correct++;
+            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#008000";
+          }
+          else{ //incorrect
+            console.log(document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex));
+            this.incorrect++;
+            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#FF0000";
+          }
+
+          for(let radioOption = 0; radioOption < radioGroup.length; radioOption++){
+            radioGroup[radioOption].disabled = true;
+          }
+        }
       }
     }
 
-    if(!alreadyPushed){
-      this.submittedMpcAnswers.push({question: question, submittedValue: value})
+    for(let schSubIndex = 0; schSubIndex < this.scheikundeSubjectsArray.length; schSubIndex++){
+      for(let schQuestionIndex = 0; schQuestionIndex < this.scheikundeSubjectsArray[schSubIndex].questions.length; schQuestionIndex++){
+        if(this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].Type === "open"){
+          let input = document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex)[0];
+
+          if("" + input.value === "" + this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].Antwoord){
+            this.correct++;
+            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#008000";
+          }
+          else{
+            this.incorrect++;
+            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#FF0000";
+          }
+
+          input.disabled = true;
+        }
+        else{
+          console.log("Checking MPC Question");
+          let radioGroup = document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex);
+          let randomIndex = this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].RandomAnswerIndex;
+          console.log(randomIndex);
+          document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex)[randomIndex].style.color = "#008000";
+          console.log(radioGroup[randomIndex]);
+          if(radioGroup[randomIndex].checked){ //correctly answerd
+            this.correct++;
+            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#008000";
+          }
+          else{ //incorrect
+            this.incorrect++;
+            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#FF0000";
+          }
+
+          for(let radioOption = 0; radioOption < radioGroup.length; radioOption++){
+            radioGroup[radioOption].disabled = true;
+          }
+        }
+      }
     }
-    else{
-      this.submittedMpcAnswers[pushedIndex].submittedValue = value;
-    }
+
+    this.percentage = (this.correct / (this.correct + this.incorrect)) * 100;
+    this.percentage = this.percentage.toFixed(2);
+
+    this.grade = (this.correct / (this.correct + this.incorrect)) * 9 + 1;
+    this.grade = this.grade.toFixed(1);
+
+    this.showScore = true;
   }
+
+
 }
