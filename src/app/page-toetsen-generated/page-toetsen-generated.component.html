@@ -1,7 +1,15 @@
 <mat-card class="toetsen_container" *ngIf="loaded">
   <article class="toetsen_header">
     <div>
-      <h1>Toets</h1>
+      <h1 #top>Toets</h1>
+      <p>
+        Dit is de toets met de onderwerpen die jij geselecteerd hebt.<br>
+        Bij meerkeuze vragen is er <b>altijd</b> maar 1 antwoord mogelijk.<br>
+        Bij open vragen is je antwoord <b>niet</b> hoofdlettergevoelig en <b>niet</b> spatiegevoelig. Echter is het antwoord wel gevoelig voor typfouten.
+      </p>
+      <p>
+        Veel succes!
+      </p>
     </div>
   </article>
 
@@ -70,5 +78,5 @@
     </mat-card>
   </article>
 
-  <button mat-button (click)="submitTest()">Check scores</button>
+  <button mat-button (click)="submitTest(top)">Check scores</button>
 </mat-card>

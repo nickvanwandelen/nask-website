@@ -18,7 +18,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
   correct: number;
   incorrect: number;
   percentage;
-  grade: number;
+  grade: any;
 
 
   constructor(private afs: AngularFirestore){
@@ -52,8 +52,6 @@ export class PageToetsenGeneratedComponent implements OnInit {
     this.natuurkundeSubjectsArray = [];
     this.scheikundeSubjectsArray = [];
     this.showScore = false;
-
-    let countNatMpcQuestions = 0, countSchMpcQuestions = 0;
 
     //Loading Natuurkunde questions
     for(let natIndex = 0; natIndex < loadNatSubjects.length; natIndex++){
@@ -136,7 +134,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
     this.loaded = true;
   }
 
-  submitTest(){
+  submitTest(topTitle: any){
     this.correct = 0;
     this.incorrect = 0;
     this.percentage = 0;
@@ -148,20 +146,20 @@ export class PageToetsenGeneratedComponent implements OnInit {
         if(this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].Type === "open"){
           let input = document.getElementsByName("nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex)[0];
 
-          if("" + input.value === "" + this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].Antwoord){
+          if(("" + (<HTMLInputElement>input).value).toUpperCase().replace(/\s/g, '') === ("" + this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].Antwoord).toUpperCase().replace(/\s/g, '')){
             this.correct++;
           }
           else{
             this.incorrect++;
           }
 
-          input.disabled = true;
+          (<HTMLInputElement>input).disabled = true;
         }
         else{
           console.log("Checking MPC Question");
           let radioGroup = document.getElementsByName("nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex);
           let randomIndex = this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].RandomAnswerIndex;
-          if(radioGroup[randomIndex].checked){ //correctly answerd
+          if((<HTMLInputElement>radioGroup[randomIndex]).checked){ //correctly answerd
             this.correct++;
           }
           else{ //incorrect
@@ -169,7 +167,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
           }
 
           for(let radioOption = 0; radioOption < radioGroup.length; radioOption++){
-            radioGroup[radioOption].disabled = true;
+            (<HTMLInputElement>radioGroup[radioOption]).disabled = true;
           }
         }
       }
@@ -178,9 +176,9 @@ export class PageToetsenGeneratedComponent implements OnInit {
     for(let schSubIndex = 0; schSubIndex < this.scheikundeSubjectsArray.length; schSubIndex++){
       for(let schQuestionIndex = 0; schQuestionIndex < this.scheikundeSubjectsArray[schSubIndex].questions.length; schQuestionIndex++){
         if(this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].Type === "open"){
-          let input = document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex)[0];
+          let input = <HTMLInputElement>document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex)[0];
 
-          if("" + input.value === "" + this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].Antwoord){
+          if(("" + input.value).toUpperCase().replace(/\s/g, '') === ("" + this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].Antwoord).toUpperCase().replace(/\s/g, '')){
             this.correct++;
           }
           else{
@@ -196,7 +194,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
           console.log(randomIndex);
           console.log(radioGroup[randomIndex]);
           // noinspection TypeScriptUnresolvedVariable
-          if(radioGroup[randomIndex].checked){ //correctly answerd
+          if((<HTMLInputElement>radioGroup[randomIndex]).checked){ //correctly answerd
             this.correct++;
           }
           else{ //incorrect
@@ -205,7 +203,7 @@ export class PageToetsenGeneratedComponent implements OnInit {
 
           for(let radioOption = 0; radioOption < radioGroup.length; radioOption++){
             // noinspection TypeScriptUnresolvedVariable
-            radioGroup[radioOption].disabled = true;
+            (<HTMLInputElement>radioGroup[radioOption]).disabled = true;
           }
         }
       }
@@ -218,6 +216,8 @@ export class PageToetsenGeneratedComponent implements OnInit {
     this.grade = this.grade.toFixed(1);
 
     this.showScore = true;
+
+    window.scrollTo(0, topTitle.offsetTop);
   }
 
 
