@@ -14,5 +14,14 @@
 }
 
 mat-divider{
-  margin-top: 1%;
+  margin: 1%;
+}
+
+h2:hover{
+  background-color: steelblue;
+  color: white;
+}
+
+mat-radio-button{
+  display: block;
 }

@@ -5,14 +5,14 @@
     </div>
   </article>
 
-  <article *ngIf="showScore">
+  <mat-card *ngIf="showScore" class="test_container">
     <h2>Score</h2>
     <p>Aantal vragen: {{correct + incorrect}}</p>
     <p>Correct: {{correct}}</p>
     <p>Incorrect: {{incorrect}}</p>
     <p>Percentage: {{percentage}}%</p>
     <p>Cijfer: <b>{{grade}}</b></p>
-  </article>
+  </mat-card>
 
   <article class="toetsen_test">
     <mat-card class="test_container" *ngIf="natuurkundeSubjectsArray.length !== 0">
@@ -49,7 +49,7 @@
         <h3>{{schSubject.subject}}</h3>
         <div *ngFor="let schQuestion of schSubject.questions; let i = index">
 
-          <article>
+          <article class="toetsen_question">
             <span>Vraag {{i + 1}}: {{schQuestion.Vraag}}</span>
             <p *ngIf="showScore" id="hint_sch_{{schSubject.subject}}_question_{{i}}">Correcte antwoord is: {{schQuestion.Antwoord}}</p>
 
@@ -59,11 +59,12 @@
               </mat-radio-group>
 
               <mat-form-field *ngIf="schQuestion.Type == 'open'">
-                <input matInput type="text" placeholder="Jouw antwoord">
+                <input matInput type="text" placeholder="Jouw antwoord" name="sch_{{schSubject.subject}}_question_{{i}}" required>
               </mat-form-field>
             </div>
-          </article>
 
+            <mat-divider></mat-divider>
+          </article>
         </div>
       </div>
     </mat-card>

@@ -150,11 +150,9 @@ export class PageToetsenGeneratedComponent implements OnInit {
 
           if("" + input.value === "" + this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].Antwoord){
             this.correct++;
-            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#008000";
           }
           else{
             this.incorrect++;
-            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#FF0000";
           }
 
           input.disabled = true;
@@ -165,12 +163,9 @@ export class PageToetsenGeneratedComponent implements OnInit {
           let randomIndex = this.natuurkundeSubjectsArray[natSubIndex].questions[natQuestionIndex].RandomAnswerIndex;
           if(radioGroup[randomIndex].checked){ //correctly answerd
             this.correct++;
-            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#008000";
           }
           else{ //incorrect
-            console.log(document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex));
             this.incorrect++;
-            document.getElementById("hint_nat_" + this.natuurkundeSubjectsArray[natSubIndex].subject + "_question_" + natQuestionIndex).style.color = "#FF0000";
           }
 
           for(let radioOption = 0; radioOption < radioGroup.length; radioOption++){
@@ -187,11 +182,9 @@ export class PageToetsenGeneratedComponent implements OnInit {
 
           if("" + input.value === "" + this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].Antwoord){
             this.correct++;
-            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#008000";
           }
           else{
             this.incorrect++;
-            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#FF0000";
           }
 
           input.disabled = true;
@@ -201,18 +194,17 @@ export class PageToetsenGeneratedComponent implements OnInit {
           let radioGroup = document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex);
           let randomIndex = this.scheikundeSubjectsArray[schSubIndex].questions[schQuestionIndex].RandomAnswerIndex;
           console.log(randomIndex);
-          document.getElementsByName("sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex)[randomIndex].style.color = "#008000";
           console.log(radioGroup[randomIndex]);
+          // noinspection TypeScriptUnresolvedVariable
           if(radioGroup[randomIndex].checked){ //correctly answerd
             this.correct++;
-            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#008000";
           }
           else{ //incorrect
             this.incorrect++;
-            document.getElementById("hint_sch_" + this.scheikundeSubjectsArray[schSubIndex].subject + "_question_" + schQuestionIndex).style.color = "#FF0000";
           }
 
           for(let radioOption = 0; radioOption < radioGroup.length; radioOption++){
+            // noinspection TypeScriptUnresolvedVariable
             radioGroup[radioOption].disabled = true;
           }
         }
